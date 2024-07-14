@@ -16,6 +16,11 @@ import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.co
 import { ToolsShowcaseComponent } from './tools-showcase/tools-showcase.component';
 import { BannerWithButtonComponent } from './banner-with-button/banner-with-button.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { EditMealbuttonComponent } from './edit-mealbutton/edit-mealbutton.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SelectCategComponent } from './select-categ/select-categ.component';
 
 @NgModule({
   declarations: [	
@@ -32,9 +37,11 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     SecondaryBannerComponent,
     ToolsShowcaseComponent,
     BannerWithButtonComponent,
-    HomepageComponent
+    HomepageComponent,
+    EditMealbuttonComponent,
+    SelectCategComponent
    ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSelectModule,MatFormFieldModule],
   providers: [],
   bootstrap: [AppComponent],
 })
