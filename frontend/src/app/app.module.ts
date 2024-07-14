@@ -9,9 +9,11 @@ import { FiltersComponent } from './filters/filters.component';
 import { BannerComponent } from './banner/banner.component';
 import { AccentButtonComponent } from './accent-button/accent-button.component';
 import { ReviewCarouselComponent } from './review-carousel/review-carousel.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     MealCardComponent,
     AdminNavbarComponent,
@@ -19,7 +21,9 @@ import { ReviewCarouselComponent } from './review-carousel/review-carousel.compo
     BannerComponent,
     AccentButtonComponent,
     ReviewCarouselComponent,
-  ],
+    HeaderComponent,
+    FooterComponent
+   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
