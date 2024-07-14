@@ -11,6 +11,11 @@ import { AccentButtonComponent } from './accent-button/accent-button.component';
 import { ReviewCarouselComponent } from './review-carousel/review-carousel.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DiagonalShowcaseComponent } from './diagonal-showcase/diagonal-showcase.component';
+import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.component';
+import { ToolsShowcaseComponent } from './tools-showcase/tools-showcase.component';
+import { BannerWithButtonComponent } from './banner-with-button/banner-with-button.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [	
@@ -22,7 +27,12 @@ import { FooterComponent } from './footer/footer.component';
     AccentButtonComponent,
     ReviewCarouselComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DiagonalShowcaseComponent,
+    SecondaryBannerComponent,
+    ToolsShowcaseComponent,
+    BannerWithButtonComponent,
+    HomepageComponent
    ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
