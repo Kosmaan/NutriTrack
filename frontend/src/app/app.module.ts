@@ -11,6 +11,7 @@ import { AccentButtonComponent } from './accent-button/accent-button.component';
 import { ReviewCarouselComponent } from './review-carousel/review-carousel.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DiagonalShowcaseComponent } from './diagonal-showcase/diagonal-showcase.component';
 
 @NgModule({
   declarations: [	
@@ -22,7 +23,8 @@ import { FooterComponent } from './footer/footer.component';
     AccentButtonComponent,
     ReviewCarouselComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DiagonalShowcaseComponent
    ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
