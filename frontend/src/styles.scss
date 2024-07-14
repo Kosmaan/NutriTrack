@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    --accent-colour: #7ABA78;
+    --primary-colour: #F1F1F1;
+    --secondary-colour: #EBEBEB;
+    --text-colour: #1F1F1F;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}

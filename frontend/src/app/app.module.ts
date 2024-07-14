@@ -7,6 +7,7 @@ import { MealCardComponent } from './meal-card/meal-card.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { BannerComponent } from './banner/banner.component';
 import { AccentButtonComponent } from './accent-button/accent-button.component';
+import { ReviewCarouselComponent } from './review-carousel/review-carousel.component';
 
 @NgModule({
   declarations: [	
@@ -15,11 +16,12 @@ import { AccentButtonComponent } from './accent-button/accent-button.component';
     AdminNavbarComponent,
     BannerComponent,
     AccentButtonComponent,
+    ReviewCarouselComponent,
     
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
