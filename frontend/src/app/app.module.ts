@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DiagonalShowcaseComponent } from './diagonal-showcase/diagonal-showcase.component';
 import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.component';
+import { ToolsShowcaseComponent } from './tools-showcase/tools-showcase.component';
 
 @NgModule({
   declarations: [	
@@ -26,7 +27,8 @@ import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.co
     HeaderComponent,
     FooterComponent,
     DiagonalShowcaseComponent,
-    SecondaryBannerComponent
+    SecondaryBannerComponent,
+    ToolsShowcaseComponent
    ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
