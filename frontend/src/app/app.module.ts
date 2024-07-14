@@ -12,6 +12,7 @@ import { ReviewCarouselComponent } from './review-carousel/review-carousel.compo
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DiagonalShowcaseComponent } from './diagonal-showcase/diagonal-showcase.component';
+import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.component';
 
 @NgModule({
   declarations: [	
@@ -24,7 +25,8 @@ import { DiagonalShowcaseComponent } from './diagonal-showcase/diagonal-showcase
     ReviewCarouselComponent,
     HeaderComponent,
     FooterComponent,
-    DiagonalShowcaseComponent
+    DiagonalShowcaseComponent,
+    SecondaryBannerComponent
    ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
