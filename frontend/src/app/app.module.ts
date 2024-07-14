@@ -15,6 +15,7 @@ import { DiagonalShowcaseComponent } from './diagonal-showcase/diagonal-showcase
 import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.component';
 import { ToolsShowcaseComponent } from './tools-showcase/tools-showcase.component';
 import { BannerWithButtonComponent } from './banner-with-button/banner-with-button.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [	
@@ -30,7 +31,8 @@ import { BannerWithButtonComponent } from './banner-with-button/banner-with-butt
     DiagonalShowcaseComponent,
     SecondaryBannerComponent,
     ToolsShowcaseComponent,
-    BannerWithButtonComponent
+    BannerWithButtonComponent,
+    HomepageComponent
    ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
