@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Add meal</h1>
+    <form [formGroup]="addProductForm" (ngSubmit)="OnProductSubmit()">
+      <label>Title</label>
+      <input type="text" formControlName="title">
+      
+    
+      <app-file-upload></app-file-upload>
+
+      <label>Category</label>
+      <select formControlName="category" class="form-control" >
+        <option value="">Select</option>
+        <option value="Vegan">Vegan</option>
+        <option value="Keto">Keto</option>
+        <option value="Muscle Gain">Muscle Gain</option>
+      </select>
+      
+         
+      <div class="big-group">
+        <div class = "small-group">
+          <label>Calories</label>
+          <input type="text" formControlName="title">
+        </div>
+
+
+        <div class = "small-group">
+          <label>Protein</label>
+          <input type="text" formControlName="title">
+        </div>
+
+        <div class = "small-group">
+          <label>Carbo</label>
+          <input type="text" formControlName="title">
+        </div>
+
+
+        <div class = "small-group">
+          <label>Fats</label>
+          <input type="text" formControlName="title">
+        </div>
+      </div>
+
+      <button style="background-color : var(--accent-colour)">CREATE</button>
+      <button > CANCEL</button>
+
+     
+    </form>
+    
+  </div>
