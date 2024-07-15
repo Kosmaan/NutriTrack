@@ -16,7 +16,9 @@ import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.co
 import { ToolsShowcaseComponent } from './tools-showcase/tools-showcase.component';
 import { BannerWithButtonComponent } from './banner-with-button/banner-with-button.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-
+import { AddMealComponent } from './pages/add-meal/add-meal.component';
+import { FileUploadComponent } from './pages/file-upload/file-upload.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [	
     AppComponent,
@@ -32,9 +34,17 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     SecondaryBannerComponent,
     ToolsShowcaseComponent,
     BannerWithButtonComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddMealComponent,
+    
    ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule,
+    FileUploadComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
