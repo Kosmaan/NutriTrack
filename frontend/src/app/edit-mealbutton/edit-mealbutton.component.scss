@@ -1,0 +1,43 @@
+#edit-mealbutton {
+    width: 511px; 
+    height: 128px;
+    padding:46px 74px;
+    display:flex;
+    gap: 50px;
+    align-items: center; 
+    justify-content: center;
+    background-color:#EBEBEB
+}
+#edit-mealbutton button {
+
+    
+    padding: 0px,16px;
+    width: 120px;
+    height: 36px;
+    border: 1px solid #7ABA78;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    background-color: #EBEBEB;
+    color: #7ABA78;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+#edit-mealbutton button:hover {
+    background-color: #7ABA78; 
+    color: #EBEBEB;
+}
+
+#edit-mealbutton button:active {
+    background-color: #7ABA78; 
+    color: #FFFFFF; 
+}
+
+#edit-mealbutton button:focus {
+    background-color: #7ABA78; 
+    color: #FFFFFF; 
+}

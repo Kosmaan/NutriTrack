@@ -16,9 +16,16 @@ import { SecondaryBannerComponent } from './secondary-banner/secondary-banner.co
 import { ToolsShowcaseComponent } from './tools-showcase/tools-showcase.component';
 import { BannerWithButtonComponent } from './banner-with-button/banner-with-button.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+
+import { EditMealbuttonComponent } from './edit-mealbutton/edit-mealbutton.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SelectCategComponent } from './select-categ/select-categ.component';
 import { AddMealComponent } from './pages/add-meal/add-meal.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [	
     AppComponent,
@@ -35,16 +42,18 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ToolsShowcaseComponent,
     BannerWithButtonComponent,
     HomepageComponent,
+    EditMealbuttonComponent,
+    SelectCategComponent,
     AddMealComponent,
-    
    ],
   imports: [
     BrowserModule, 
     AppRoutingModule,
     FileUploadComponent,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,BrowserAnimationsModule, MatSelectModule,MatFormFieldModule
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
