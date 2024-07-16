@@ -22,9 +22,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SelectCategComponent } from './components/select-categ/select-categ.component';
-import { AddMealComponent } from './pages/add-meal/add-meal.component';
+import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ForbiddenAccessComponent } from './pages/forbidden-access/forbidden-access.component';
+import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 
 @NgModule({
   declarations: [	
@@ -45,6 +48,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     EditMealbuttonComponent,
     SelectCategComponent,
     AddMealComponent,
+    NotFoundComponent,
+    ForbiddenAccessComponent,
+    EditMealComponent,
    ],
   imports: [
     BrowserModule, 
