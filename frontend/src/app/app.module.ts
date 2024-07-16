@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MealCardComponent } from './components/meal-card/meal-card.component';
@@ -16,21 +15,25 @@ import { SecondaryBannerComponent } from './components/secondary-banner/secondar
 import { ToolsShowcaseComponent } from './components/tools-showcase/tools-showcase.component';
 import { BannerWithButtonComponent } from './components/banner-with-button/banner-with-button.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-
 import { EditMealbuttonComponent } from './components/edit-mealbutton/edit-mealbutton.component';
+import { SelectCategComponent } from './components/select-categ/select-categ.component';
+import { ForbiddenAccessComponent } from './pages/forbidden-access/forbidden-access.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { SelectCategComponent } from './components/select-categ/select-categ.component';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { ForbiddenAccessComponent } from './pages/forbidden-access/forbidden-access.component';
-import { EditMealComponent } from './components/edit-meal/edit-meal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/authentication/login/login.component';
+import { RegisterComponent } from './pages/authentication/register/register.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     MealCardComponent,
     AdminNavbarComponent,
@@ -51,13 +54,22 @@ import { EditMealComponent } from './components/edit-meal/edit-meal.component';
     NotFoundComponent,
     ForbiddenAccessComponent,
     EditMealComponent,
-   ],
+
+    LoginComponent,
+    RegisterComponent,
+  ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AppRoutingModule,
     FileUploadComponent,
     FormsModule,
-    ReactiveFormsModule,BrowserAnimationsModule, MatSelectModule,MatFormFieldModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatInputModule,
   ],
 
   providers: [],
