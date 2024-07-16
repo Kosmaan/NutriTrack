@@ -1,49 +1,55 @@
 <div class="container">
-    <h1>Add meal</h1>
-    <form [formGroup]="addProductForm" (ngSubmit)="OnProductSubmit()">
-      <label>Title</label>
-      <input type="text" formControlName="title">
-      
-    
-      <app-file-upload></app-file-upload>
+  <form [formGroup]="addProductForm" (ngSubmit)="OnProductSubmit()">
+    <div class="entry-container">
+      <div class="entry-title">
+        <p>Name</p>
+      </div>
+      <div class="entry-component">
+        <input type="text" formControlName="title" />
+      </div>
+    </div>
 
-      <label>Category</label>
-      <select formControlName="category" class="form-control" >
-        <option value="">Select</option>
-        <option value="Vegan">Vegan</option>
-        <option value="Keto">Keto</option>
-        <option value="Muscle Gain">Muscle Gain</option>
-      </select>
-      
-         
-      <div class="big-group">
-        <div class = "small-group">
-          <label>Calories</label>
-          <input type="text" formControlName="title">
-        </div>
+    <app-file-upload></app-file-upload>
 
+    <div class="entry-container">
+      <div class="entry-title">
+        <p>Category</p>
+      </div>
+      <div class="entry-component">
+        <select formControlName="category" class="form-control">
+          <option value="">Select</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Keto">Keto</option>
+          <option value="Muscle Gain">Muscle Gain</option>
+        </select>
+      </div>
+    </div>
 
-        <div class = "small-group">
-          <label>Protein</label>
-          <input type="text" formControlName="title">
-        </div>
-
-        <div class = "small-group">
-          <label>Carbo</label>
-          <input type="text" formControlName="title">
-        </div>
-
-
-        <div class = "small-group">
-          <label>Fats</label>
-          <input type="text" formControlName="title">
-        </div>
+    <div class="big-group">
+      <div class="small-group">
+        <label>Calories</label>
+        <input type="text" formControlName="title" />
       </div>
 
-      <button style="background-color : var(--accent-colour)">CREATE</button>
-      <button > CANCEL</button>
+      <div class="small-group">
+        <label>Protein</label>
+        <input type="text" formControlName="title" />
+      </div>
 
-     
-    </form>
-    
-  </div>
+      <div class="small-group">
+        <label>Carbo</label>
+        <input type="text" formControlName="title" />
+      </div>
+
+      <div class="small-group">
+        <label>Fats</label>
+        <input type="text" formControlName="title" />
+      </div>
+    </div>
+
+    <div class="buttons-container">
+      <button class="confirm-button">CREATE</button>
+      <button class="cancel-button">CANCEL</button>
+    </div>
+  </form>
+</div>
