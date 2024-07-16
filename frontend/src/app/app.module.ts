@@ -25,6 +25,10 @@ import { SelectCategComponent } from './components/select-categ/select-categ.com
 import { AddMealComponent } from './pages/add-meal/add-meal.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [	
@@ -51,7 +55,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FileUploadComponent,
     FormsModule,
-    ReactiveFormsModule,BrowserAnimationsModule, MatSelectModule,MatFormFieldModule
+    ReactiveFormsModule,BrowserAnimationsModule, MatSelectModule,MatFormFieldModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatInputModule,
   ],
 
   providers: [],
