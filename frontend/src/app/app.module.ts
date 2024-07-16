@@ -18,16 +18,26 @@ import { BannerWithButtonComponent } from './components/banner-with-button/banne
 import { HomepageComponent } from './pages/homepage/homepage.component';
 
 import { EditMealbuttonComponent } from './components/edit-mealbutton/edit-mealbutton.component';
+
+import { SelectCategComponent } from './components/select-categ/select-categ.component';
+
+
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { SelectCategComponent } from './components/select-categ/select-categ.component';
+
 import { AddMealComponent } from './pages/add-meal/add-meal.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './pages/authentication/login/login.component';
+import { RegisterComponent } from './pages/authentication/register/register.component';
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 @NgModule({
@@ -49,6 +59,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     EditMealbuttonComponent,
     SelectCategComponent,
     AddMealComponent,
+    
+    LoginComponent,
+    RegisterComponent,
+
+
    ],
   imports: [
     BrowserModule, 
