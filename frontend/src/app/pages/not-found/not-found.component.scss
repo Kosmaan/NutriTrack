@@ -1,0 +1,28 @@
+.container {
+  min-height: 100vh;
+  border: 2px solid black;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container h1 {
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.accent {
+    color: var(--accent-colour);
+    font-weight: 800;
+}
+
+.description-container h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.title-container{
+    margin: -50px 0;
+}
