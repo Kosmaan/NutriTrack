@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 * {
     --accent-colour: #7ABA78;
-    --primary-colour: #F1F1F1;
+    --primary-colour: #F5F5F5;
     --secondary-colour: #EBEBEB;
-    --text-colour: #1F1F1F;
+    --text-colour: #3d3d3d;
 }
 
 html {
@@ -11,7 +11,8 @@ html {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--primary-colour);
+    color: var(--text-colour);
+    background-color: var(--secondary-colour);
 }
 html, body, app-root {
     height: 100%;
@@ -22,3 +23,5 @@ body
     margin: 0;
 }
 @import "primeicons/primeicons.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
