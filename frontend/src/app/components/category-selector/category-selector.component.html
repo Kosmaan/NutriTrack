@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="title-container">
+        {{titleText}}
+    </div>
+    <div class="buttons-container">
+        <button [class.active]="selectedButton === 'button1'" (click)="selectButton('button1')">{{firstButtonText}}</button>
+        <button [class.active]="selectedButton === 'button2'" (click)="selectButton('button2')">{{secondButtonText}}</button>
+    </div>
+</div>
