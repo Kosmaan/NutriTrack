@@ -10,6 +10,7 @@ namespace Application
         {
             services.AddScoped<AuthorizationService>();
             services.AddScoped<FileService>();
+            services.AddScoped<MealService>();
             return services;
         }
     }
