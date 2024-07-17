@@ -30,7 +30,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<string>> LoginUser([FromQuery] UserCredentialsContract credentialsContract)
+        public async Task<ActionResult<string>> LoginUser([FromBody] UserCredentialsContract credentialsContract)
         {
             var result = await this._authorizationService.LoginUser(credentialsContract.MapTestToDomain());
 

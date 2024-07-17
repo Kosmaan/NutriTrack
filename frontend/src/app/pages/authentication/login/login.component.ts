@@ -31,7 +31,7 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value )
       .subscribe(res => {
         localStorage.setItem("userId",res.id)
-        localStorage.setItem('token', res.token)
+        localStorage.setItem('token', res.jwtToken)
         let redirectUrl = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/home';
         this.router.navigateByUrl(redirectUrl);
       }

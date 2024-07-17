@@ -65,10 +65,25 @@ namespace WebApi
 
             builder.Services.AddControllers();
 
+
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("http://localhost:4200",
+                                                          "https://localhost:7154")
+                                                  .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                                  });
+            });
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseExceptionHandler(_ => {});
 
             if (app.Environment.IsDevelopment())
@@ -76,6 +91,8 @@ namespace WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("corspolicy");
 
             app.UseHttpsRedirection();
             
