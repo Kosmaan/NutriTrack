@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="title-container">
+    <p>Select</p>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="itemFormGroup">
+        <select
+        formControlName="selectedOption"
+        id="itemSelect"
+        class="form-control"
+      >
+        <option *ngFor="let item of items" [value]="item">{{ item }}</option>
+      </select>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showMeal()">
+    <app-edit-meal></app-edit-meal>
+</div>

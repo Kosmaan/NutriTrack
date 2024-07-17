@@ -31,6 +31,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CategorySelectorComponent } from './components/category-selector/category-selector.component';
+import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
+import { AddPageComponent } from './pages/add-page/add-page.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 
     LoginComponent,
     RegisterComponent,
+    CategorySelectorComponent,
+    ItemSelectorComponent,
+    AddPageComponent,
   ],
   imports: [
     BrowserModule,
