@@ -9,11 +9,11 @@ export class AuthService {
 sessionUser !: User
 constructor(private http : HttpClient) { }
 
-url = "http://localhost:8080";
+url = "https://localhost:7154/Authentication";
 redirectUrl : string | null = null;
 login(user: any){
   
-  return this.http.post<any>(this.url + "/login",user)
+  return this.http.post<any>(this.url + "/LoginUser",user)
 }
 
 register(user: any){
