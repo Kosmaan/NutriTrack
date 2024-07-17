@@ -34,6 +34,7 @@ export class AddMealComponent implements OnInit {
         formData.append('photo', photoFile);
       }*/
       //console.log(this.addProductForm.value);
+      console.log(this.addProductForm.value);
       this.mealService.addMeal(this.addProductForm.value).subscribe((res: any) => console.log(res))
     }
     
