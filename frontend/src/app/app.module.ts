@@ -25,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
+import { EditMealPlanComponent } from './components/edit-meal-plan/edit-meal-plan.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddPageModule } from './pages/add-page/add-page.module';
@@ -44,12 +45,13 @@ import { LayoutModule } from './layout/layout.module';
     NotFoundComponent,
     ForbiddenAccessComponent,
     EditMealComponent,
-
+    EditMealPlanComponent,
     LoginComponent,
     RegisterComponent,
 
     ItemSelectorComponent,
     AddPageComponent,
+   
   ],
   imports: [
     BrowserModule,
