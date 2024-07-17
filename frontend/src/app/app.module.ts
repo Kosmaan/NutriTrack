@@ -25,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddPageModule } from './pages/add-page/add-page.module';
@@ -50,6 +51,7 @@ import { LayoutModule } from './layout/layout.module';
 
     ItemSelectorComponent,
     AddPageComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
