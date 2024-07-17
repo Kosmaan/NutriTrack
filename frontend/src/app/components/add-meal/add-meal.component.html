@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="addProductForm" (ngSubmit)="OnProductSubmit()">
+  <form [formGroup]="addProductForm" >
     <div class="entry-container">
       <div class="entry-title">
         <p>Name</p>
@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <app-file-upload></app-file-upload>
+    
 
     <div class="entry-container">
       <div class="entry-title">
@@ -18,37 +18,55 @@
       <div class="entry-component">
         <select formControlName="category" class="form-control">
           <option value="">Select</option>
-          <option value="Vegan">Vegan</option>
-          <option value="Keto">Keto</option>
-          <option value="Muscle Gain">Muscle Gain</option>
+          <option value=1>Vegan</option>
+          <option value=2>Keto</option>
+          <option value=3>Muscle Gain</option>
         </select>
+      </div>
+    </div>
+
+    <div class="entry-container">
+      <div class="entry-title">
+        <p>Description</p>
+      </div>
+      <div class="entry-component">
+        <textarea formControlName="description"></textarea>
+      </div>
+    </div>
+
+    <div class="entry-container">
+      <div class="entry-title">
+        <p>Photo</p>
+      </div>
+      <div class="entry-component">
+        <input type="file">
       </div>
     </div>
 
     <div class="big-group">
       <div class="small-group">
         <label>Calories</label>
-        <input type="text" formControlName="title" />
+        <input type="number" formControlName="calories" />
       </div>
 
       <div class="small-group">
         <label>Protein</label>
-        <input type="text" formControlName="title" />
+        <input type="number" formControlName="protein" />
       </div>
 
       <div class="small-group">
         <label>Carbo</label>
-        <input type="text" formControlName="title" />
+        <input type="number" formControlName="carbo" />
       </div>
 
       <div class="small-group">
         <label>Fats</label>
-        <input type="text" formControlName="title" />
+        <input type="number" formControlName="fats" />
       </div>
     </div>
 
     <div class="buttons-container">
-      <button class="confirm-button">CREATE</button>
+      <button class="confirm-button" (click)="OnProductSubmit()">CREATE</button>
       <button class="cancel-button">CANCEL</button>
     </div>
   </form>
