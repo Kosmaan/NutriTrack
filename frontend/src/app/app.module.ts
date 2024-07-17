@@ -13,7 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     MealCardComponent,
     AdminNavbarComponent,
@@ -22,8 +22,8 @@ import { FooterComponent } from './footer/footer.component';
     AccentButtonComponent,
     ReviewCarouselComponent,
     HeaderComponent,
-    FooterComponent
-   ],
+    FooterComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
