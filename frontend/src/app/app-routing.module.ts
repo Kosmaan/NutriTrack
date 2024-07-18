@@ -10,9 +10,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -24,12 +21,15 @@ const routes: Routes = [
         path: 'contact-us',
         component: ContactComponent,
       },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
     ],
   },
 
   {
-    path: '**', component: NotFoundComponent, // Asta obligatoriu lasat la final !!!
-  }
+    path: '**',
+    component: NotFoundComponent, // Asta obligatoriu lasat la final
+  },
 ];
 
 @NgModule({

@@ -6,10 +6,6 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-
-  h1 {
-    padding-top: 40px;
-  }
 }
 
 form {
@@ -33,6 +29,7 @@ form {
   margin: 40px 0;
   background-color: var(--primary-colour);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40%;
