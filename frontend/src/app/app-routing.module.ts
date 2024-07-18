@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/authentication/register/register.comp
 import { AddPageComponent } from './pages/add-page/add-page.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -25,6 +26,10 @@ const routes: Routes = [
       },
     ],
   },
+
+  {
+    path: '**', component: NotFoundComponent, // Asta obligatoriu lasat la final !!!
+  }
 ];
 
 @NgModule({
