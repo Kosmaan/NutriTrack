@@ -1,0 +1,47 @@
+<div class="container">
+    <p>Edit a</p>
+    <app-edit-mealbutton></app-edit-mealbutton>
+    <app-select-categ></app-select-categ>
+   <form [formGroup]="addProductForm" (ngSubmit)="OnProductSubmit()">
+      <div class="entry-container">
+        <div class="entry-title">
+          <p>Title</p>
+        </div>
+        <div class="entry-component">
+          <input type="text" formControlName="title" />
+        </div>
+      </div>
+  
+      <p>Photo</p>
+      
+  
+      <div class="entry-container">
+        
+        <div class="entry-component">
+          <select formControlName="meals" class="form-control">
+            <option value="">Select</option>
+            <option value="Vegan">Meal 1</option>
+            <option value="Keto">Meal 2</option>
+            <option value="Muscle Gain">Meal 2</option>
+          </select>
+        </div>
+      </div>
+
+      <button>Add more meals </button>
+
+      <div class="entry-container">
+        <div class="entry-title">
+          <p>Descrption</p>
+        </div>
+        <div class="entry-component">
+          <input type="text" formControlName="description" />
+        </div>
+      </div>
+  
+      <div class="buttons-container">
+        <button class="confirm-button">CONFIRM</button>
+        <button class="cancel-button">CANCEL</button>
+      </div> 
+
+    </form> 
+  </div>
