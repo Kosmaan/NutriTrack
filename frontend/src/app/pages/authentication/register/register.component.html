@@ -6,7 +6,7 @@
         <input
           type="text"
           formControlName="email"
-          placeholder="Email Address"
+          placeholder="Email Address*"
         />
         <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
           <small *ngIf="registerForm.controls['email'].errors?.['required']">Email is required</small>
@@ -17,7 +17,7 @@
         <input
           type="password"
           formControlName="password"
-          placeholder="Password"
+          placeholder="Password*"
         />
         <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
           <small *ngIf="registerForm.controls['password'].errors?.['required']">Password is required</small>
@@ -26,7 +26,7 @@
 
       <div class="gender-container">
         <select formControlName="gender" class="form-control" id="gender-selector">
-          <option value="" disabled selected>Gender</option>
+          <option value="" disabled selected>Gender*</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Other">I'd rather not specify</option>
@@ -37,7 +37,7 @@
       </div>
 
         <div class="birthdate-container">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" id="birthdate-form">
             <mat-label>Birth date</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date" />
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -47,14 +47,14 @@
       
 
       <div class="input-container">
-        <input type="text" formControlName="height" placeholder="Height (cm)" />
+        <input type="text" formControlName="height" placeholder="Height (cm)*" />
         <div *ngIf="registerForm.controls['height'].invalid && registerForm.controls['height'].touched">
           <small *ngIf="registerForm.controls['height'].errors?.['required']">Height is required</small>
         </div>
       </div>
 
       <div class="input-container">
-        <input type="text" formControlName="weight" placeholder="Weight (kg)" />
+        <input type="text" formControlName="weight" placeholder="Weight (kg)*" />
         <div *ngIf="registerForm.controls['weight'].invalid && registerForm.controls['weight'].touched">
           <small *ngIf="registerForm.controls['weight'].errors?.['required']">Weight is required</small>
         </div>
