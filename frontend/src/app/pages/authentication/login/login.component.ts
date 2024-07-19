@@ -29,7 +29,7 @@ export class LoginComponent {
         localStorage.setItem('token', res.jwtToken);
         let redirectUrl = this.authService.redirectUrl
           ? this.router.parseUrl(this.authService.redirectUrl)
-          : '/home';
+          : 'dashboard/home';
         this.router.navigateByUrl(redirectUrl);
       });
     }
