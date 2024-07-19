@@ -30,6 +30,8 @@ import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddPageModule } from './pages/add-page/add-page.module';
 import { LayoutModule } from './layout/layout.module';
+import { RemovePageComponent } from './pages/remove-page/remove-page.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { LayoutModule } from './layout/layout.module';
 
     ItemSelectorComponent,
     AddPageComponent,
-   
+    RemovePageComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

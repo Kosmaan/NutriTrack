@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 * {
     --accent-colour: #7ABA78;
-    --primary-colour: #F5F5F5;
-    --secondary-colour: #EBEBEB;
-    --text-colour: #3d3d3d;
+    --primary-colour: #ffffff;
+    --secondary-colour: #f5f5f5;
+    --text-colour: #242424;
+    --border-radius: 15px;
+    --drop-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 html {
