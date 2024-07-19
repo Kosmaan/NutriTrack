@@ -1,0 +1,180 @@
+#filters-frame {
+  display: inline-flex;
+  width: 288px;
+  height: 850px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 1px;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+#filters {
+  display: flex;
+  width: 288px;
+  height: 774px;
+  padding: 26px 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  flex-shrink: 0;
+}
+
+#all-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 414px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+#categories-title {
+  width: 175px;
+  height: 22px;
+  flex-shrink: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.categories {
+  display: flex;
+  width: 100%;
+  height: 353px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  overflow: auto;
+}
+
+.categories::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #d0d0d2;
+}
+
+.categories::-webkit-scrollbar {
+  width: 10px;
+  background-color: #d0d0d2;
+}
+
+.categories::-webkit-scrollbar-thumb {
+  background-color: #7aba78;
+}
+
+#category-entry {
+  display: flex;
+  flex-direction: row;
+}
+
+#entry-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#entry-number {
+  color: var(--Old-Gray, #a7a7a7);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 5px;
+}
+
+#line {
+  width: 100%;
+  height: 1px;
+  background: #d0d0d2;
+}
+
+#filter-by-calories {
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 220px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+#filter-by-calories-text {
+  display: flex;
+  align-items: flex-end;
+  width: 148px;
+  height: 0px;
+  flex-shrink: 0;
+  color: var(--Black, #383838);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#calories-inputs {
+  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border: none;
+}
+
+#calories {
+  width: 212px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+#calories-selection {
+  display: flex;
+  align-items: flex-end;
+  height: 10px;
+}
+
+#checkout-button {
+  display: flex;
+  height: 48.134px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #7aba78;
+  border: 0px;
+}
+
+#checkout-button-text {
+  color: var(--White, #fafafa);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#reset-filter-text {
+  width: 99px;
+  height: 21.66px;
+  flex-shrink: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
