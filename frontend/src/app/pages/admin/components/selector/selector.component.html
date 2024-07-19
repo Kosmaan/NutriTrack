@@ -4,8 +4,8 @@
             {{titleText}}
         </div>
         <div class="buttons-container">
-            <button [class.active]="selectedButton === 'button1'" (click)="selectButton('button1')">{{firstButtonText}}</button>
-            <button [class.active]="selectedButton === 'button2'" (click)="selectButton('button2')">{{secondButtonText}}</button>
+            <button [class.active]="selectedButton === 'button1'" (click)="selectButton('button1')" (click)="onFirstButtonClick()">{{firstButtonText}}</button>
+            <button [class.active]="selectedButton === 'button2'" (click)="selectButton('button2')" (click)="onSecondButtonClick()">{{secondButtonText}}</button>
         </div>
     </div>
 </div>

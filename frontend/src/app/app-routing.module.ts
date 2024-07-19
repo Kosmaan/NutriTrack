@@ -8,6 +8,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AddMealComponent } from './pages/admin/components/add-meal/add-meal.component';
+import { OverviewComponent } from './pages/admin/pages/overview/overview.component';
+import { AddComponent } from './pages/admin/pages/add/add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -23,9 +25,17 @@ const routes: Routes = [
       },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'admin', component: AdminComponent, children: [
-        {path: 'add-meal', component: AddMealComponent, }
-      ]}
+      {
+        path: 'admin',
+        component: AdminComponent,
+        children: [
+          {
+            path: 'overview',
+            component: OverviewComponent,
+          },
+          { path: 'add', component: AddComponent },
+        ],
+      },
     ],
   },
 

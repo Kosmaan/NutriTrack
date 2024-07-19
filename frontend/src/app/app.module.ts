@@ -29,8 +29,9 @@ import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { ContactComponent } from './pages/contact/contact.component';
-
 import { AdminModule } from './pages/admin/admin.module';
+import { AddModule } from './pages/admin/pages/add/add.module';
+
 
 @NgModule({
   declarations: [
@@ -69,6 +70,8 @@ import { AdminModule } from './pages/admin/admin.module';
     HomepageModule,
     HttpClientModule,
     LayoutModule,
+    AdminModule,
+    AddModule,
   ],
 
   providers: [],

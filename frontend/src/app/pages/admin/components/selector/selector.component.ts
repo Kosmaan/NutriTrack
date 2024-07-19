@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-selector',
@@ -9,7 +9,18 @@ export class SelectorComponent {
   @Input() titleText: string = 'Default';
   @Input() firstButtonText: string = 'Default';
   @Input() secondButtonText: string = 'Default';
-  
+
+  @Output() firstButtonClick = new EventEmitter<void>();
+  @Output() secondButtonClick = new EventEmitter<void>();
+
+  onFirstButtonClick() {
+    this.firstButtonClick.emit();
+  }
+
+  onSecondButtonClick() {
+    this.secondButtonClick.emit();
+  }
+
   selectedButton: string = '';
 
   selectButton(button: string) {

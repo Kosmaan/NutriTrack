@@ -1,0 +1,3 @@
+<app-selector [titleText]="'Add a new'" [firstButtonText]="'MEAL'" [secondButtonText]="'MEAL PLAN'"
+              (firstButtonClick)="handleFirstButtonClick()" (secondButtonClick)="handleSecondButtonClick()"></app-selector>
+<app-add-meal *ngIf="showAddMeal"></app-add-meal>
