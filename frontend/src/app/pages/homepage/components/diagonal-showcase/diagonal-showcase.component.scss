@@ -90,18 +90,19 @@
   margin-top: 50px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  background-color: none;
+  background-color: transparent;
   padding: 15px 25px;
   color: var(--text-colour);
   font-weight: 600;
   border: none;
   margin: 50px 0;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--text-colour);
   transition: all 0.3s ease;
 }
 
 .outline-button:hover {
   border: 1px solid var(--accent-colour);
-  color: #7aba78;
+  background-color: var(--accent-colour);
+  color: var(--primary-colour);
 }

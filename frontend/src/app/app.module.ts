@@ -25,6 +25,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddPageModule } from './pages/add-page/add-page.module';
 import { LayoutModule } from './layout/layout.module';
 import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.module';
+import { RemovePageComponent } from './pages/remove-page/remove-page.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.mod
     RegisterComponent,
     ItemSelectorComponent,
     AddPageComponent,
+    RemovePageComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

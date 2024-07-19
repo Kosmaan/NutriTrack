@@ -48,3 +48,15 @@
 .navbar-button:hover::after {
     transform: scaleX(1);
 }
+
+#user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-colour);
+    color: var(--primary-colour);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
