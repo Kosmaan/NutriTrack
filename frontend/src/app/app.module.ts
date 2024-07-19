@@ -19,7 +19,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { EditMealPlanComponent } from './components/edit-meal-plan/edit-meal-plan.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -41,7 +40,6 @@ import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.mod
     RegisterComponent,
     ItemSelectorComponent,
     AddPageComponent,
-    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
