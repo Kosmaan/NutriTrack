@@ -11,6 +11,8 @@ import { MealPlansPageComponent } from './pages/meal-plans-page/meal-plans-page.
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -19,8 +21,6 @@ const routes: Routes = [
       { path: 'home', component: HomepageComponent },
       { path: 'add-meal', component: AddPageComponent },
       { path: 'contact-us', component: ContactComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
       { path: 'plans', component: MealPlansPageComponent },
     ],
   },
