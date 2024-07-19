@@ -6,6 +6,7 @@ import { MealCardComponent } from './components/meal-card/meal-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BannerPlansPageComponent } from './components/banner-plans-page/banner-plans-page.component';
 
 const COMPONENTS: any[] = [
   MealPlansPageComponent,
@@ -15,7 +16,7 @@ const COMPONENTS: any[] = [
 ];
 
 @NgModule({
-  declarations: [COMPONENTS],
+  declarations: [COMPONENTS, BannerPlansPageComponent],
   imports: [CommonModule, ScrollingModule, ReactiveFormsModule],
   exports: [COMPONENTS],
 })

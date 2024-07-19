@@ -18,10 +18,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomepageComponent },
       { path: 'add-meal', component: AddPageComponent },
-      {
-        path: 'contact-us',
-        component: ContactComponent,
-      },
+      { path: 'contact-us', component: ContactComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'plans', component: MealPlansPageComponent },
