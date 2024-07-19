@@ -24,14 +24,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
-import { AddPageComponent } from './pages/add-page/add-page.component';
 import { EditMealPlanComponent } from './components/edit-meal-plan/edit-meal-plan.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AddPageModule } from './pages/add-page/add-page.module';
 import { LayoutModule } from './layout/layout.module';
-import { RemovePageComponent } from './pages/remove-page/remove-page.component';
 import { ContactComponent } from './pages/contact/contact.component';
+
+import { AdminModule } from './pages/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -52,9 +51,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     RegisterComponent,
 
     ItemSelectorComponent,
-    AddPageComponent,
-    RemovePageComponent,
     ContactComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -70,7 +68,6 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatInputModule,
     HomepageModule,
     HttpClientModule,
-    AddPageModule,
     LayoutModule,
   ],
 
