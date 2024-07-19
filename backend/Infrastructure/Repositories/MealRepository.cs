@@ -43,7 +43,7 @@ namespace Infrastructure.Repositories
 
         public async Task<bool> DeleteMeal(Guid id)
         {
-            var query = "DLETE FROM  [SummerPractice].[Meal] WHERE Meal_Id = @Id";
+            var query = "DELETE FROM  [SummerPractice].[Meal] WHERE Meal_Id = @Id";
             var parameters = new DynamicParameters();
             parameters.Add("Id", id);
 

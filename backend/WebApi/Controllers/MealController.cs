@@ -47,5 +47,12 @@ namespace WebApi.Controllers
         {
             return await _mealService.UpdateMeal(dto);
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<bool> DeleteMeal([FromQuery] Guid id)
+        {
+            return await _mealService.DeleteMeal(id);
+        }
     }
 }
