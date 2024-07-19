@@ -8,6 +8,7 @@ namespace WebApiContracts
 {
     public class MealDTO
     {
+        public Guid id {  get; set; }
         public int Calories { get; set; }
         public int Carbo { get; set; }
         public int Fats { get; set; }
