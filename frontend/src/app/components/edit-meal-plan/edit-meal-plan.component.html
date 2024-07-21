@@ -1,7 +1,6 @@
+
 <div class="container">
-    <p>Edit a</p>
-    <app-edit-mealbutton></app-edit-mealbutton>
-    <app-select-categ></app-select-categ>
+    
    <form [formGroup]="addProductForm" (ngSubmit)="OnProductSubmit()">
       <div class="entry-container">
         <div class="entry-title">
@@ -11,30 +10,50 @@
           <input type="text" formControlName="title" />
         </div>
       </div>
-  
-      <p>Photo</p>
+    
+      <div class="entry-container">
+        <div class="entry-title">
+          <p>Photo</p>
+        </div>
+        <div class="upload-frame">
+          <div class="photo-frame">
+            <div class="vector">
+              
+              <i class="pi pi-cloud-upload upload-icon"></i>
+              
+            </div>
+            <p class="drag-and-drop">Drag & Drop</p>
+            <p class="instructions">
+              You can drag and drop the files here or to browse
+          </p>
+          <input type="file" id="file-upload" class="file-upload" >
+          </div>
+        </div>
+      </div>
+      
       
   
       <div class="entry-container">
         
         <div class="entry-component">
+          <p>Select meals</p>
           <select formControlName="meals" class="form-control">
-            <option value="">Select</option>
-            <option value="Vegan">Meal 1</option>
-            <option value="Keto">Meal 2</option>
-            <option value="Muscle Gain">Meal 2</option>
+            <option value="Select">Select</option>
+            <option value="Meal1">Meal 1</option>
+            <option value="Meal2">Meal 2</option>
+            <option value="Meal3">Meal 3</option>
           </select>
         </div>
       </div>
 
-      <button>Add more meals </button>
+      <button class="add">Add more meals</button>
 
       <div class="entry-container">
         <div class="entry-title">
           <p>Descrption</p>
         </div>
         <div class="entry-component">
-          <input type="text" formControlName="description" />
+          <textarea formControlName="description" class="description"></textarea>
         </div>
       </div>
   
