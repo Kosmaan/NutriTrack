@@ -18,7 +18,7 @@ namespace Application.Services
             _authenticationRepository = authenticationRepository;
         }
 
-        public async Task<bool> RegisterUser(UserCredentials credentials)
+        public async Task<bool> RegisterUser(UserCredentials credentials, UserData data, UserWeight weight)
         {
             var userCheck = await this._authenticationRepository.GetUser(credentials.Email);
 
@@ -34,6 +34,16 @@ namespace Application.Services
                 Password = hashedPassword,
                 Email = credentials.Email,
                 Role = "user"
+            }, new UserData
+            {
+                First_Name = data.First_Name,
+                Last_Name = data.Last_Name,
+                Height = data.Height,
+                Gender = data.Gender,
+                Birth_Date = data.Birth_Date
+            }, new UserWeight
+            {
+                Weight = weight.Weight
             });
 
             return registerResult;

@@ -18,5 +18,24 @@ namespace WebApiContracts.Mappers
                 Role = "user"
             };
         }
+
+        public static UserData ToUserData(this SignupDTO dto)
+        {
+            return new UserData
+            {
+                First_Name = dto.First_Name,
+                Last_Name = dto.Last_Name,
+                Height = dto.Height,
+                Gender = dto.Gender,
+                Birth_Date = dto.BirthDay,
+            };
+        }
+        public static UserWeight ToUserWeight(this SignupDTO dto)
+        {
+            return new UserWeight
+            {
+                Weight = dto.Weight,
+            };
+        }
     }
 }

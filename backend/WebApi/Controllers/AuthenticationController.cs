@@ -24,8 +24,8 @@ namespace WebApi.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<bool>> RegisterUser([FromBody] SignupDTO formData)
         {
+            var result = await this._authorizationService.RegisterUser(formData.ToUserCredentials(), formData.ToUserData(), formData.ToUserWeight());
 
-            var result = await this._authorizationService.RegisterUser(formData.ToUserCredentials());
             return Ok(result);
         }
 
