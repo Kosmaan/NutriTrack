@@ -12,18 +12,21 @@ namespace WebApi.Controllers
     public class MealController : ControllerBase
     {
         private MealService _mealService;
-        public MealController(MealService mealService)
+        private FileService _fileService;
+        public MealController(MealService mealService, FileService fileService)
         {
             _mealService = mealService;
+            _fileService = fileService;
         }
 
       
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<bool> AddMeal([FromBody] MealDTO meal)
+        public async Task<bool> AddMeal([FromForm] MealDTO meal)
         {
-            return await _mealService.addMeal(meal.ToEntity());
+            _fileService.SaveFile(meal.file);
+           return await _mealService.addMeal(meal.ToEntity());
         }
 
 
