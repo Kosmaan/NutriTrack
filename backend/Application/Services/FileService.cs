@@ -47,20 +47,20 @@ namespace Application.Services
             }
 
             var path = Directory.GetParent(Directory.GetCurrentDirectory()) + "\\Domain\\files\\";
-            var checkFileExistence = await this._fileRepository.GetFile(file.FileName);
+            /*var checkFileExistence = await this._fileRepository.GetFile(file.FileName);
             if (checkFileExistence.ToList().Count != 0 || File.Exists(path + file.FileName))
             {
                 throw new Exception("File already exists");
-            }
+            }*/
 
             await using var stream = new FileStream(path + file.FileName, FileMode.Create);
             await file.CopyToAsync(stream);
-            if (File.Exists(path + file.FileName))
+            /*if (File.Exists(path + file.FileName))
             {
                 return await this._fileRepository.SaveFile(file.FileName, path + file.FileName);
-            }
+            }*/
 
-            return false;
+            return true;
         }
     }
 }

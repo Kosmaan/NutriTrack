@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Meal } from '../models/Meal';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,8 +10,9 @@ export class MealService {
   constructor(private http : HttpClient) {}
 
 
-  addMeal(meal : Meal) 
+  addMeal(meal : FormData) 
   {
+
     return this.http.post<Meal>(this.url + "/AddMeal",meal);
   }
 

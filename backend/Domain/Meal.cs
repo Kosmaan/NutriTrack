@@ -18,5 +18,7 @@ namespace Domain
         public int Category { get; set; }
         public DateTime Published_Date { get; set; }
         
+        
+        
     }
 }
