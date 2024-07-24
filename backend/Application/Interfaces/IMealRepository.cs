@@ -9,8 +9,8 @@ namespace Application.Interfaces
 {
     public interface IMealRepository
     {
-         Task<bool> addMeal(Meal meal);
-         Task<Meal> GetMeal(Guid id);
+        Task<bool> addMeal(Meal meal);
+        Task<Meal> GetMeal(Guid id);
         Task<bool> DeleteMeal(Guid id);
         Task<bool> UpdateMeal(Meal meal);
         Task<IEnumerable<Meal>> GetAllMeals();

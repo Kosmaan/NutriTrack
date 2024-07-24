@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain
+﻿namespace Domain
 {
     public class UserData
     {
-        String Gender {  get; set; }
-        DateOnly BirthDay { get; set; }
-        int Height { get; set; }
-
-
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+        public string Gender { get; set; }
+        public DateOnly Birth_Date { get; set; }
+        public int Height { get; set; }
     }
 }
