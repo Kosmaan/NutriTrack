@@ -21,6 +21,7 @@ namespace Infrastructure
             services.AddScoped<IFileRepository, FileRepository>();
 
             services.AddScoped<IMealRepository, MealRepository>();
+            services.AddScoped<IMealPlanRepository, MealPlanRepository>();
             return services;
         }
     }
