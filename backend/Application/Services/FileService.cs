@@ -33,7 +33,7 @@ namespace Application.Services
             return fileResult;
         }
 
-        public async Task<bool> SaveFile(IFormFile file) {
+        public async Task<bool> SaveFile(IFormFile file, Guid id) {
             var extension = Path.GetExtension(file.FileName);
             if (!allowedExtensions.Contains(extension))
             {
@@ -55,10 +55,10 @@ namespace Application.Services
 
             await using var stream = new FileStream(path + file.FileName, FileMode.Create);
             await file.CopyToAsync(stream);
-            /*if (File.Exists(path + file.FileName))
+            if (File.Exists(path + file.FileName))
             {
-                return await this._fileRepository.SaveFile(file.FileName, path + file.FileName);
-            }*/
+                return await this._fileRepository.SaveFile(id.ToString().ToUpper(), path + file.FileName);
+            }
 
             return true;
         }

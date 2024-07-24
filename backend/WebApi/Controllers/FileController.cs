@@ -25,13 +25,13 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> SaveFile(IFormFile file)
         {
             var result = await this._fileService.SaveFile(file);
 
             return Ok(result);
-        }
+        }*/
     }
 }
