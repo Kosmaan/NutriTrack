@@ -1,10 +1,11 @@
 <div class="wrapper">
   <app-selector
-    [titleText]="'Add a new'"
+    [titleText]="'ADD A NEW'"
     [firstButtonText]="'MEAL'"
     [secondButtonText]="'MEAL PLAN'"
     (firstButtonClick)="handleFirstButtonClick()"
     (secondButtonClick)="handleSecondButtonClick()"
+    pageType="add"
   >
   </app-selector>
   <router-outlet></router-outlet>

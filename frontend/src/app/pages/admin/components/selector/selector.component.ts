@@ -10,6 +10,7 @@ export class SelectorComponent {
   @Input() titleText: string = 'Default';
   @Input() firstButtonText: string = 'Default';
   @Input() secondButtonText: string = 'Default';
+  @Input() pageType: 'add' | 'edit' = 'add';
 
   @Output() firstButtonClick = new EventEmitter<void>();
   @Output() secondButtonClick = new EventEmitter<void>();
@@ -17,7 +18,8 @@ export class SelectorComponent {
   constructor(private router: Router) {}
 
   onFirstButtonClick() {
-    this.router.navigate(['/admin/add/add-meal/'])
+    const route = this.pageType === 'edit' ? '/admin/edit/edit-meal' : '/admin/add/add-meal';
+    this.router.navigate([route]);
   }
 
   onSecondButtonClick() {

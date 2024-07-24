@@ -11,6 +11,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { OverviewComponent } from './pages/admin/components/overview/overview.component';
 import { AddComponent } from './pages/admin/components/add/add.component';
 import { AddMealComponent } from './pages/admin/components/add-meal/add-meal.component';
+import { EditComponent } from './pages/admin/components/edit/edit.component';
+import { EditMealComponent } from './pages/admin/components/edit-meal/edit-meal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -46,6 +48,16 @@ const routes: Routes = [
           },
         ],
       },
+      {
+        path: 'edit',
+        component: EditComponent,
+        children: [
+          {
+            path: 'edit-meal',
+            component: EditMealComponent,
+          },
+        ]
+      }
     ],
   },
   { path: '**', component: NotFoundComponent },

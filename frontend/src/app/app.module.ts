@@ -7,7 +7,6 @@ import { EditMealbuttonComponent } from './components/edit-mealbutton/edit-mealb
 import { SelectCategComponent } from './components/select-categ/select-categ.component';
 import { ForbiddenAccessComponent } from './pages/forbidden-access/forbidden-access.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,7 +35,6 @@ import { AdminModule } from './pages/admin/admin.module';
     SelectCategComponent,
     NotFoundComponent,
     ForbiddenAccessComponent,
-    EditMealComponent,
     EditMealPlanComponent,
     LoginComponent,
     RegisterComponent,

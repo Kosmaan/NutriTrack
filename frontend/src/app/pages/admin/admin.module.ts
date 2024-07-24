@@ -7,9 +7,11 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { AddComponent } from './components/add/add.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
+import { EditComponent } from './components/edit/edit.component';
+import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 
 @NgModule({
-  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent,
+  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent, EditComponent, EditMealComponent,
   ],
   imports: [AdminNavbarModule,
     LayoutModule,
