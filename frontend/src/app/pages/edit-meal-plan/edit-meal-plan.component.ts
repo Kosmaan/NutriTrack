@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+
 @Component({
   selector: 'app-edit-meal-plan',
   templateUrl: './edit-meal-plan.component.html',
   styleUrls: ['./edit-meal-plan.component.scss']
 })
 
-export class EditMealPlanComponent implements OnInit {
+export class EditMealPlanComponent  {
+
 addProductForm!: FormGroup<any>;
+  http: any;
 
 ngOnInit(): void {
   this.addProductForm=new FormGroup({
@@ -19,7 +22,7 @@ ngOnInit(): void {
 }
 
 OnProductSubmit() {
-throw new Error('Method not implemented.');
+  throw new Error('Method not implemented.');
 }
 
 }
