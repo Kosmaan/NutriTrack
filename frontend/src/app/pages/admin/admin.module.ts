@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ComponentsModule } from './components/components.module';
 import { OverviewComponent } from './pages/overview/overview.component';
+import { AddComponent } from './pages/add/add.component';
+import { AddModule } from './pages/add/add.module';
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { OverviewComponent } from './pages/overview/overview.component';
     CommonModule,
     RouterModule,
     ComponentsModule,
+    AddModule
   ]
 })
 export class AdminModule { }

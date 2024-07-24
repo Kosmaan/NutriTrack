@@ -4,7 +4,6 @@ namespace WebApiContracts.Mappers
 {
     public static class MealMapper
     {
-
         public static Meal ToEntity(this MealDTO dto)
         {
             return new Meal
@@ -32,8 +31,6 @@ namespace WebApiContracts.Mappers
                 Title = entity.Title,
                 Description = entity.Description,
                 Category = entity.Category,
-
-
             };
         }
 

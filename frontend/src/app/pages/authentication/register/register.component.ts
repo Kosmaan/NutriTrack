@@ -38,7 +38,7 @@ export class RegisterComponent {
           localStorage.setItem("userId", res.id)
           localStorage.setItem('token', res.token)
 
-          let redirectUrl = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/home';
+          let redirectUrl = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : 'dashboard/home';
           this.router.navigateByUrl(redirectUrl);
         }
         )

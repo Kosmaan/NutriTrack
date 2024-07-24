@@ -22,9 +22,10 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<bool>> RegisterUser([FromQuery] UserCredentialsContract credentialsContract)
+        public async Task<ActionResult<bool>> RegisterUser([FromBody] SignupDTO formData)
         {
-            var result = await this._authorizationService.RegisterUser(credentialsContract.MapTestToDomain());
+            var result = await this._authorizationService.RegisterUser(formData.ToUserCredentials(), formData.ToUserData(), formData.ToUserWeight());
+
             return Ok(result);
         }
 

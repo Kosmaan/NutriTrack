@@ -10,9 +10,12 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { AddMealComponent } from './pages/admin/components/add-meal/add-meal.component';
 import { OverviewComponent } from './pages/admin/pages/overview/overview.component';
 import { AddComponent } from './pages/admin/pages/add/add.component';
+import { MealPlansPageComponent } from './pages/meal-plans-page/meal-plans-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -25,17 +28,6 @@ const routes: Routes = [
       },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      {
-        path: 'admin',
-        component: AdminComponent,
-        children: [
-          {
-            path: 'overview',
-            component: OverviewComponent,
-          },
-          { path: 'add', component: AddComponent },
-        ],
-      },
     ],
   },
 

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,5 +18,7 @@ namespace WebApiContracts
         public String Title { get; set; }
         public String Description { get; set; }
         public int Category { get; set; }
+        
+        public IFormFile file { get; set; }
     }
 }

@@ -10,6 +10,6 @@ import { AddComponent } from './add.component';
   imports: [
     CommonModule,
     ComponentsModule
-  ]
+  ],
 })
 export class AddModule { }
