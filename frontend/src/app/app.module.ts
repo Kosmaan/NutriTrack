@@ -22,14 +22,12 @@ import { EditMealPlanComponent } from './components/edit-meal-plan/edit-meal-pla
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
-<<<<<<< HEAD
-=======
 import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.module';
-import { RemovePageComponent } from './pages/remove-page/remove-page.component';
->>>>>>> 2420ce0f7081bf51aab41e92ac38f429d62c24e1
 import { ContactComponent } from './pages/contact/contact.component';
 import { AdminModule } from './pages/admin/admin.module';
 import { AddModule } from './pages/admin/pages/add/add.module';
+import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { AuthHeaderComponent } from './pages/authentication/components/auth-header/auth-header.component';
 
 
 @NgModule({
@@ -46,6 +44,8 @@ import { AddModule } from './pages/admin/pages/add/add.module';
     RegisterComponent,
     ItemSelectorComponent,
     ContactComponent,
+    AuthenticationComponent,
+    AuthHeaderComponent,
 
   ],
   imports: [
@@ -62,12 +62,9 @@ import { AddModule } from './pages/admin/pages/add/add.module';
     HomepageModule,
     HttpClientModule,
     LayoutModule,
-<<<<<<< HEAD
     AdminModule,
     AddModule,
-=======
     MealPlansPageModule,
->>>>>>> 2420ce0f7081bf51aab41e92ac38f429d62c24e1
   ],
 
   providers: [],
