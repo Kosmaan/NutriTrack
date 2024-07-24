@@ -30,14 +30,14 @@ namespace WebApi.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<MealDTO> GetMealById([FromQuery] Guid id)
         {
             return await _mealService.GetMealById(id);
         }
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IEnumerable<MealDTO>> GetAllMeals()
         {
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
             return await _mealService.UpdateMeal(dto);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [AllowAnonymous]
         public async Task<bool> DeleteMeal([FromQuery] Guid id)
         {

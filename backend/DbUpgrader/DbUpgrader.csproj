@@ -9,13 +9,8 @@
 
   <ItemGroup>
     <None Remove="Scripts\Step00001-Create db schema and user table.sql" />
-    <None Remove="Scripts\Step00001-Create initial database.sql" />
     <None Remove="Scripts\Step00002-Add role to user table.sql" />
     <None Remove="Scripts\Step00003-Add file table.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Scripts\Step00001-Create initial database.sql" />
   </ItemGroup>
 
   <ItemGroup>
