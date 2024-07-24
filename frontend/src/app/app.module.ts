@@ -24,11 +24,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.module';
 import { ContactComponent } from './pages/contact/contact.component';
-import { AdminModule } from './pages/admin/admin.module';
-import { AddModule } from './pages/admin/pages/add/add.module';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
-import { AuthHeaderComponent } from './pages/authentication/components/auth-header/auth-header.component';
-
+import { AuthenticationModule } from './pages/authentication/authentication.module';
+import { AdminModule } from './pages/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +43,6 @@ import { AuthHeaderComponent } from './pages/authentication/components/auth-head
     ItemSelectorComponent,
     ContactComponent,
     AuthenticationComponent,
-    AuthHeaderComponent,
 
   ],
   imports: [
@@ -62,9 +59,9 @@ import { AuthHeaderComponent } from './pages/authentication/components/auth-head
     HomepageModule,
     HttpClientModule,
     LayoutModule,
-    AdminModule,
-    AddModule,
     MealPlansPageModule,
+    AuthenticationModule,
+    AdminModule,
   ],
 
   providers: [],

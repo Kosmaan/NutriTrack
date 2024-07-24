@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <app-selector
+    [titleText]="'Add a new'"
+    [firstButtonText]="'MEAL'"
+    [secondButtonText]="'MEAL PLAN'"
+    (firstButtonClick)="handleFirstButtonClick()"
+    (secondButtonClick)="handleSecondButtonClick()"
+  >
+  </app-selector>
+  <router-outlet></router-outlet>
+</div>

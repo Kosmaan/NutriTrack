@@ -7,27 +7,20 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { OverviewComponent } from './pages/admin/components/overview/overview.component';
+import { AddComponent } from './pages/admin/components/add/add.component';
+import { AddMealComponent } from './pages/admin/components/add-meal/add-meal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'authentication',
-    redirectTo: 'authentication/login',
-    pathMatch: 'full',
-  },
-  {
-    path: 'authentication',
     component: AuthenticationComponent,
     children: [
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      }
-    ]
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+    ],
   },
   {
     path: 'dashboard',
@@ -35,17 +28,27 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomepageComponent },
+      { path: 'contact-us', component: ContactComponent },
+    ],
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: 'overview', component: OverviewComponent },
       {
-        path: 'contact-us',
-        component: ContactComponent,
+        path: 'add',
+        component: AddComponent,
+        children: [
+          {
+            path: 'add-meal',
+            component: AddMealComponent,
+          },
+        ],
       },
     ],
   },
-
-  {
-    path: '**',
-    component: NotFoundComponent, // Asta obligatoriu lasat la final
-  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
