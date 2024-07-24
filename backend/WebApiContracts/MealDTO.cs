@@ -18,6 +18,7 @@ namespace WebApiContracts
         public String Title { get; set; }
         public String Description { get; set; }
         public int Category { get; set; }
+        public string Photo {  get; set; }
         
         public IFormFile file { get; set; }
     }

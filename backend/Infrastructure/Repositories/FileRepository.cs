@@ -26,7 +26,7 @@ namespace Infrastructure.Repositories
 
         public async Task<bool> SaveFile(string fileName, string fileLocation)
         {
-            var query = "INSERT INTO [SummerPractice].[File] ([FileName], [Path]) VALUES (@FileName, @Path)";
+            var query = "INSERT INTO [SummerPractice].[file] ([FileName], [Path]) VALUES (@FileName, @Path)";
             var parameters = new DynamicParameters();
             parameters.Add("FileName", fileName, DbType.String);
             parameters.Add("Path", fileLocation, DbType.String);

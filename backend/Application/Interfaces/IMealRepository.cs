@@ -9,7 +9,7 @@ namespace Application.Interfaces
 {
     public interface IMealRepository
     {
-        Task<bool> addMeal(Meal meal);
+        Task<bool> addMeal(Meal meal, Guid id);
         Task<Meal> GetMeal(Guid id);
         Task<bool> DeleteMeal(Guid id);
         Task<bool> UpdateMeal(Meal meal);

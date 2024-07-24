@@ -25,8 +25,9 @@ namespace WebApi.Controllers
         [AllowAnonymous]
         public async Task<bool> AddMeal([FromForm] MealDTO meal)
         {
-            _fileService.SaveFile(meal.file);
-           return await _mealService.addMeal(meal.ToEntity());
+            Guid id = Guid.NewGuid();
+            _fileService.SaveFile(meal.file, id);
+           return await _mealService.addMeal(meal.ToEntity(), id);
         }
 
 
