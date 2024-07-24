@@ -10,7 +10,7 @@ namespace WebApiContracts.Mappers
             {
                 Meal_Id = dto.id,
                 Calories = dto.Calories,
-                Carbo = dto.Carbo,
+                Carbs = dto.Carbs,
                 Fats = dto.Fats,
                 Protein = dto.Protein,
                 Title = dto.Title,
@@ -25,7 +25,7 @@ namespace WebApiContracts.Mappers
             {
                 id = entity.Meal_Id,
                 Calories = entity.Calories,
-                Carbo = entity.Carbo,
+                Carbs = entity.Carbs,
                 Fats = entity.Fats,
                 Protein = entity.Protein,
                 Title = entity.Title,

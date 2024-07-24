@@ -12,7 +12,7 @@ namespace WebApiContracts
     {
         public Guid id {  get; set; }
         public int Calories { get; set; }
-        public int Carbo { get; set; }
+        public int Carbs { get; set; }
         public int Fats { get; set; }
         public int Protein { get; set; }
         public String Title { get; set; }
