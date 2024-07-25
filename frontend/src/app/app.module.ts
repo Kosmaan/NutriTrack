@@ -20,9 +20,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.module';
 import { ContactComponent } from './pages/contact/contact.component';
+import { StatisticsModule } from './pages/statistics/statistics.module';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 import { AdminModule } from './pages/admin/admin.module';
+
 
 @NgModule({
   declarations: [
@@ -52,10 +54,10 @@ import { AdminModule } from './pages/admin/admin.module';
     HttpClientModule,
     LayoutModule,
     MealPlansPageModule,
+    StatisticsModule,
     AuthenticationModule,
     AdminModule,
-  ],
-
+],
   providers: [],
   bootstrap: [AppComponent],
 })
