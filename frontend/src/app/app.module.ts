@@ -34,6 +34,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { CategorySelectorComponent } from './components/category-selector/category-selector.component';
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AddPageComponent } from './pages/add-page/add-page.component';
     CategorySelectorComponent,
     ItemSelectorComponent,
     AddPageComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
