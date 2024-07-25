@@ -26,11 +26,12 @@ namespace Infrastructure.Repositories
 
         public bool addMeal(Meal meal, Guid id)
         {
-            var query = "INSERT INTO [SummerPractice].[Meal] ( [Meal_Id], [Title], [Description], [Carbs], [Proteins], [Fats], [Published_Date]) VALUES (@Id, @Title, @Description, @Carbs, @Proteins, @Fats, @Date)";
+            var query = "INSERT INTO [SummerPractice].[Meal] ( [Meal_Id], [Title], [Description], [Calories], [Carbs], [Proteins], [Fats], [Published_Date]) VALUES (@Id, @Title, @Description, @Calories, @Carbs, @Proteins, @Fats, @Date)";
             var parameters = new DynamicParameters();
             parameters.Add("Id", id,DbType.Guid);
             parameters.Add("Title", meal.Title, DbType.String);
             parameters.Add("Description", meal.Description, DbType.String);
+            parameters.Add("Calories", meal.Calories, DbType.Int16);
             parameters.Add("Carbs", meal.Carbs, DbType.Int16);
             parameters.Add("Proteins", meal.Protein, DbType.Int16);
             parameters.Add("Fats", meal.Fats, DbType.Int16);
