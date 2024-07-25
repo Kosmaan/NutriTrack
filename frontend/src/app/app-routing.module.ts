@@ -14,6 +14,7 @@ import { AddMealComponent } from './pages/admin/components/add-meal/add-meal.com
 import { EditComponent } from './pages/admin/components/edit/edit.component';
 import { EditMealComponent } from './pages/admin/components/edit-meal/edit-meal.component';
 import { AddMealPlanComponent } from './pages/admin/components/add-meal-plan/add-meal-plan.component';
+import { MealPlansPageComponent } from './pages/meal-plans-page/meal-plans-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomepageComponent },
       { path: 'contact-us', component: ContactComponent },
+      {path: 'plans', component: MealPlansPageComponent}
     ],
   },
   {

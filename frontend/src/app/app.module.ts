@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { EditMealbuttonComponent } from './components/edit-mealbutton/edit-mealbutton.component';
-import { SelectCategComponent } from './components/select-categ/select-categ.component';
 import { ForbiddenAccessComponent } from './pages/forbidden-access/forbidden-access.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +15,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
-import { EditMealPlanComponent } from './components/edit-meal-plan/edit-meal-plan.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
@@ -31,11 +28,8 @@ import { AdminModule } from './pages/admin/admin.module';
   declarations: [
     AppComponent,
     HomepageComponent,
-    EditMealbuttonComponent,
-    SelectCategComponent,
     NotFoundComponent,
     ForbiddenAccessComponent,
-    EditMealPlanComponent,
     LoginComponent,
     RegisterComponent,
     ItemSelectorComponent,

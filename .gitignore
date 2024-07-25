@@ -475,4 +475,4 @@ baseline.json
 aio/node_modules
 aio/out-tsc
 
-./backend/Domain/files/
+backend/Domain/files/

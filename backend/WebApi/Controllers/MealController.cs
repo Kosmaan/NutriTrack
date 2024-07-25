@@ -23,39 +23,40 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<bool> AddMeal([FromForm] MealDTO meal)
+        public bool AddMeal([FromForm] MealDTO meal)
         {
-            _fileService.SaveFile(meal.file);
-           return await _mealService.addMeal(meal.ToEntity());
+            Guid id = Guid.NewGuid();
+            _fileService.SaveFile(meal.file, id);
+            return _mealService.addMeal(meal.ToEntity(), id);
         }
 
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<MealDTO> GetMealById([FromQuery] Guid id)
+        public MealDTO GetMealById([FromQuery] Guid id)
         {
-            return await _mealService.GetMealById(id);
+            return _mealService.GetMealById(id);
         }
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<IEnumerable<MealDTO>> GetAllMeals()
+        public IEnumerable<MealDTO> GetAllMeals()
         {
-            return await _mealService.GetAllMeals();
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<bool> UpdateMeal([FromBody] MealDTO dto)
-        {
-            return await _mealService.UpdateMeal(dto);
+            return _mealService.GetAllMeals();
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<bool> DeleteMeal([FromQuery] Guid id)
+        public bool UpdateMeal([FromBody] MealDTO dto)
         {
-            return await _mealService.DeleteMeal(id);
+            return _mealService.UpdateMeal(dto);
+        }
+
+        [HttpDelete]
+        [AllowAnonymous]
+        public bool DeleteMeal([FromQuery] Guid id)
+        {
+            return _mealService.DeleteMeal(id);
         }
     }
 }
