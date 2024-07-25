@@ -25,7 +25,7 @@ GO
 
 CREATE TABLE [SummerPractice].[Weight](
 	Weight DECIMAL(10, 2) NOT NULL,
-	Measurement_Date DATE NOT NULL,
+	Measurement_Date DATE DEFAULT GETDATE() NOT NULL,
 	User_id UNIQUEIDENTIFIER NOT NULL,
 	FOREIGN KEY ([User_id]) REFERENCES [SummerPractice].[User_Credentials]([User_id])
 );
