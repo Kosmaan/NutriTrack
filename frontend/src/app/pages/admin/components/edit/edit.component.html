@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <app-selector
+      [titleText]="'EDIT A'"
+      [firstButtonText]="'MEAL'"
+      [secondButtonText]="'MEAL PLAN'"
+      (firstButtonClick)="handleFirstButtonClick()"
+      (secondButtonClick)="handleSecondButtonClick()"
+      pageType="edit"
+    >
+    </app-selector>
+    <router-outlet></router-outlet>
+  </div>
+  
