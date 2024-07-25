@@ -41,7 +41,7 @@
 }
 
 .add-entry-component-title {
-  margin-bottom: 5px;
+  margin: -5px 10px;
 }
 
 .input-field {
@@ -92,6 +92,7 @@
 }
 
 #upload-container {
+  margin: 0 10px;
   display: flex;
   flex-direction: column;
   height: 100px;

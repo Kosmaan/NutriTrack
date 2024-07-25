@@ -23,7 +23,8 @@ export class SelectorComponent {
   }
 
   onSecondButtonClick() {
-    this.secondButtonClick.emit();
+    const route = this.pageType === 'edit' ? 'admin/edit/edit-meal-plan' : '/admin/add/add-meal-plan';
+    this.router.navigate([route]);
   }
 
   selectedButton: string = '';
