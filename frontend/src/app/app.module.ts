@@ -26,6 +26,7 @@ import { RemovePageComponent } from './pages/remove-page/remove-page.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { EditMealPlanComponent } from './pages/edit-meal-plan/edit-meal-plan.component';
 import { EditMealPlanModule } from './pages/edit-meal-plan/edit-meal-plan.module';
+import { StatisticsModule } from './pages/statistics/statistics.module';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { EditMealPlanModule } from './pages/edit-meal-plan/edit-meal-plan.module
     LayoutModule,
     MealPlansPageModule,
     EditMealPlanModule,
-  ],
+    StatisticsModule
+],
 
   providers: [],
   bootstrap: [AppComponent],

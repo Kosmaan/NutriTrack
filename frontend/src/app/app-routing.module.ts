@@ -8,6 +8,7 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MealPlansPageComponent } from './pages/meal-plans-page/meal-plans-page.component';
+import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'add-meal', component: AddPageComponent },
       { path: 'contact-us', component: ContactComponent },
       { path: 'plans', component: MealPlansPageComponent },
+      { path: "statistics", component : StatisticsComponent}
     ],
   },
 
