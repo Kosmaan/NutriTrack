@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="stats">
+        <div class="frame">
+            <div class="text">
+                <p>CALORIES</p>
+            </div>
+            <div class="value">
+                <p>{{kcal}}/{{maxkcal}}</p>
+            </div>
+        </div>
+        <div class="frame">
+            <div class="text">
+                <p>PROTEIN</p>
+            </div>
+            <div class="value">
+                <p>{{protein}}/{{maxprotein}}</p>
+            </div>
+        </div>
+        <div class="frame">
+            <div class="text">
+                <p>CARBS</p>
+            </div>
+            <div class="value">
+                <p>{{carbs}}/{{maxcarbs}}</p>
+            </div>
+        </div>
+        <div class="frame">
+            <div class="text">
+                <p>FATS</p>
+            </div>
+            <div class="value">
+                <p>{{fats}}/{{maxfats}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="textpro">
+            <p>Today's Progress</p>
+        </div>
+        <svg class="progress-svg" viewBox="0 0 100 100">
+            <circle class="circle-bg" cx="50" cy="50" r="30" stroke-width="7"></circle>
+            <circle class="circle-progress" cx="50" cy="50" r="30" stroke-width="7" stroke-dasharray="188.4" [attr.stroke-dashoffset]="getStrokeDashOffset()"></circle>
+        </svg> 
+        <span class="spinner-text">{{ value }}</span>
+    </div>
+
+    <div class="more">
+        <button>MORE </button>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5vw; 
+    margin: 0 auto;
+    width: 50vw; 
+    background: #F1F1F1;
+    box-shadow: 0 0.5vw 0.5vw rgba(0, 0, 0, 0.25); 
+    border-radius: 1vw;
+    margin-bottom: 5vw;
+}
+
+.stats {
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5vw;
+}
+
+.frame {
+    width: 10vw; 
+    height: 2.5vw; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text, .value {
+    font-family: 'Roboto';
+    font-size: 0.8vw; 
+    letter-spacing: 0.05vw;
+    text-align: center;
+    width: 100%;
+}
+
+.textpro {
+    font-family: 'Roboto';
+    font-size: 1.3vw; 
+    letter-spacing: 0.05vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.more button {
+    width: 5vw; 
+    height: 2vw; 
+    font-size: 0.75vw; 
+    background: #F1F1F1;
+    border:1px solid #7ABA78;
+    border-radius: 0.25vw; 
+    color: #7ABA78;
+    font-family: 'Roboto';
+    text-align: center;
+    letter-spacing: 0.05vw;
+}
+.more button:hover {
+    background-color: #7ABA78; 
+    color: #f5f5f5;
+}
+
+.progress {
+    width: 12.5vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75vw;
+    position: relative;
+}
+
+.progress-svg {
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #dcdcdc;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #7ABA78;
+}
+
+.spinner-text {
+    position: absolute;
+    color: #7ABA78;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw; 
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 35%); 
+}
