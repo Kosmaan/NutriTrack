@@ -18,20 +18,20 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> GetFile(string fileName)
+        public ActionResult GetFile(string fileName)
         {
-            var result = await this._fileService.GetFile(fileName);
+            var result = this._fileService.GetFile(fileName);
 
             return Ok(result);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> SaveFile(IFormFile file)
         {
             var result = await this._fileService.SaveFile(file);
 
             return Ok(result);
-        }
+        }*/
     }
 }

@@ -15,16 +15,16 @@ namespace Application.Services
             _fileRepository = fileRepository;
         }
 
-        public async Task<FileContentResult> GetFile(string fileName)
+        public FileContentResult GetFile(string fileName)
         {
             var path = Directory.GetParent(Directory.GetCurrentDirectory()) + "\\Domain\\files\\";
-            var checkFileExistence = await this._fileRepository.GetFile(fileName);
+            var checkFileExistence = this._fileRepository.GetFile(fileName);
             if (checkFileExistence.ToList().Count == 0 || !File.Exists(path + fileName))
             {
                 throw new Exception("File does not exist");
             }
 
-            var fileBytes = await File.ReadAllBytesAsync(path + fileName); //should probably get the path from db since it's saved there
+            var fileBytes = File.ReadAllBytes(path + fileName); //should probably get the path from db since it's saved there
             var fileResult = new FileContentResult(fileBytes, "application/octet-stream")
             {
                 FileDownloadName = fileName
@@ -33,7 +33,7 @@ namespace Application.Services
             return fileResult;
         }
 
-        public async Task<bool> SaveFile(IFormFile file) {
+        public bool SaveFile(IFormFile file, Guid id) {
             var extension = Path.GetExtension(file.FileName);
             if (!allowedExtensions.Contains(extension))
             {
@@ -53,12 +53,12 @@ namespace Application.Services
                 throw new Exception("File already exists");
             }*/
 
-            await using var stream = new FileStream(path + file.FileName, FileMode.Create);
-            await file.CopyToAsync(stream);
-            /*if (File.Exists(path + file.FileName))
+            using var stream = new FileStream(path + file.FileName, FileMode.Create);
+            file.CopyTo(stream);
+            if (File.Exists(path + file.FileName))
             {
-                return await this._fileRepository.SaveFile(file.FileName, path + file.FileName);
-            }*/
+                return this._fileRepository.SaveFile(id.ToString().ToUpper(), path + file.FileName);
+            }
 
             return true;
         }

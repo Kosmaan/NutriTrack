@@ -28,4 +28,5 @@ export class StatsComponent {
   scrolltocalendar():void{
     window.scrollTo({top:500,behavior:'smooth'});
   }
+  
 }

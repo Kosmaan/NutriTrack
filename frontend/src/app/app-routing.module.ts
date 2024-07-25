@@ -3,34 +3,78 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { LoginComponent } from './pages/authentication/login/login.component';
 import { RegisterComponent } from './pages/authentication/register/register.component';
-import { AddPageComponent } from './pages/add-page/add-page.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { OverviewComponent } from './pages/admin/components/overview/overview.component';
+import { AddComponent } from './pages/admin/components/add/add.component';
+import { AddMealComponent } from './pages/admin/components/add-meal/add-meal.component';
+import { EditComponent } from './pages/admin/components/edit/edit.component';
+import { EditMealComponent } from './pages/admin/components/edit-meal/edit-meal.component';
+import { AddMealPlanComponent } from './pages/admin/components/add-meal-plan/add-meal-plan.component';
 import { MealPlansPageComponent } from './pages/meal-plans-page/meal-plans-page.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'authentication',
+    component: AuthenticationComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+    ],
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomepageComponent },
-      { path: 'add-meal', component: AddPageComponent },
       { path: 'contact-us', component: ContactComponent },
       { path: 'plans', component: MealPlansPageComponent },
       { path: "statistics", component : StatisticsComponent}
     ],
   },
-
   {
-    path: '**',
-    component: NotFoundComponent, // Asta obligatoriu lasat la final
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'overview',
+        pathMatch: 'full',
+      },
+      { path: 'overview', component: OverviewComponent },
+      {
+        path: 'add',
+        component: AddComponent,
+        children: [
+          {
+            path: 'add-meal',
+            component: AddMealComponent,
+          },
+          {
+            path: 'add-meal-plan',
+            component: AddMealPlanComponent,
+          },
+        ],
+      },
+      {
+        path: 'edit',
+        component: EditComponent,
+        children: [
+          {
+            path: 'edit-meal',
+            component: EditMealComponent,
+          },
+        ],
+      },
+    ],
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

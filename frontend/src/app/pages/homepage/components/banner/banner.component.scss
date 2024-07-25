@@ -1,4 +1,5 @@
 .banner-container {
+    z-index: 1;
     background-image: url('/assets/main-banner-image.png');
     display: flex;
     align-items: center;
@@ -9,6 +10,7 @@
     height: 400px;
     overflow: hidden;
     margin: 0 auto;
+    
 
     img {
         max-width: 100%;
@@ -60,7 +62,8 @@
     }
 }
 
-
-
-
+.background-tint {
+    background-color: rgba(0, 0, 0, .3);
+    background-blend-mode: multiply;
+}
 

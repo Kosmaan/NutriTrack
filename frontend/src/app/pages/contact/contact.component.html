@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <div class="contact-form-body">
+    <div class="contact-form-body" [formGroup]="contactForm">
       <div class="contact-form-title">
         <h1>Contact us</h1>
       </div>
@@ -10,7 +10,7 @@
             <p>First Name</p>
           </div>
           <div class="contact-component-field">
-            <input type="text" formControlName="title" class="input-field" />
+            <input type="text" formControlName="firstName" class="input-field" />
           </div>
         </div>
         <div class="contact-component">
@@ -18,7 +18,7 @@
             <p>Last Name</p>
           </div>
           <div class="contact-component-field">
-            <input type="text" formControlName="title" class="input-field" />
+            <input type="text" formControlName="lastName" class="input-field" />
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
           <p>Email Address</p>
         </div>
         <div class="contact-component-field">
-          <input type="text" formControlName="title" class="input-field" />
+          <input type="text" formControlName="email" class="input-field" />
         </div>
       </div>
       <div class="contact-component">
@@ -35,7 +35,7 @@
           <p>Phone Number</p>
         </div>
         <div class="contact-component-field">
-          <input type="text" formControlName="title" class="input-field" />
+          <input type="text" formControlName="phone" class="input-field" />
         </div>
       </div>
       <div class="contact-component">
@@ -43,10 +43,14 @@
           <p>Description</p>
         </div>
         <div class="contact-component-field">
-          <textarea type="text" formControlName="title" class="description-field"></textarea>
+          <textarea
+            type="text"
+            formControlName="description"
+            class="description-field"
+          ></textarea>
         </div>
       </div>
-      <button class="submit-button">Submit</button>
+      <button class="submit-button" (click)="onSubmit()">Submit</button>
     </div>
   </div>
 </div>

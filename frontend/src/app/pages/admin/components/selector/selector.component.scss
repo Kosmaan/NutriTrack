@@ -1,0 +1,48 @@
+.wrapper {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+}
+
+.container-title {
+  font-weight: 600;
+  font-size: 36px;
+  padding: 25px 0;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 25px;
+}
+
+button {
+  border: 1px solid var(--text-colour);
+  border-radius: 10px;
+  padding: 15px 25px;
+  background-color: transparent;
+  width: 150px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &.active {
+    color: var(--primary-colour);
+    background-color: var(--accent-colour);
+    border: 1px solid var(--accent-colour);
+  }
+}
+
+button:hover {
+  border: 1px solid var(--accent-colour);
+  background-color: var(--accent-colour);
+  color: var(--primary-colour);
+}
