@@ -135,16 +135,18 @@
         font-style: normal;
         letter-spacing: 0.25px;
         flex-wrap: wrap;
+        text-align: center;
     }
 
-    .meal-description{
+    .card-description{
         height: 59px;
-        flex: 1 0 0;
         color:  rgba(0, 0, 0, 0.60);
         font-family: Roboto;
         font-size: 14px;
         font-style: normal;
-        align-self:center;
+        text-align: center;
+        flex-wrap: wrap;
+        padding-left: 5px;
     }
 
 
