@@ -59,3 +59,8 @@
     color: #7aba78;
   }
 }
+
+.background-tint {
+  background-color: rgba(0, 0, 0, .3);
+  background-blend-mode: multiply;
+}
