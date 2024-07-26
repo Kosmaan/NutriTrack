@@ -35,6 +35,7 @@ import { CategorySelectorComponent } from './components/category-selector/catego
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PlanDetailsComponent } from './pages/plan-details/plan-details.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     ItemSelectorComponent,
     AddPageComponent,
     AboutUsComponent,
+    PlanDetailsComponent,
   ],
   imports: [
     BrowserModule,
