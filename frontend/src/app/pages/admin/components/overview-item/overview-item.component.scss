@@ -7,10 +7,16 @@
   height: 450px;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
 
   hr {
     width: 80%;
   }
+}
+
+.item-card:hover {
+  box-shadow: none;
+  transform: translateY(2px);
 }
 
 .item-card-photo {

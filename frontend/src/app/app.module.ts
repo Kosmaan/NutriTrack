@@ -26,7 +26,6 @@ import { AuthenticationModule } from './pages/authentication/authentication.modu
 import { AdminModule } from './pages/admin/admin.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
