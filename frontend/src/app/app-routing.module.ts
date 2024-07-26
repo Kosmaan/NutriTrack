@@ -14,13 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'add-meal', component: AddMealComponent },
   { path: 'aboutus', component: AboutUsComponent },
-  {
-    path: 'Monday',
-    loadChildren: () =>
-      import('./pages/plan-details/plan-details.module').then(
-        (m) => m.PlanDetailsComponent
-      ),
-  },
+  { path: 'Monday', component: PlanDetailsComponent },
 ];
 
 @NgModule({
