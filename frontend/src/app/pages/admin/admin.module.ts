@@ -11,9 +11,10 @@ import { EditComponent } from './components/edit/edit.component';
 import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 import { AddMealPlanComponent } from './components/add-meal-plan/add-meal-plan.component';
 import { CommonModule } from '@angular/common';
+import { OverviewItemComponent } from './components/overview-item/overview-item.component';
 
 @NgModule({
-  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent, EditComponent, EditMealComponent, AddMealPlanComponent,
+  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent, EditComponent, EditMealComponent, AddMealPlanComponent, OverviewItemComponent,
   ],
   imports: [AdminNavbarModule,
     LayoutModule,
