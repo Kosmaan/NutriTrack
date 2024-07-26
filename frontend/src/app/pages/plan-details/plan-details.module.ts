@@ -8,4 +8,4 @@ const COMPONENTS: any[] = [
 @NgModule({
   declarations: [COMPONENTS],
   exports: [COMPONENTS],
-})
+}
