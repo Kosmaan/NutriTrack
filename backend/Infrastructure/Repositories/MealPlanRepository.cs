@@ -4,6 +4,7 @@ using Application.Interfaces;
 using Dapper;
 using Domain;
 using Infrastructure.Interfaces;
+using WebApiContracts;
 
 namespace Infrastructure.Repositories
 {
@@ -72,15 +73,21 @@ namespace Infrastructure.Repositories
 
         public bool DeleteMealPlan(Guid id)
         {
-            var query = "DELETE FROM [SummerPractice].[Meal_Plan] WHERE [Meal_Plan_Id] = @Meal_Plan_Id";
+            var queryMealPlan = "DELETE FROM [SummerPractice].[Meal_Plan] WHERE [Meal_Plan_Id] = @Meal_Plan_Id";
+            var queryPlanList = "DELETE FROM [SummerPractice].[Plan_List] WHERE [Plan_Id] = @Meal_Plan_Id";
+            var queryFiles = "DELETE FROM [SummerPractice].[file] WHERE [FileName] = @Meal_Plan_Id";
+
             var parameters = new DynamicParameters();
+            var parametersFiles = new DynamicParameters();
 
             parameters.Add("Meal_Plan_Id", id, DbType.Guid);
-
+            parametersFiles.Add("Meal_Plan_Id", id.ToString().ToUpper(), DbType.String);
             var connection = _databaseContext.GetDbConnection();
-            var result = connection.Execute(query, parameters);
+            var resultPlanList = connection.Execute(queryPlanList, parameters);
+            var resultMealPlan = connection.Execute(queryMealPlan, parameters);
+            var resultFiles = connection.Execute(queryFiles, parametersFiles);
 
-            return result != 0;
+            return resultMealPlan != 0 && resultFiles != 0 && resultPlanList != 0;
         }
 
         public bool UpdateMealPlan(MealPlan mealPlan)
@@ -91,6 +98,45 @@ namespace Infrastructure.Repositories
             parameters.Add("Meal_Plan_Id", mealPlan.Meal_Plan_Id, DbType.Guid);
             parameters.Add("Description", mealPlan.Description, DbType.String);
             parameters.Add("Title", mealPlan.Title, DbType.String);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
+
+            return result != 0;
+        }
+
+        public IEnumerable<PlanList> GetDays(Guid id)
+        {
+            var query = "SELECT * FROM [SummerPractice].[Plan_List] WHERE [Plan_Id] = @Plan_Id";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("Plan_Id", id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Query<PlanList>(query, parameters);
+
+            return result;
+        }
+
+        public IEnumerable<PlanList> GetAllDays()
+        {
+            var query = "SELECT * FROM [SummerPractice].[Plan_List]";
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Query<PlanList>(query);
+
+            return result;
+        }
+
+        public bool UpdatePlanList(PlanList mealPlanList)
+        {
+            var query = "UPDATE [SummerPractice].[Plan_List] SET [Meal_Id] = @Meal_Id, [Day] = @Day, [Meal_Time] = @Meal_Time WHERE [Plan_Id] = @Meal_Plan_Id";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("Meal_Id", mealPlanList.Meal_Id, DbType.Guid);
+            parameters.Add("Day", mealPlanList.Day, DbType.Int16);
+            parameters.Add("Meal_Time", mealPlanList.Meal_Time, DbType.Int16);
+            parameters.Add("Meal_Plan_Id", mealPlanList.Plan_Id, DbType.Guid);
 
             var connection = _databaseContext.GetDbConnection();
             var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());

@@ -31,14 +31,14 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public MealPlanDTO GetMealPlanById([FromQuery] Guid id)
+        public MealPlanSend GetMealPlanById([FromQuery] Guid id)
         {
             return _mealPlanService.GetMealPlan(id);
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IEnumerable<MealPlanDTO> GetAllMealPlans()
+        public IEnumerable<MealPlanSend> GetAllMealPlans()
         {
             return _mealPlanService.GetAllMealPlans();
         }
@@ -47,13 +47,14 @@ namespace WebApi.Controllers
         [AllowAnonymous]
         public bool DeleteMealPlanById([FromQuery] Guid id)
         {
-            return _mealPlanService.DeleteMeal(id);
+            return _mealPlanService.DeleteMealPlan(id);
         }
 
-        [HttpPost]
+        [HttpPut]
         [AllowAnonymous]
         public bool UpdateMeal([FromForm] MealPlanDTO mealPlan)
         {
+           // _fileService.SaveFile(mealPlan.Photo, mealPlan.Meal_Plan_Id);
             return _mealPlanService.UpdateMealPlan(mealPlan);
         }
     }

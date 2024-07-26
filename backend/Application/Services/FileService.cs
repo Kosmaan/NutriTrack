@@ -41,7 +41,8 @@ namespace Application.Services
             }
 
             var fileSize = file.Length;
-            if(fileSize > 25 * 1024 * 1024)
+            
+            if (fileSize > 25 * 1024 * 1024)
             {
                 throw new Exception("File size is too big");
             }
