@@ -73,15 +73,21 @@ namespace Infrastructure.Repositories
 
         public bool DeleteMealPlan(Guid id)
         {
-            var query = "DELETE FROM [SummerPractice].[Meal_Plan] WHERE [Meal_Plan_Id] = @Meal_Plan_Id";
+            var queryMealPlan = "DELETE FROM [SummerPractice].[Meal_Plan] WHERE [Meal_Plan_Id] = @Meal_Plan_Id";
+            var queryPlanList = "DELETE FROM [SummerPractice].[Plan_List] WHERE [Plan_Id] = @Meal_Plan_Id";
+            var queryFiles = "DELETE FROM [SummerPractice].[file] WHERE [FileName] = @Meal_Plan_Id";
+
             var parameters = new DynamicParameters();
+            var parametersFiles = new DynamicParameters();
 
             parameters.Add("Meal_Plan_Id", id, DbType.Guid);
-
+            parametersFiles.Add("Meal_Plan_Id", id.ToString().ToUpper(), DbType.String);
             var connection = _databaseContext.GetDbConnection();
-            var result = connection.Execute(query, parameters);
+            var resultPlanList = connection.Execute(queryPlanList, parameters);
+            var resultMealPlan = connection.Execute(queryMealPlan, parameters);
+            var resultFiles = connection.Execute(queryFiles, parametersFiles);
 
-            return result != 0;
+            return resultMealPlan != 0 && resultFiles != 0 && resultPlanList != 0;
         }
 
         public bool UpdateMealPlan(MealPlan mealPlan)

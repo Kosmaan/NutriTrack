@@ -47,7 +47,7 @@ namespace WebApi.Controllers
         [AllowAnonymous]
         public bool DeleteMealPlanById([FromQuery] Guid id)
         {
-            return _mealPlanService.DeleteMeal(id);
+            return _mealPlanService.DeleteMealPlan(id);
         }
 
         [HttpPost]

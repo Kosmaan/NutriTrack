@@ -36,7 +36,7 @@ namespace Application.Services
             return mealPlanSend;
         }
 
-        public bool DeleteMeal(Guid id)
+        public bool DeleteMealPlan(Guid id)
         {
             return _mealPlanRepository.DeleteMealPlan(id);
         }
