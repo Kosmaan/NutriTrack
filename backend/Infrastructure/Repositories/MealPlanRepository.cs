@@ -111,5 +111,15 @@ namespace Infrastructure.Repositories
 
             return result;
         }
+
+        public IEnumerable<PlanList> GetAllDays()
+        {
+            var query = "SELECT * FROM [SummerPractice].[Plan_List]";
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Query<PlanList>(query);
+
+            return result;
+        }
     }
 }

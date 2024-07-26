@@ -35,5 +35,14 @@ namespace Infrastructure.Repositories
             var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
             return result != 0;
         }
+
+        public IEnumerable<FileDetails> GetAllFiles()
+        {
+            var sql = "SELECT [FileName], [Path] FROM [SummerPractice].[File]";
+
+            var connection = _databaseContext.GetDbConnection();
+            var file = connection.Query<FileDetails>(sql);
+            return file;
+        }
     }
 }

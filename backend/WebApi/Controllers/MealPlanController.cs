@@ -38,7 +38,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IEnumerable<MealPlanDTO> GetAllMealPlans()
+        public IEnumerable<MealPlanSend> GetAllMealPlans()
         {
             return _mealPlanService.GetAllMealPlans();
         }

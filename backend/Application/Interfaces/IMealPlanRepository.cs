@@ -7,6 +7,7 @@ namespace Application.Interfaces
     {
         bool AddMealPlan(MealPlan mealPlan, Guid id);
         IEnumerable<PlanList> GetDays(Guid id);
+        IEnumerable<PlanList> GetAllDays();
         bool AddPlanList(List<PlanList> planList);
         MealPlan GetMealPlan(Guid id);
         bool DeleteMealPlan(Guid id);
