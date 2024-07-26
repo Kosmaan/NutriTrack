@@ -24,6 +24,7 @@ import { StatisticsModule } from './pages/statistics/statistics.module';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 import { AdminModule } from './pages/admin/admin.module';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AdminModule } from './pages/admin/admin.module';
     ItemSelectorComponent,
     ContactComponent,
     AuthenticationComponent,
+    AboutUsComponent,
 
   ],
   imports: [
