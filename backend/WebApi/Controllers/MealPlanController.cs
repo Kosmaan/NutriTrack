@@ -50,10 +50,11 @@ namespace WebApi.Controllers
             return _mealPlanService.DeleteMealPlan(id);
         }
 
-        [HttpPost]
+        [HttpPut]
         [AllowAnonymous]
         public bool UpdateMeal([FromForm] MealPlanDTO mealPlan)
         {
+           // _fileService.SaveFile(mealPlan.Photo, mealPlan.Meal_Plan_Id);
             return _mealPlanService.UpdateMealPlan(mealPlan);
         }
     }

@@ -51,9 +51,19 @@ namespace Application.Services
             
         }
 
-        public bool UpdateMealPlan(MealPlanDTO mealPlan)
+        public bool UpdateMealPlan(MealPlanDTO mealPlanDTO)
         {
-            return _mealPlanRepository.UpdateMealPlan(mealPlan.ToEntity());
+             var result1 = _mealPlanRepository.UpdateMealPlan(mealPlanDTO.ToEntity());
+            
+            var planList = mealPlanDTO.ToPlanList(mealPlanDTO.Meal_Plan_Id);
+
+            bool result2 = false;
+            foreach(var i in planList)
+               result2 = _mealPlanRepository.UpdatePlanList(i);
+
+
+            
+            return result1 && result2;
         }
     }
 }

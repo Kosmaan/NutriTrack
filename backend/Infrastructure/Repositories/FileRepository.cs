@@ -36,6 +36,8 @@ namespace Infrastructure.Repositories
             return result != 0;
         }
 
+    
+
         public IEnumerable<FileDetails> GetAllFiles()
         {
             var sql = "SELECT [FileName], [Path] FROM [SummerPractice].[File]";

@@ -127,5 +127,21 @@ namespace Infrastructure.Repositories
 
             return result;
         }
+
+        public bool UpdatePlanList(PlanList mealPlanList)
+        {
+            var query = "UPDATE [SummerPractice].[Plan_List] SET [Meal_Id] = @Meal_Id, [Day] = @Day, [Meal_Time] = @Meal_Time WHERE [Plan_Id] = @Meal_Plan_Id";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("Meal_Id", mealPlanList.Meal_Id, DbType.Guid);
+            parameters.Add("Day", mealPlanList.Day, DbType.Int16);
+            parameters.Add("Meal_Time", mealPlanList.Meal_Time, DbType.Int16);
+            parameters.Add("Meal_Plan_Id", mealPlanList.Plan_Id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
+
+            return result != 0;
+        }
     }
 }
