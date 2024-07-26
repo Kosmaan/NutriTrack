@@ -8,7 +8,7 @@ namespace Application.Services
     {
         private IFileRepository _fileRepository;
 
-        private static readonly List<string> allowedExtensions = new() { ".jpeg", ".cvs", ".png", ".pdf" };
+        private static readonly List<string> allowedExtensions = new() { ".jpeg", ".cvs", ".png", ".pdf" , ".jpg"};
 
         public FileService(IFileRepository fileRepository)
         {

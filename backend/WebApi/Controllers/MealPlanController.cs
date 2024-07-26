@@ -26,7 +26,7 @@ namespace WebApi.Controllers
         {
             Guid id = Guid.NewGuid();
             _fileService.SaveFile(mealPlan.Photo, id);
-            return _mealPlanService.AddMealPlan(mealPlan.ToEntity(), id);
+            return _mealPlanService.AddMealPlan(mealPlan, id);
         }
 
         [HttpGet]

@@ -8,9 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Scripts\Script00001 - Create initial database.sql" />
+    <None Remove="Scripts\Script00002 - Added day and time to plan_list.sql" />
     <None Remove="Scripts\Step00001-Create db schema and user table.sql" />
     <None Remove="Scripts\Step00002-Add role to user table.sql" />
     <None Remove="Scripts\Step00003-Add file table.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\Script00001 - Create initial database.sql" />
+    <EmbeddedResource Include="Scripts\Script00002 - Added day and time to plan_list.sql" />
   </ItemGroup>
 
   <ItemGroup>

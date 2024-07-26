@@ -18,16 +18,16 @@ namespace Infrastructure.Repositories
             this._databaseContext = databaseContext;
         }
 
-        public Task<IEnumerable<UserCredentials>> GetUser(string email)
+        public UserCredentials GetUser(string email)
         {
             var sql = "SELECT [User_id], [Password], [Email], [Role] FROM [SummerPractice].[User_Credentials] WHERE [Email] = @Email";
 
             var connection = _databaseContext.GetDbConnection();
-            var users = connection.QueryAsync<UserCredentials>(sql, new {Email = email});
-            return users;
+            var users = connection.Query<UserCredentials>(sql, new {Email = email});
+            return users.FirstOrDefault();
         }
 
-        public async Task<bool> RegisterUser(UserCredentials credentials, UserData data, UserWeight weight)
+        public bool RegisterUser(UserCredentials credentials, UserData data, UserWeight weight)
         {
             var query = "INSERT INTO [SummerPractice].[User_Credentials] ([Password], [Email], [Role]) VALUES (@Password, @Email, @Role)";
             var query2 = "INSERT INTO [SummerPractice].[User_Data] ([First_Name], [Last_Name], [Height], [Gender], [Birth_Date], [User_id]) VALUES (@First_Name, @Last_Name, @Height, @Gender, @Birth_Date, @User_id)";
@@ -41,14 +41,14 @@ namespace Infrastructure.Repositories
             parametersCredentials.Add("Role", credentials.Role, DbType.String);
 
             var connection = _databaseContext.GetDbConnection();
-            var result1 = await connection.ExecuteAsync(query, parametersCredentials, _databaseContext.GetDbTransaction());
+            var result1 = connection.Execute(query, parametersCredentials, _databaseContext.GetDbTransaction());
 
             if (result1 == 0)
             {
                 return false;
             }
 
-            var User_id = GetUser(credentials.Email).Result.FirstOrDefault().User_Id;
+            var User_id = GetUser(credentials.Email).User_Id;
 
             parametersData.Add("First_Name", data.First_Name, DbType.String);
             parametersData.Add("Last_Name", data.Last_Name, DbType.String);
@@ -57,7 +57,7 @@ namespace Infrastructure.Repositories
             parametersData.Add("Birth_Date", data.Birth_Date, DbType.Date);
             parametersData.Add("User_id", User_id, DbType.Guid);
 
-            var result2 = await connection.ExecuteAsync(query2, parametersData, _databaseContext.GetDbTransaction());
+            var result2 = connection.Execute(query2, parametersData, _databaseContext.GetDbTransaction());
 
             if (result2 == 0)
             {
@@ -67,17 +67,17 @@ namespace Infrastructure.Repositories
             parametersWeight.Add("Weight", weight.Weight, DbType.Decimal);
             parametersWeight.Add("User_id", User_id, DbType.Guid);
 
-            var result3 = await connection.ExecuteAsync(query3, parametersWeight, _databaseContext.GetDbTransaction());
+            var result3 = connection.Execute(query3, parametersWeight, _databaseContext.GetDbTransaction());
 
             return result3 != 0;
         }
 
-        public async Task<bool> GiveUserAdminRights(string email)
+        public bool GiveUserAdminRights(string email)
         {
             var sql = "UPDATE [SummerPractice].[User_Credentials] SET [Role] = 'admin' WHERE [Email] = @Email";
 
             var connection = _databaseContext.GetDbConnection();
-            var result = await connection.ExecuteAsync(sql, new { Email = email });
+            var result = connection.Execute(sql, new { Email = email });
             return result != 0;
         }
     }

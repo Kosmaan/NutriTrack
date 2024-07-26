@@ -30,6 +30,25 @@ namespace Infrastructure.Repositories
             return result != 0;
         }
 
+        public bool AddPlanList(List<PlanList> planList)
+        {
+            var query = "INSERT INTO [SummerPractice].[Plan_List] ([Meal_Id], [Plan_Id], [Day], [Meal_Time]) VALUES (@Meal_Id, @Plan_Id, @Day, @Meal_Time)";
+            var connection = _databaseContext.GetDbConnection();
+
+            foreach(var plan in planList)
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("Meal_Id", plan.Meal_Id, DbType.Guid);
+                parameters.Add("Plan_Id", plan.Plan_Id, DbType.Guid);
+                parameters.Add("Day", plan.Day, DbType.Int16);
+                parameters.Add("Meal_Time", plan.Meal_Time, DbType.Int16);
+
+                var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
+                if (result == 0) return false;
+            }
+            return true;
+        }
+
         public MealPlan GetMealPlan(Guid id)
         {
             var query = "SELECT * FROM [SummerPractice].[Meal_Plan] WHERE [Meal_Plan_Id] = @Meal_Plan_Id";

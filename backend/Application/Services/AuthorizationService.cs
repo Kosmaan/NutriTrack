@@ -18,18 +18,18 @@ namespace Application.Services
             _authenticationRepository = authenticationRepository;
         }
 
-        public async Task<bool> RegisterUser(UserCredentials credentials, UserData data, UserWeight weight)
+        public bool RegisterUser(UserCredentials credentials, UserData data, UserWeight weight)
         {
-            var userCheck = await this._authenticationRepository.GetUser(credentials.Email);
+            var userCheck = this._authenticationRepository.GetUser(credentials.Email);
 
-            if (userCheck.ToList().Count != 0)
+            if (userCheck != null)
             {
                 throw new Exception("User already registered");
                 //throw new NullReferenceException("User already registered");
             }
 
             var hashedPassword = this._passwordHasher.Hash(credentials.Password);
-            var registerResult = await this._authenticationRepository.RegisterUser(new UserCredentials
+            var registerResult = this._authenticationRepository.RegisterUser(new UserCredentials
             {          
                 Password = hashedPassword,
                 Email = credentials.Email,
@@ -49,19 +49,19 @@ namespace Application.Services
             return registerResult;
         }
 
-        public async Task<User> LoginUser(UserCredentials credentials)
+        public User LoginUser(UserCredentials credentials)
         {
-            var userHashed = await this._authenticationRepository.GetUser(credentials.Email);
+            var userHashed = this._authenticationRepository.GetUser(credentials.Email);
 
-            if (!_passwordHasher.Verify(userHashed.FirstOrDefault().Password, credentials.Password))
+            if (!_passwordHasher.Verify(userHashed.Password, credentials.Password))
             {
-                throw new Exception("Username or password are incorrect");
+                throw new ArgumentException("Password is incorrect");
             }
 
             var result = new User
             {
-                Email = userHashed.FirstOrDefault().Email,
-                Role = userHashed.FirstOrDefault().Role,
+                Email = userHashed.Email,
+                Role = userHashed.Role,
             };
 
             var jwtToken = this._identityHandler.GenerateToken(result);
@@ -70,16 +70,16 @@ namespace Application.Services
             return result;
         }
 
-        public async Task<bool> GiveUserAdminRights(string email)
+        public bool GiveUserAdminRights(string email)
         {
-            var userCheck = await this._authenticationRepository.GetUser(email);
+            var userCheck = this._authenticationRepository.GetUser(email);
 
-            if (userCheck.ToList().Count == 0)
+            if (userCheck == null)
             {
                 throw new Exception("User is not registered");
             }
 
-            var result = await this._authenticationRepository.GiveUserAdminRights(email);
+            var result = this._authenticationRepository.GiveUserAdminRights(email);
 
             return result;
         }
