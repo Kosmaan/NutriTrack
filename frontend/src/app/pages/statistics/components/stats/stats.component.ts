@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,Output,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-stats',
@@ -7,9 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class StatsComponent {
+  @Output() moreClicked = new EventEmitter<void>();
 
-  
-  kcal: number=200;
+  kcal: number=0;
   maxkcal: number=2200;
   protein: number=0;
   maxprotein: number=30;
@@ -25,8 +26,8 @@ export class StatsComponent {
     const offset = circumference - (this.value / 100) * circumference;
     return offset;
   }
-  scrolltocalendar():void{
-    window.scrollTo({top:500,behavior:'smooth'});
+
+  onMoreClick(): void {
+    this.moreClicked.emit();
   }
-  
 }

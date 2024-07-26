@@ -9,4 +9,12 @@ export class StatisticsComponent {
 
 User: string="User";
 
+scrollToCalendar(): void {
+  const target = document.getElementById('calendarComponent');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+  
+}
+
 }

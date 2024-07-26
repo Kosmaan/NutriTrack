@@ -1,16 +1,16 @@
-<div class ="text">
+<div class="text">
     <p id="welcome">Welcome back, {{User}}</p>
 </div>
-<app-stats></app-stats>
+<app-stats (moreClicked)="scrollToCalendar()"></app-stats>
 <app-hints-item></app-hints-item>
-<div class ="text">
+<div class="text">
     <p id="current">Your current meal plan</p>
 </div>
 <app-meal-card-stats></app-meal-card-stats>
 <div class="divider"></div>
-<app-calendar></app-calendar>
+<app-calendar id="calendarComponent"></app-calendar>
 <div class="divider"></div>
-<div class ="text">
+<div class="text">
     <p id="more">Find more plans</p>
 </div>
 <div class="more_plans">

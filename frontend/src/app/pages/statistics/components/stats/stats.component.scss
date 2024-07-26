@@ -5,8 +5,8 @@
     padding: 2.5vw; 
     margin: 0 auto;
     width: 50vw; 
-    background: #F1F1F1;
-    box-shadow: 0 0.5vw 0.5vw rgba(0, 0, 0, 0.25); 
+    background: var(--primary-colour);
+    box-shadow: var(--drop-shadow);
     border-radius: 1vw;
     margin-bottom: 5vw;
 }
@@ -48,17 +48,17 @@
     width: 5vw; 
     height: 2vw; 
     font-size: 0.75vw; 
-    background: #F1F1F1;
-    border:1px solid #7ABA78;
+    background: var(--primary-colour);
+    border:1px solid var(--accent-colour);
     border-radius: 0.25vw; 
-    color: #7ABA78;
+    color: var(--accent-colour);
     font-family: 'Roboto';
     text-align: center;
     letter-spacing: 0.05vw;
 }
 .more button:hover {
-    background-color: #7ABA78; 
-    color: #f5f5f5;
+    background-color: var(--accent-colour); 
+    color: var(--primary-colour);
 }
 
 .progress {
@@ -77,17 +77,17 @@
 
 .circle-bg {
     fill: none;
-    stroke: #dcdcdc;
+    stroke: var(--secondary-colour);
 }
 
 .circle-progress {
     fill: none;
-    stroke: #7ABA78;
+    stroke: var(--accent-colour);
 }
 
 .spinner-text {
     position: absolute;
-    color: #7ABA78;
+    color: var(--accent-colour);
     font-family: 'Roboto', sans-serif;
     font-size: 2vw; 
     text-align: center;
