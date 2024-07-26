@@ -18,11 +18,17 @@
   width: 40%;
   height: 160px;
   border-radius: 15px;
+  transition: all 0.3s ease;
 
   img {
     width: 100px;
     height: 100px;
   }
+}
+
+.container-item:hover {
+  box-shadow: none;
+  transform: translateY(2px);
 }
 
 .container-text {
