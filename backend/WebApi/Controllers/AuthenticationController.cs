@@ -22,18 +22,18 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<bool>> RegisterUser([FromBody] SignupDTO formData)
+        public ActionResult<bool> RegisterUser([FromBody] SignupDTO formData)
         {
-            var result = await this._authorizationService.RegisterUser(formData.ToUserCredentials(), formData.ToUserData(), formData.ToUserWeight());
+            var result = this._authorizationService.RegisterUser(formData.ToUserCredentials(), formData.ToUserData(), formData.ToUserWeight());
 
             return Ok(result);
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<string>> LoginUser([FromBody] UserCredentialsContract credentialsContract)
+        public ActionResult<string> LoginUser([FromBody] UserCredentialsContract credentialsContract)
         {
-            var result = await this._authorizationService.LoginUser(credentialsContract.MapTestToDomain());
+            var result = this._authorizationService.LoginUser(credentialsContract.MapTestToDomain());
 
             _logger.LogInformation("Logged in as user: "+result.Email);
 
@@ -42,9 +42,9 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
-        public async Task<ActionResult<string>> GiveUserAdminRights([FromQuery] string email)
+        public ActionResult<string> GiveUserAdminRights([FromQuery] string email)
         {
-            var result = await this._authorizationService.GiveUserAdminRights(email);
+            var result = this._authorizationService.GiveUserAdminRights(email);
 
             return Ok(result);
         }

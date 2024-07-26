@@ -47,7 +47,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public bool UpdateMeal([FromBody] MealDTO dto)
+        public bool UpdateMeal([FromForm] MealDTO dto)
         {
             return _mealService.UpdateMeal(dto);
         }

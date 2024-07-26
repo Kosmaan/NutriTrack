@@ -81,12 +81,13 @@ namespace Infrastructure.Repositories
 
         public bool UpdateMeal(Meal meal)
         {
-            var query = "UPDATE [SummerPractice].[Meal] SET [Title] = @Title, [Description] = @Description, [Carbs] = @Carbs, [Proteins] = @Proteins, [Fats] = @Fats, [Published_Date] = @Date WHERE Meal_Id = @Id ";
+            var query = "UPDATE [SummerPractice].[Meal] SET [Title] = @Title, [Description] = @Description, [Calories] = @Calories, [Carbs] = @Carbs, [Proteins] = @Proteins, [Fats] = @Fats, [Published_Date] = @Date WHERE Meal_Id = @Id ";
             var parameters = new DynamicParameters();
 
             parameters.Add("Id", meal.Meal_Id);
             parameters.Add("Title", meal.Title, DbType.String);
             parameters.Add("Description", meal.Description, DbType.String);
+            parameters.Add("Calories", meal.Calories, DbType.Int16);
             parameters.Add("Carbs", meal.Carbs, DbType.Int16);
             parameters.Add("Proteins", meal.Protein, DbType.Int16);
             parameters.Add("Fats", meal.Fats, DbType.Int16);
