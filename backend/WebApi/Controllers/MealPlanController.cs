@@ -31,7 +31,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public MealPlanDTO GetMealPlanById([FromQuery] Guid id)
+        public MealPlanSend GetMealPlanById([FromQuery] Guid id)
         {
             return _mealPlanService.GetMealPlan(id);
         }

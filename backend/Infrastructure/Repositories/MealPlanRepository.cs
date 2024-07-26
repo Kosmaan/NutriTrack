@@ -4,6 +4,7 @@ using Application.Interfaces;
 using Dapper;
 using Domain;
 using Infrastructure.Interfaces;
+using WebApiContracts;
 
 namespace Infrastructure.Repositories
 {
@@ -96,6 +97,19 @@ namespace Infrastructure.Repositories
             var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
 
             return result != 0;
+        }
+
+        public IEnumerable<PlanList> GetDays(Guid id)
+        {
+            var query = "SELECT * FROM [SummerPractice].[Plan_List] WHERE [Plan_Id] = @Plan_Id";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("Plan_Id", id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Query<PlanList>(query, parameters);
+
+            return result;
         }
     }
 }

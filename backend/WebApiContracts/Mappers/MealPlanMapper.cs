@@ -14,13 +14,36 @@ namespace WebApiContracts.Mappers
             };
         }
 
-        public static MealPlanDTO ToDTO(this MealPlan entity)
+        public static MealPlanSend ToDTO(MealPlan plan, IEnumerable<PlanList> days, string photo)
+        {
+           
+            var dayDTOs = days
+            .GroupBy(pl => pl.Day)
+            .Select(g => new WebApiContracts.DayDTO
+            {
+                Day = g.Key,
+                Breakfast = g.FirstOrDefault(pl => pl.Meal_Time == 1)?.Meal_Id ?? Guid.Empty,
+                Lunch = g.FirstOrDefault(pl => pl.Meal_Time == 2)?.Meal_Id ?? Guid.Empty,
+                Dinner = g.FirstOrDefault(pl => pl.Meal_Time == 3)?.Meal_Id ?? Guid.Empty
+            }).ToList();
+            return new MealPlanSend
+            {
+                Meal_Plan_Id = plan.Meal_Plan_Id,
+                Description = plan.Description,
+                Title = plan.Title,
+                Photo = photo,
+                Meals = dayDTOs
+            };
+        }
+
+        public static MealPlanDTO ToDTO(this MealPlan plan)
         {
             return new MealPlanDTO
             {
-                Meal_Plan_Id = entity.Meal_Plan_Id,
-                Description = entity.Description,
-                Title = entity.Title,
+                Meal_Plan_Id = plan.Meal_Plan_Id,
+                Description = plan.Description,
+                Title = plan.Title,
+
             };
         }
 
@@ -38,5 +61,7 @@ namespace WebApiContracts.Mappers
             }
             return meals;
         }
+
+     
     }
 }
