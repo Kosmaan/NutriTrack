@@ -1,67 +1,66 @@
-.item-card { 
-    padding: 20px 0;
-    background-color: var(--primary-colour);
-    border-radius: var(--border-radius);
-    box-shadow: var(--drop-shadow);
-    width: 100%;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-  
-    hr {
-      width: 80%;
-    }
-  }
-  
-  .item-card-photo {
-    padding: 0 20px;
-    padding-bottom: 10px;
-  
-    img {
-      width: 100%;
-    }
-  }
-  
-  .item-card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  
-    h3 {
-      margin: 0;
-  
-    }
-  }
-  
-  .item-card-description {
-   padding: 0 20px; 
-   flex-grow: 1;
-  }
-  
-  .item-edit-button {
-    background-color: var(--accent-colour);
-    border: 1px solid var(--accent-colour);
-    border-radius: 15px;
-    margin: 10px 20px;
-    padding: 10px 0;
+.item-card {
+  padding: 20px 0;
+  background-color: var(--primary-colour);
+  border-radius: var(--border-radius);
+  box-shadow: var(--drop-shadow);
+  width: 100%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+
+  hr {
     width: 80%;
-    color: var(--primary-colour);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
   }
-  
-  .item-edit-button:hover {
-    background-color: var(--primary-colour);
-    border: 1px solid var(--accent-colour);
-    color: var(--accent-colour);
+}
+
+.item-card-photo {
+  padding: 0 20px;
+  padding-bottom: 10px;
+
+  img {
+    width: 100%;
   }
-  
-  .item-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
-    margin-top: auto;
+}
+
+.item-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  h3 {
+    margin: 0;
   }
+}
+
+.item-card-description {
+  padding: 0 20px;
+  flex-grow: 1;
+}
+
+.item-edit-button {
+  background-color: var(--accent-colour);
+  border: 1px solid var(--accent-colour);
+  border-radius: 15px;
+  margin: 10px 20px;
+  padding: 10px 0;
+  width: 80%;
+  color: var(--primary-colour);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.item-edit-button:hover {
+  background-color: var(--primary-colour);
+  border: 1px solid var(--accent-colour);
+  color: var(--accent-colour);
+}
+
+.item-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  margin-top: auto;
+}
