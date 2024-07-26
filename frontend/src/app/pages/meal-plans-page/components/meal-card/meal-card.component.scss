@@ -9,6 +9,7 @@
   background-color: var(--primary-colour);
   border-radius: var(--border-radius);
   box-shadow: var(--drop-shadow);
+  transition: all 0.3s ease;
 
   hr {
     height: 0px;
@@ -54,4 +55,9 @@
     background-color: var(--primary-colour);
     color: var(--accent-colour);
   }
+}
+
+#meal-card:hover {
+  box-shadow: none;
+  transform: translateY(2px);
 }
