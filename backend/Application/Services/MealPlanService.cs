@@ -14,9 +14,11 @@ namespace Application.Services
             _mealPlanRepository = mealPlanRepository;
         }
 
-        public bool AddMealPlan(MealPlan mealPlan, Guid id)
+        public bool AddMealPlan(MealPlanDTO mealPlanDTO, Guid id)
         {
-            return _mealPlanRepository.AddMealPlan(mealPlan, id);
+            var result1 = _mealPlanRepository.AddMealPlan(mealPlanDTO.ToEntity(), id);
+            var result2 = _mealPlanRepository.AddPlanList(mealPlanDTO.ToPlanList(id));
+            return result1 && result2;
         }
 
         public MealPlanDTO GetMealPlan(Guid id)
