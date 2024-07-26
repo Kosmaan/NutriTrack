@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     padding: 27px;
+    gap: 33px;
 }
 
 .plan-container{
@@ -12,7 +13,7 @@
     padding: 27px 921px 80px 52px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 31px;
+    gap: 5px;
     border-radius: 10px;
     background: #7ABA78;
 
@@ -34,4 +35,14 @@
         line-height: 22px;
         letter-spacing: 0.1px;
     }
+}
+
+.meals-container{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F1F1F1;
+   
 }
