@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/authentication/login/login.component';
 import { RegisterComponent } from './pages/authentication/register/register.component';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PlanDetailsComponent } from './pages/plan-details/plan-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,13 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'add-meal', component: AddMealComponent },
   { path: 'aboutus', component: AboutUsComponent },
+  {
+    path: 'Monday',
+    loadChildren: () =>
+      import('./pages/plan-details/plan-details.module').then(
+        (m) => m.PlanDetailsComponent
+      ),
+  },
 ];
 
 @NgModule({
