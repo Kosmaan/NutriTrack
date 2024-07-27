@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using Application;
+﻿using System.Data;
 using Application.Interfaces;
 using Dapper;
-
 using Domain;
 using Infrastructure.Interfaces;
+
 namespace Infrastructure.Repositories
 {
     public class MealRepository : IMealRepository
     {
         private readonly IDatabaseContext _databaseContext;
+
         public MealRepository(IDatabaseContext databaseContext)  
         {
             this._databaseContext = databaseContext;
         }
-        
-
 
 
         public bool addMeal(Meal meal, Guid id)

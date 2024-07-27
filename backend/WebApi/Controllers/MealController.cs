@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
 using Application.Services;
-using Domain;
 using WebApiContracts;
 using WebApiContracts.Mappers;
 namespace WebApi.Controllers
