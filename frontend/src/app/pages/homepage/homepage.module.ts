@@ -8,6 +8,7 @@ import { ToolsShowcaseComponent } from 'src/app/pages/homepage/components/tools-
 import { BannerWithButtonComponent } from 'src/app/pages/homepage/components/banner-with-button/banner-with-button.component';
 import { AccentButtonComponent } from './components/accent-button/accent-button.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 const COMPONENTS: any[] = [
   BannerComponent,
@@ -20,7 +21,7 @@ const COMPONENTS: any[] = [
 ];
 @NgModule({
   declarations: [COMPONENTS],
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   exports: [COMPONENTS],
   providers: [],
   bootstrap: [HomepageComponent],
