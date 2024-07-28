@@ -16,3 +16,9 @@
     margin: 0 200px;
     color: var(--primary-colour);
 }
+
+@media (max-width: 1024px){
+    .container-text{
+        font-size: 30px;
+    }
+}

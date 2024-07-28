@@ -106,3 +106,9 @@
   background-color: var(--accent-colour);
   color: var(--primary-colour);
 }
+
+@media (max-width: 1024px) {
+  .text-container h1{
+    font-size: 40px;
+  }
+}
