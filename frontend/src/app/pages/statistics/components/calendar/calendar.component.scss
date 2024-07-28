@@ -74,16 +74,16 @@
     border: none;
     cursor: pointer;
     border-radius: 50%; 
-    width: 3vw;
-    height: 3vw;
+    height: 50px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 3%;
+    transition: all 0.3s ease;
 }
 
 .previous-button:hover, .next-button:hover {
     background-color: var(--primary-colour);
     color: var(--accent-colour);
-    transition: all 0.3s ease;
 }

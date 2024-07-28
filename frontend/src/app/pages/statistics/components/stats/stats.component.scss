@@ -4,11 +4,12 @@
     align-items: center;
     padding: 2.5vw; 
     margin: 0 auto;
-    width: 50vw; 
+    width: 50%; 
     background: var(--primary-colour);
     box-shadow: var(--drop-shadow);
-    border-radius: 1vw;
+    border-radius: var(--border-radius);
     margin-bottom: 5vw;
+    border: 2px solid red;
 }
 
 .stats {
@@ -45,16 +46,16 @@
 }
 
 .more button {
-    width: 5vw; 
-    height: 2vw; 
-    font-size: 0.75vw; 
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 600;
     background: var(--primary-colour);
     border:1px solid var(--accent-colour);
-    border-radius: 0.25vw; 
+    border-radius: 10px;
     color: var(--accent-colour);
-    font-family: 'Roboto';
     text-align: center;
-    letter-spacing: 0.05vw;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 .more button:hover {
     background-color: var(--accent-colour); 
