@@ -14,7 +14,7 @@ export class BannerWithButtonComponent {
 
   onButtonClick() {
     if (this.authService.loggedIn()) {
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigate(['/dashboard/plans']);
     } else {
       this.router.navigate(['/authentication/login']);
     }

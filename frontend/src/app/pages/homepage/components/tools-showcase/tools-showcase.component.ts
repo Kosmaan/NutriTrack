@@ -28,7 +28,7 @@ export class ToolsShowcaseComponent {
 
   onButtonClick() {
     if (this.authService.loggedIn()) {
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigate(['/dashboard/statistics']);
     } else {
       this.router.navigate(['/authentication/login']);
     }

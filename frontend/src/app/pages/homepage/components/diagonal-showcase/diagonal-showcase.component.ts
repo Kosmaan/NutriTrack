@@ -12,7 +12,7 @@ export class DiagonalShowcaseComponent {
 
   onButtonClick() {
     if(this.authService.loggedIn()) {
-      this.router.navigate(['/dashboard/about-us']);
+      this.router.navigate(['/dashboard/plans']);
     }
     else {
       this.router.navigate(['/authentication/login/']);
