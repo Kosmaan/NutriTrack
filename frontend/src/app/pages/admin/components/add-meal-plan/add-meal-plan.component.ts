@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { Meal } from 'src/app/models/Meal';
+import { MealPlanDTO } from 'src/app/models/MealPlanDTO';
 import { MealService } from 'src/app/services/Meal.service';
 import { PlanService } from 'src/app/services/Plan.service';
 @Component({
@@ -21,11 +22,12 @@ export class AddMealPlanComponent implements OnInit {
       this.meals = meals;
       console.log(this.meals)
     } )
-   
+    this.plan = {description : "", title: "", photo: this.photo, meals: []};
   }
 
   meals!: Meal[];
-
+  plan!: MealPlanDTO;
+  formData!: FormData
   fileName: string = 'No file chosen';
   selectedDay: Number = 1;
   test: String = "";
@@ -71,7 +73,7 @@ export class AddMealPlanComponent implements OnInit {
     },
     {
       name: 'Saturday',
-      value: 30,
+      value: 6,
     },
     {
       name: 'Sunday',
@@ -89,7 +91,33 @@ export class AddMealPlanComponent implements OnInit {
 
   OnProductSubmit() {
         console.log(this.planForm.value);
-        console.log(this.test + " helloooooo");
+        this.plan.description = this.planForm.get("description")?.value;
+        this.plan.title = this.planForm.get("name")?.value;
+        this.plan.photo = this.photo;
+        this.plan.meals = this.planForm.get("meals")?.value;
+        
+        console.log(this.plan);
+
+
+        this.formData.append('Title',this.planForm.get("name")?.value);
+        this.formData.append('Description',this.planForm.get("description")?.value);
+        this.formData.append('Photo',this.photo);
+
+      for(let index in this.plan.meals)
+        {
+         console.log(index);
+       console.log(this.plan.meals[0]);
+        this.formData.append(`Meals[${index}].Day` ,this.plan.meals[index].day.toString());
+        this.formData.append(`Meals[${index}].breakfast` ,this.plan.meals[index].breakfast.toString());
+        this.formData.append(`Meals[${index}].lunch` ,this.plan.meals[index].lunch.toString());
+        this.formData.append(`Meals[${index}].dinner` ,this.plan.meals[index].dinner.toString());
+        }
+       
+
+        this.planService.addMeal(this.formData).subscribe( (response: any) => {
+          
+          console.log(response)
+        } )
     }
 
   onFileChange(event: Event): void {
@@ -103,7 +131,7 @@ export class AddMealPlanComponent implements OnInit {
   ngOnInit(): void {
 
     
-   
+   this.formData = new FormData 
 
     this.planForm = new FormGroup({
       name: new FormControl(''),
@@ -120,7 +148,7 @@ export class AddMealPlanComponent implements OnInit {
   initDays() {
     const daysArray = this.planForm.get('meals') as FormArray;
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 7; i++) {
       daysArray.push(this.fb.group({
         day: [i + 1], // day is 1 to 7
         breakfast: [null],

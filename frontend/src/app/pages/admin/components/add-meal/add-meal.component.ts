@@ -11,6 +11,7 @@ export class AddMealComponent implements OnInit {
 
   addProductForm!: FormGroup<any>;
   formData = new FormData;
+  photo !: File;
   constructor(private mealService : MealService) {}
 
   ngOnInit() {
@@ -24,6 +25,8 @@ export class AddMealComponent implements OnInit {
       carbs: new FormControl(0, [Validators.required, Validators.min(0)]),
       fats: new FormControl(0, [Validators.required, Validators.min(0)]),
     });
+
+
   }
 
 
@@ -32,7 +35,7 @@ export class AddMealComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      this.formData.set('file', file, file.name);
+      this.photo = file;
     }
     }
   OnProductSubmit() {
@@ -46,17 +49,18 @@ export class AddMealComponent implements OnInit {
       }*/
       //console.log(this.addProductForm.value);
       console.log(this.addProductForm.value);
-      this.formData.append('Title', this.addProductForm.get('title')?.value);
+      this.formData.append('Title', this.addProductForm.get('name')?.value);
       this.formData.append('Category', this.addProductForm.get('category')?.value);
       this.formData.append('Description', this.addProductForm.get('description')?.value);
       this.formData.append('Calories', this.addProductForm.get('calories')?.value);
       this.formData.append('Protein', this.addProductForm.get('protein')?.value);
-      this.formData.append('Carbo', this.addProductForm.get('carbo')?.value);
+      this.formData.append('Carbs', this.addProductForm.get('carbs')?.value);
       this.formData.append('Fats', this.addProductForm.get('fats')?.value);
-
+      this.formData.append("File", this.photo);
+      this.formData.append("Photo", "s");
    
       
-      this.mealService.addMeal(this.addProductForm.value).subscribe((res: any) => console.log(res))
+      this.mealService.addMeal(this.formData).subscribe((res: any) => console.log(res))
     }
     
     return 0;
