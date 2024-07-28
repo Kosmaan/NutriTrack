@@ -25,6 +25,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { SharedModule } from './components/shared.module';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     AuthenticationModule,
     AdminModule,
     ReactiveFormsModule,
+    SharedModule,
     
 
 ],

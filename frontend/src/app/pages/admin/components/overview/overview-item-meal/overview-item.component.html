@@ -1,0 +1,23 @@
+<div class="item-card">
+  <div class="item-card-photo">
+    <img src={{meal.photo}} alt="" />
+  </div>
+  <div class="item-card-title">
+    <h3>{{meal.title}}</h3>
+  </div>
+  <hr />
+  <div class="item-card-description">
+    {{meal.description}}
+  </div>
+  <div class="text-container">
+    <div class="text-left">Proteins:{{ meal.protein }}g</div>
+    <div class="text-left">Fats:{{ meal.fats }}g</div>
+  </div>
+  <div class="text-container">
+    <div class="text-left">Calories:{{ meal.calories }} kcal</div>
+    <div class="text-left">Carbs:{{ meal.carbs }}g</div>
+  </div>
+  <div class="item-button-container">
+    <button class="item-edit-button">EDIT</button>
+  </div>
+</div>
