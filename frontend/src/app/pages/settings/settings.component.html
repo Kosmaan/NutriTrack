@@ -1,0 +1,78 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="settings-container">
+      <div class="settings-container-title">
+        <h1>Settings</h1>
+        <h3>Only the fields that contain text will be affected!</h3>
+      </div>
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>First Name</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="text" formControlName="firstName" class="input-field" />
+        </div>
+      </div>
+
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>Last Name</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="text" formControlName="lastName" class="input-field" />
+        </div>
+      </div>
+
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>Email</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="text" formControlName="email" class="input-field" />
+        </div>
+      </div>
+
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>Phone</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="text" formControlName="phone" class="input-field" />
+        </div>
+      </div>
+
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>Password</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="password" formControlName="password" class="input-field" />
+        </div>
+      </div>
+
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>Height</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="password" formControlName="height" class="input-field" />
+        </div>
+      </div>
+
+      <div class="settings-component">
+        <div class="settings-component-title">
+          <p>Weight</p>
+        </div>
+        <div class="settings-component-field">
+          <input type="password" formControlName="weight" class="input-field" />
+        </div>
+      </div>
+      
+      <div class="buttons-container">
+        <button class="submit-button">SUBMIT</button>
+        <button class="delete-button" (click)="confirmDelete()">DELETE ACCOUNT</button>
+      </div>
+
+    </div>
+  </div>
+</div>

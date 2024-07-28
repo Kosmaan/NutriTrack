@@ -1,0 +1,104 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 110vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.settings-container-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    
+    h3 {
+        margin: 0;
+        font-weight: 400;
+    }
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-colour);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--drop-shadow);
+    width: 40%;
+    padding: 25px 50px;
+}
+
+.settings-component {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-component-title {
+    margin: -10px 0;
+}
+
+.input-field {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.submit-button {
+    margin: 10px 0;
+    width: 100%;
+    background-color: var(--accent-colour);
+    color: var(--primary-colour);
+    border: 1px solid var(--accent-colour);
+    border-radius: var(--border-radius);
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-colour);
+    color: var(--accent-colour);
+    border: 1px solid var(--accent-colour);
+}   
+
+.delete-button {
+    margin: 10px 0;
+    width: 100%;
+    background-color: var(--primary-colour);
+    color: var(--text-colour);
+    border: 1px solid var(--text-colour);
+    border-radius: var(--border-radius);
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #FF0000;;
+    color: var(--primary-colour);
+    border: 1px solid #FF0000;;
+}   
+
+.gender-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60px;
+  }
+  
+  #gender-selector {
+    height: 60%;
+  }
+
+.buttons-container {
+    width: 100%;
+}
