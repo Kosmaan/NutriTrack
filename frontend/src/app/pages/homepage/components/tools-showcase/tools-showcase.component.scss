@@ -81,3 +81,17 @@
     padding-left: 3px;
 }
 }
+
+@media (max-width:768px){
+  .container-title h1{
+    font-size: 22px;
+  }
+
+  .container{
+    margin: 0px 100px;
+  }
+
+  .container-text{
+    font-size: 10px;
+  }
+}

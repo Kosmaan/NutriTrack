@@ -112,3 +112,13 @@
     font-size: 40px;
   }
 }
+
+@media (max-width: 768px) {
+  .text-container h1{
+    font-size: 23px;
+  }
+
+  .presentation-container p{
+    font-size: 20px;
+  }
+}

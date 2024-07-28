@@ -46,3 +46,9 @@ a {
     text-decoration: none;
     color: var(--accent-colour);
 }
+
+@media (max-width: 768px){
+    .contents{
+        padding: 0px 60px;
+    }
+}
