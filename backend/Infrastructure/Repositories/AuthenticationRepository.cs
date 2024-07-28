@@ -31,7 +31,7 @@ namespace Infrastructure.Repositories
         {
             var query = "INSERT INTO [SummerPractice].[User_Credentials] ([Password], [Email], [Role]) VALUES (@Password, @Email, @Role)";
             var query2 = "INSERT INTO [SummerPractice].[User_Data] ([First_Name], [Last_Name], [Height], [Gender], [Birth_Date], [User_id]) VALUES (@First_Name, @Last_Name, @Height, @Gender, @Birth_Date, @User_id)";
-            var query3 = "INSERT INTO [SummerPractice].[Weight] ([Weight], [User_id]) VALUES (@Weight, @User_id)";
+            var query3 = "INSERT INTO [SummerPractice].[Weight] ([Weight], [User_id], [Measurement_Date]) VALUES (@Weight, @User_id, @date)";
             var parametersCredentials = new DynamicParameters();
             var parametersData = new DynamicParameters();
             var parametersWeight = new DynamicParameters();
@@ -63,9 +63,10 @@ namespace Infrastructure.Repositories
             {
                 return false;
             }
-
+            var date =  DateTime.Now;
             parametersWeight.Add("Weight", weight.Weight, DbType.Decimal);
             parametersWeight.Add("User_id", User_id, DbType.Guid);
+            parametersWeight.Add("date",date , DbType.Date);
 
             var result3 = connection.Execute(query3, parametersWeight, _databaseContext.GetDbTransaction());
 

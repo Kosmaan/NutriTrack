@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <div class="add-entry-form-body">
+    <form [formGroup]="addProductForm" class="add-entry-form-body">
       <div class="add-entry-component">
         <div class="add-entry-component-title">
           <p>Name</p>
@@ -22,6 +22,7 @@
           </select>
         </div>
       </div>
+
       <div class="add-entry-component">
         <div class="add-entry-component-title">
           <p>Description</p>
@@ -42,7 +43,7 @@
           <input
             type="file"
             class="upload-photo"
-            (change)="onFileSelected($event)"
+            (change)="onFileChange($event)"
             id="fileInput"
           />
           <label for="fileInput" class="custom-upload-label">
@@ -101,8 +102,8 @@
         </div>
       </div>
       <div class="buttons-container">
-        <button class="submit-button">Create</button>
+        <button class="submit-button" (click)="OnProductSubmit()">Create</button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

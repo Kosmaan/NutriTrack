@@ -25,6 +25,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { SharedModule } from './components/shared.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSelectModule,
+    
     MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
@@ -58,6 +59,10 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     StatisticsModule,
     AuthenticationModule,
     AdminModule,
+    ReactiveFormsModule,
+    SharedModule,
+    
+
 ],
   providers: [],
   bootstrap: [AppComponent],

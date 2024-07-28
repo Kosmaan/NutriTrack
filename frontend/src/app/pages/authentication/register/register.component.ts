@@ -20,8 +20,8 @@ export class RegisterComponent {
   ngOnInit() {
     this.registerForm = new FormGroup(
       {
-        firstName: new FormControl('', [Validators.required]),
-        lastName: new FormControl('', [Validators.required]),
+        first_Name: new FormControl('', [Validators.required]),
+        last_Name: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required]),
         gender: new FormControl('', [Validators.required]),
@@ -32,6 +32,7 @@ export class RegisterComponent {
     )
   }
   onRegisterSubmit() {
+    console.log("register");
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
       this.authService.register(this.registerForm.value)

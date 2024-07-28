@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <div class="add-entry-form-body">
+    <form [formGroup]="planForm" class="add-entry-form-body">
       <div class="add-entry-component">
         <div class="add-entry-component-title">
           <p>Name</p>
@@ -23,353 +23,40 @@
         </div>
       </div>
 
+      <div class="add-entry-component-title">
+        <p>Meals</p>
+      </div>
+
       <div class="add-entry-component">
-        <div class="add-entry-component-title">
-          <p>Meals</p>
-        </div>
-
-        <div class="add-entry-component-field">
-          <select formControlName="day" class="form-control">
-            <option *ngFor="let da of day" [value]="day">{{ day }}</option>
+        <!--<div class="add-entry-component-field">
+          <select
+          
+          >
+            <option
+              *ngFor="let day of days; trackBy: trackByValue"
+              [ngValue]="day.value"
+            >
+              {{ day.name }}
+            </option>
           </select>
-        </div>
+        </div>-->
 
-        <div [ngClass]="{'hider': selectedDay !== 1}">
-          <div class="add-entry-component-title" id="monday">
-            <p>Monday</p>
-          </div>
-          <div class="add-entry-component-field"></div>
-          <div class="add-entry-component-cluster">
-            <div class="add-entry-component">
-              <div class="add-entry-component-title">
-                <p>Breakfast</p>
-              </div>
-              <div class="add-entry-component-field">
-                <select formControlName="category" class="form-control">
-                  <option value="">Select</option>
-                  <option value="1">Vegan</option>
-                  <option value="2">Keto</option>
-                  <option value="3">Muscle Gain</option>
-                </select>
-              </div>
-            </div>
-            <div class="add-entry-component">
-              <div class="add-entry-component-title">
-                <p>Lunch</p>
-              </div>
-              <div class="add-entry-component-field">
-                <select formControlName="category" class="form-control">
-                  <option value="">Select</option>
-                  <option value="1">Vegan</option>
-                  <option value="2">Keto</option>
-                  <option value="3">Muscle Gain</option>
-                </select>
-              </div>
-            </div>
-            <div class="add-entry-component">
-              <div class="add-entry-component-title">
-                <p>Dinner</p>
-              </div>
-              <div class="add-entry-component-field">
-                <select formControlName="category" class="form-control">
-                  <option value="">Select</option>
-                  <option value="1">Vegan</option>
-                  <option value="2">Keto</option>
-                  <option value="3">Muscle Gain</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div [ngClass]="{'hider': (selectedDay !== 2)}">
-          <div class="add-entry-component-title" id="tuesday">
-            <p>Tuesday</p>
-          </div>
-          <div class="add-entry-component-field"></div>
-          <div class="add-entry-component-cluster">
-            <div class="add-entry-component">
-              <div class="add-entry-component-title">
-                <p>Breakfast</p>
-              </div>
-              <div class="add-entry-component-field">
-                <select formControlName="category" class="form-control">
-                  <option value="">Select</option>
-                  <option value="1">Vegan</option>
-                  <option value="2">Keto</option>
-                  <option value="3">Muscle Gain</option>
-                </select>
-              </div>
-            </div>
-            <div class="add-entry-component">
-              <div class="add-entry-component-title">
-                <p>Lunch</p>
-              </div>
-              <div class="add-entry-component-field">
-                <select formControlName="category" class="form-control">
-                  <option value="">Select</option>
-                  <option value="1">Vegan</option>
-                  <option value="2">Keto</option>
-                  <option value="3">Muscle Gain</option>
-                </select>
-              </div>
-            </div>
-            <div class="add-entry-component">
-              <div class="add-entry-component-title">
-                <p>Dinner</p>
-              </div>
-              <div class="add-entry-component-field">
-                <select formControlName="category" class="form-control">
-                  <option value="">Select</option>
-                  <option value="1">Vegan</option>
-                  <option value="2">Keto</option>
-                  <option value="3">Muscle Gain</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div [ngClass]="{'hider': (selectedDay !== 3)}">
-            <div class="add-entry-component-title" id="wednesday">
-              <p>Wednesday</p>
-            </div>
-            <div class="add-entry-component-field"></div>
-            <div class="add-entry-component-cluster">
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Breakfast</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Lunch</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Dinner</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div [ngClass]="{'hider': (selectedDay !== 4)}">
-            <div class="add-entry-component-title" id="thursday">
-              <p>Thursday</p>
-            </div>
-            <div class="add-entry-component-field"></div>
-            <div class="add-entry-component-cluster">
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Breakfast</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Lunch</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Dinner</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div [ngClass]="{'hider': (selectedDay !== 5)}">
-            <div class="add-entry-component-title" id="friday">
-              <p>Friday</p>
-            </div>
-            <div class="add-entry-component-field"></div>
-            <div class="add-entry-component-cluster">
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Breakfast</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Lunch</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Dinner</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div [ngClass]="{'hider': (selectedDay !== 6)}">
-            <div class="add-entry-component-title" id="saturday">
-              <p>Saturday</p>
-            </div>
-            <div class="add-entry-component-field"></div>
-            <div class="add-entry-component-cluster">
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Breakfast</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Lunch</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Dinner</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div [ngClass]="{'hider': (selectedDay !== 7)}">
-            <div class="add-entry-component-title" id="sunday">
-              <p>Sunday</p>
-            </div>
-            <div class="add-entry-component-field"></div>
-            <div class="add-entry-component-cluster">
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Breakfast</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Lunch</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-              <div class="add-entry-component">
-                <div class="add-entry-component-title">
-                  <p>Dinner</p>
-                </div>
-                <div class="add-entry-component-field">
-                  <select formControlName="category" class="form-control">
-                    <option value="">Select</option>
-                    <option value="1">Vegan</option>
-                    <option value="2">Keto</option>
-                    <option value="3">Muscle Gain</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <mat-select   [(ngModel)]="selectedDay"
+        (ngModelChange)="daySelect()"
+        formControlName="daySelect"
+        class = "selecter"> 
+          <mat-option *ngFor="let day of days; track day" [value]="day.value">{{ day.name }}</mat-option>
+       
+        </mat-select>
+     
+       <app-day  [ngClass]="{'hider': selectedDay !== 1}" [meals]="meals" [planForm]="planForm" [indexFromParent]="0" ></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 2}" [meals]="meals" [planForm]="planForm" [indexFromParent]="1"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 3}" [meals]="meals" [planForm]="planForm" [indexFromParent]="2"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 4}" [meals]="meals" [planForm]="planForm" [indexFromParent]="3"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 5}" [meals]="meals" [planForm]="planForm" [indexFromParent]="4"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 6}" [meals]="meals" [planForm]="planForm" [indexFromParent]="5"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 7}" [meals]="meals" [planForm]="planForm" [indexFromParent]="6"></app-day>
+      
         <div class="add-entry-component">
           <div class="add-entry-component-title">
             <p>Photo</p>
@@ -378,7 +65,7 @@
             <input
               type="file"
               class="upload-photo"
-              (change)="onFileSelected($event)"
+              (change)="onFileChange($event)"
               id="fileInput"
             />
             <label for="fileInput" class="custom-upload-label">
@@ -387,9 +74,11 @@
           </div>
         </div>
         <div class="buttons-container">
-          <button class="submit-button">Create</button>
+          <button class="submit-button" (click)="OnProductSubmit()">
+            Create
+          </button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>

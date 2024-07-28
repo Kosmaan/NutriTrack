@@ -72,14 +72,10 @@
     border: 1px solid var(--accent-colour);
   }
   
-  .add-entry-component-cluster {
-    margin-top: -40px;
-    display: flex;
-    justify-content: space-between;
-  }
+
   
   .add-entry-component-cluster .add-entry-component {
-    width: 23%;
+    width: 50%;
   }
   
   .add-entry-input {
@@ -129,24 +125,10 @@
 
   .flex-row
   {
-    margin-top: 10px  ;
+    margin-top: 30px  ;
+    
     display: flex;
     flex-direction: row;
     gap:20px;
+    justify-content:flex-start;
   }
-
-  .selecter
-  {
-   
-    width:auto;
-    border:1px;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .mat-mdc-select-trigger {
-    height:100%
-}
