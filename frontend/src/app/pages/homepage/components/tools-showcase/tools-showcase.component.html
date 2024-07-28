@@ -2,7 +2,7 @@
   <div class="container-title">
     <h1>Track Your Nutrition: Top Calorie & Nutrient Tools</h1>
   </div>
-  <div class="container-item">
+  <div class="container-item" (click)="redirectToStatistics()">
     <img src="../../assets/scale.png" alt="" />
     <div class="container-text">
       <h3>Track your calorie intake</h3>
@@ -12,7 +12,7 @@
       </p>
     </div>
   </div>
-  <div class="container-item">
+  <div class="container-item" (click)="redirectToPlans()">
     <img src="../../assets/meals.png" alt="" />
     <div class="container-text">
       <h3>Discover Pre-Made Meal Plans</h3>
@@ -22,7 +22,7 @@
       </p>
     </div>
   </div>
-  <div class="container-item">
+  <div class="container-item" (click)="redirectToStatistics()">
     <img src="../../assets/progress.png" alt="" />
     <div class="container-text">
       <h3>Monitor Your Progress Over Time</h3>
@@ -32,5 +32,5 @@
       </p>
     </div>
   </div>
-  <button class="outline-button">GET STARTED</button>
+  <button class="outline-button" (click)="onButtonClick()">GET STARTED</button>
 </div>

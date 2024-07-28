@@ -14,21 +14,30 @@ import { CommonModule } from '@angular/common';
 import { OverviewItemComponent } from './components/overview-item/overview-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DayComponent } from './components/add-meal-plan/day/day.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent, EditComponent, EditMealComponent, AddMealPlanComponent, OverviewItemComponent, DayComponent,
+  declarations: [
+    AdminComponent,
+    OverviewComponent,
+    AddComponent,
+    SelectorComponent,
+    AddMealComponent,
+    EditComponent,
+    EditMealComponent,
+    AddMealPlanComponent,
+    OverviewItemComponent,
+    DayComponent,
   ],
-  imports: [AdminNavbarModule,
+  imports: [
+    AdminNavbarModule,
     LayoutModule,
     RouterModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    
   ],
   exports: [],
-  
 })
 export class AdminModule {}

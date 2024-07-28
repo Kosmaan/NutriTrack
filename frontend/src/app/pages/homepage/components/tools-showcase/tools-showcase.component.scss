@@ -19,6 +19,7 @@
   height: 160px;
   border-radius: 15px;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   img {
     width: 100px;
@@ -56,6 +57,7 @@
   border-radius: var(--border-radius);
   border: 1px solid var(--text-colour);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .outline-button:hover {
