@@ -3,10 +3,18 @@
     <img class="logo" src="../assets/Logo.png" alt="" />
     <button class="navbar-button" routerLink="/dashboard/home">HOME</button>
     <button class="navbar-button" routerLink="/dashboard/plans">PLANS</button>
-    <button class="navbar-button" routerLink="/dashboard/about-us">ABOUT US</button>
+    <button class="navbar-button" routerLink="/dashboard/about-us">
+      ABOUT US
+    </button>
     <button class="navbar-button" routerLink="/dashboard/contact-us">
       CONTACT US
     </button>
-    <span class="pi pi-user" id="user" routerLink="/authentication/login"></span>
+    <div class="user-container">
+      <span class="pi pi-user" id="user" (click)="toggleUserMenu()"></span>
+      <app-user-menu
+        *ngIf="isUserMenuVisible"
+        (mouseleave)="closeUserMenu()"
+      ></app-user-menu>
+    </div>
   </div>
 </header>

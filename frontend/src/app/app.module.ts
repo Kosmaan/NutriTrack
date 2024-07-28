@@ -25,6 +25,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     ContactComponent,
     AuthenticationComponent,
     AboutUsComponent,
+    ToastComponent,
 
   ],
   imports: [
