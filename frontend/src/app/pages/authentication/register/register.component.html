@@ -6,22 +6,22 @@
       <div class="input-container">
         <input
           type="text"
-          formControlName="firstName"
+          formControlName="first_Name"
           placeholder="First Name*"
         />
-        <div *ngIf="registerForm.controls['firstName'].invalid && registerForm.controls['firstName'].touched">
-          <small *ngIf="registerForm.controls['firstName'].errors?.['firstName']">First Name is required</small>
+        <div *ngIf="registerForm.controls['first_Name'].invalid && registerForm.controls['first_Name'].touched">
+          <small *ngIf="registerForm.controls['first_Name'].errors?.['firstName']">First Name is required</small>
         </div>
       </div>
       
       <div class="input-container">
         <input
           type="text"
-          formControlName="lastName"
+          formControlName="last_Name"
           placeholder="Last Name*"
         />
-        <div *ngIf="registerForm.controls['lastName'].invalid && registerForm.controls['lastName'].touched">
-          <small *ngIf="registerForm.controls['lastName'].errors?.['lastName']">Last Name is required</small>
+        <div *ngIf="registerForm.controls['last_Name'].invalid && registerForm.controls['last_Name'].touched">
+          <small *ngIf="registerForm.controls['last_Name'].errors?.['last_Name']">Last Name is required</small>
         </div>
       </div>
 

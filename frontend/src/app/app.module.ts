@@ -58,6 +58,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     StatisticsModule,
     AuthenticationModule,
     AdminModule,
+    ReactiveFormsModule
 ],
   providers: [],
   bootstrap: [AppComponent],

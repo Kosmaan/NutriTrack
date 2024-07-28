@@ -12,15 +12,21 @@ import { EditMealComponent } from './components/edit-meal/edit-meal.component';
 import { AddMealPlanComponent } from './components/add-meal-plan/add-meal-plan.component';
 import { CommonModule } from '@angular/common';
 import { OverviewItemComponent } from './components/overview-item/overview-item.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DayComponent } from './components/add-meal-plan/day/day.component';
 
 @NgModule({
-  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent, EditComponent, EditMealComponent, AddMealPlanComponent, OverviewItemComponent,
+  declarations: [AdminComponent, OverviewComponent, AddComponent, SelectorComponent, AddMealComponent, EditComponent, EditMealComponent, AddMealPlanComponent, OverviewItemComponent, DayComponent,
   ],
   imports: [AdminNavbarModule,
     LayoutModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   exports: [],
+  
 })
 export class AdminModule {}
