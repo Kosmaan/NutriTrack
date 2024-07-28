@@ -63,5 +63,38 @@ namespace Application.Services
 
             return true;
         }
+
+        public bool UpdateFile(IFormFile file, Guid id)
+        {
+            var extension = Path.GetExtension(file.FileName);
+            if (!allowedExtensions.Contains(extension))
+            {
+                throw new Exception("Invalid file extension");
+            }
+
+            var fileSize = file.Length;
+
+            if (fileSize > 25 * 1024 * 1024)
+            {
+                throw new Exception("File size is too big");
+            }
+
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()) + "\\Domain\\files\\";
+            /*var checkFileExistence = await this._fileRepository.GetFile(file.FileName);
+            if (checkFileExistence.ToList().Count != 0 || File.Exists(path + file.FileName))
+            {
+                throw new Exception("File already exists");
+            }*/
+
+            using var stream = new FileStream(path + file.FileName, FileMode.Create);
+            file.CopyTo(stream);
+            if (File.Exists(path + file.FileName))
+            {
+                return this._fileRepository.UpDateFile(id.ToString().ToUpper(), path + file.FileName);
+            }
+
+            return true;
+        }
+
     }
 }

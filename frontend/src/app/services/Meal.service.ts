@@ -18,7 +18,7 @@ export class MealService {
 
   getMeals()
   {
-    return this.http.get<Meal[]>(this.url)
+    return this.http.get<Meal[]>(this.url + "/GetAllMeals");
   }
 
   

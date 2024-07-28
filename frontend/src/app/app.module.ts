@@ -46,7 +46,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSelectModule,
+    
     MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
@@ -58,6 +58,9 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     StatisticsModule,
     AuthenticationModule,
     AdminModule,
+    ReactiveFormsModule,
+    
+
 ],
   providers: [],
   bootstrap: [AppComponent],
