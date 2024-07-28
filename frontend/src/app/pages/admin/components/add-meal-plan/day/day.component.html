@@ -1,9 +1,9 @@
-<div [formGroup]="planForm" >
-<div  class="add-entry-component-cluster" formArrayName="meals">
+<div [formGroup]="planForm" > 
+<div  formArrayName="meals">
   <div *ngFor="let meal of meals; let i = index" [formGroupName]="i">
-    <div *ngIf="i === indexFromParent">
-      <div class="flex-row">
-        <div>
+    <div *ngIf="i === indexFromParent" class = "flex-row" >
+   
+        <div >
           <div class="add-entry-component-title">
             <p>Breakfast</p>
           </div>
@@ -47,4 +47,3 @@
   </div>
 </div>
 
-</div>

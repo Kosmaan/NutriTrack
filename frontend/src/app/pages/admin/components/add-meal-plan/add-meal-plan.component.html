@@ -28,29 +28,35 @@
       </div>
 
       <div class="add-entry-component">
-        <div class="add-entry-component-field">
+        <!--<div class="add-entry-component-field">
           <select
-            [(ngModel)]="selectedDay"
-            (ngModelChange)="daySelect()"
-            formControlName="daySelect"
+          
           >
-            <option *ngFor="let day of days; trackBy: trackByValue" [ngValue]="day.value">
+            <option
+              *ngFor="let day of days; trackBy: trackByValue"
+              [ngValue]="day.value"
+            >
               {{ day.name }}
             </option>
           </select>
-        </div>
+        </div>-->
 
+        <mat-select   [(ngModel)]="selectedDay"
+        (ngModelChange)="daySelect()"
+        formControlName="daySelect"
+        class = "selecter"> 
+          <mat-option *ngFor="let day of days; track day" [value]="day.value">{{ day.name }}</mat-option>
+       
+        </mat-select>
+     
+       <app-day  [ngClass]="{'hider': selectedDay !== 1}" [meals]="meals" [planForm]="planForm" [indexFromParent]="0" ></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 2}" [meals]="meals" [planForm]="planForm" [indexFromParent]="1"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 3}" [meals]="meals" [planForm]="planForm" [indexFromParent]="2"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 4}" [meals]="meals" [planForm]="planForm" [indexFromParent]="3"></app-day>
+       <app-day  [ngClass]="{'hider': selectedDay !== 5}" [meals]="meals" [planForm]="planForm" [indexFromParent]="4"></app-day>
+       <app-day   [meals]="meals" [planForm]="planForm" [indexFromParent]="5"></app-day>
+       <app-day   [meals]="meals" [planForm]="planForm" [indexFromParent]="6"></app-day>
       
-
-
-       <app-day  *ngIf="selectedDay === 1" [meals]="meals" [planForm]="planForm" [indexFromParent]="0"></app-day>
-       <app-day  *ngIf="selectedDay === 2" [meals]="meals" [planForm]="planForm" [indexFromParent]="1"></app-day>
-       <app-day  *ngIf="selectedDay === 3" [meals]="meals" [planForm]="planForm" [indexFromParent]="2"></app-day>
-       <app-day  *ngIf="selectedDay === 4" [meals]="meals" [planForm]="planForm" [indexFromParent]="3"></app-day>
-       <app-day  *ngIf="selectedDay === 5" [meals]="meals" [planForm]="planForm" [indexFromParent]="4"></app-day>
-       <app-day  *ngIf="selectedDay === 6" [meals]="meals" [planForm]="planForm" [indexFromParent]="5"></app-day>
-       <app-day  *ngIf="selectedDay === 7" [meals]="meals" [planForm]="planForm" [indexFromParent]="6"></app-day>
-
         <div class="add-entry-component">
           <div class="add-entry-component-title">
             <p>Photo</p>

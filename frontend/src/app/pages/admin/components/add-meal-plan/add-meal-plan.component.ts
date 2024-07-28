@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { Meal } from 'src/app/models/Meal';
 import { MealService } from 'src/app/services/Meal.service';
 import { PlanService } from 'src/app/services/Plan.service';
@@ -20,6 +21,7 @@ export class AddMealPlanComponent implements OnInit {
       this.meals = meals;
       console.log(this.meals)
     } )
+   
   }
 
   meals!: Meal[];
@@ -37,10 +39,12 @@ export class AddMealPlanComponent implements OnInit {
     } else {
       this.fileName = 'No file chosen';
     }
+  
   }
 
   daySelect() {
     console.log(this.selectedDay);
+
   }
 
   //days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -67,7 +71,7 @@ export class AddMealPlanComponent implements OnInit {
     },
     {
       name: 'Saturday',
-      value: 6,
+      value: 30,
     },
     {
       name: 'Sunday',
@@ -99,7 +103,7 @@ export class AddMealPlanComponent implements OnInit {
   ngOnInit(): void {
 
     
-
+   
 
     this.planForm = new FormGroup({
       name: new FormControl(''),
@@ -116,7 +120,7 @@ export class AddMealPlanComponent implements OnInit {
   initDays() {
     const daysArray = this.planForm.get('meals') as FormArray;
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 10; i++) {
       daysArray.push(this.fb.group({
         day: [i + 1], // day is 1 to 7
         breakfast: [null],
