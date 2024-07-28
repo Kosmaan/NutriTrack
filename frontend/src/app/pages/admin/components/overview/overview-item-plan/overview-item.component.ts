@@ -8,11 +8,6 @@ import { MealPlan } from 'src/app/models/MealPlan';
   styleUrls: ['./overview-item.component.scss']
 })
 export class OverviewItemComponentPlan {
-//@Input() meal !:MealPlan;
-plan :MealPlan = {
-  description: "description",
-  title: "title",
-  photo: "undefined",
-  meals: []
-}
+@Input() plan !:MealPlan;
+
 }

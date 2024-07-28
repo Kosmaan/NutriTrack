@@ -23,8 +23,7 @@ namespace WebApi.Controllers
         [HttpPost]
         [AllowAnonymous]
         public bool AddMealPlan([FromForm] MealPlanDTO mealPlan)
-
-                {
+        {
             Guid id = Guid.NewGuid();
             _fileService.SaveFile(mealPlan.Photo, id);
             return _mealPlanService.AddMealPlan(mealPlan, id);

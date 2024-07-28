@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MealPlanDTO} from '../models/MealPlanDTO'
+
+import { MealPlan } from '../models/MealPlan';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +19,6 @@ export class PlanService {
 
   getMeals()
   {
-    return this.http.get<MealPlanDTO[]>(this.url)
+    return this.http.get<MealPlan[]>(this.url + "/GetAllMealPlans")
   }
 }
