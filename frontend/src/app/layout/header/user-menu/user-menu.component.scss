@@ -1,0 +1,27 @@
+.user-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    transform: translateX(-30%);
+
+    z-index: 1000;
+    background-color: var(--primary-colour);
+    border: 1px solid var(--text-colour);
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    background-color: var(--primary-colour);
+    color: var(--text-colour);
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-colour);
+    color: var(--primary-colour);
+}

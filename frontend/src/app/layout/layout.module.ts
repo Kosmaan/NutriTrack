@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserMenuComponent } from './header/user-menu/user-menu.component';
 
 
 
@@ -12,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
+    UserMenuComponent,
   ],
   imports: [
     CommonModule,

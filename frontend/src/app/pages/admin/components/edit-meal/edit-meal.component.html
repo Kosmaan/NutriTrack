@@ -6,11 +6,8 @@
               <p>Select Item</p>
             </div>
             <div class="add-entry-component-field">
-              <select formControlName="item" class="form-control">
-                <option value="">Meal 1</option>
-                <option value="1">Meal 2</option>
-                <option value="2">Meal 3</option>
-                <option value="3">Meal 4</option>
+              <select formControlName="item" class="form-control" *ngIf="meals.length >0 ">
+                <option *ngFor="let meal of meals">{{meal.title}}</option>
               </select>
             </div>
           </div>

@@ -2,7 +2,7 @@ export interface Meal{
     id: String,
     calories : Number,
     carbs: Number,
-    photo: null,
+    photo: String,
     file: null;
     fats: Number, 
     protein: Number,

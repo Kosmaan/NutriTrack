@@ -43,13 +43,22 @@ namespace Infrastructure.Repositories
 
         public bool DeleteMeal(Guid id)
         {
-            var query = "DELETE FROM  [SummerPractice].[Meal] WHERE Meal_Id = @Id";
+            var queryMealCategory = "DELETE FROM  [SummerPractice].[Meal_Category] WHERE Meal_Id = @Id";
+            var queryMeal = "DELETE FROM  [SummerPractice].[Meal] WHERE Meal_Id = @Id";
             var parameters = new DynamicParameters();
             parameters.Add("Id", id);
 
+            var query = "SELECT * FROM [SummerPractice].[Plan_List] WHERE Meal_Id = @Id";
             var connection = _databaseContext.GetDbConnection();
-            var result = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
-            return result != 0;
+            var planlist = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
+            if (planlist.Equals(null))
+            {
+                var result1 = connection.Execute(queryMealCategory, parameters, _databaseContext.GetDbTransaction());
+                var result2 = connection.Execute(queryMeal, parameters, _databaseContext.GetDbTransaction());
+                return result1 != 0 && result2 != 0;
+            }
+            else throw new Exception("Meal is curently in a meal plan");
+            return false;
         }
 
         public IEnumerable<Meal> GetAllMeals()

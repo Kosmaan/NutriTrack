@@ -15,11 +15,13 @@ import { OverviewItemComponentMeal } from './components/overview/overview-item-m
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DayComponent } from './components/add-meal-plan/day/day.component';
 import { MatSelectModule } from '@angular/material/select';
+
 import { MealPlansPageModule } from '../meal-plans-page/meal-plans-page.module';
 import { MealCardComponent } from 'src/app/components/meal-card/meal-card.component';
 import { PlanCardComponent } from 'src/app/components/plan-card/plan-card.component';
 import { SharedModule } from 'src/app/components/shared.module';
 import { OverviewItemComponentPlan } from './components/overview/overview-item-plan/overview-item.component';
+
 
 @NgModule({
   declarations: [
@@ -31,10 +33,11 @@ import { OverviewItemComponentPlan } from './components/overview/overview-item-p
     EditComponent,
     EditMealComponent,
     AddMealPlanComponent,
+    OverviewComponent,
+    DayComponent,
     OverviewItemComponentPlan,
     OverviewItemComponentMeal,
     DayComponent,
-    
   ],
   imports: [
     AdminNavbarModule,

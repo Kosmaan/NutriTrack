@@ -31,3 +31,9 @@
     background-color: rgba(0, 0, 0, .3);
     background-blend-mode: multiply;
 }
+
+@media (max-width:640px){
+    .container-text{
+        font-size: 44px;
+    }
+}

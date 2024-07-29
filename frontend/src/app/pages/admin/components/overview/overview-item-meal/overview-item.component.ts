@@ -8,6 +8,6 @@ import { Meal } from 'src/app/models/Meal';
 })
 export class OverviewItemComponentMeal {
 @Input() meal !:Meal;
-
+    
 };
 

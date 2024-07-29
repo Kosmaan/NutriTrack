@@ -60,3 +60,35 @@
     height: 40px;
     cursor: pointer;
 }
+
+
+@media (max-width: 1024px) {
+    .navbar-button{
+        font-size: 12px;
+    }
+
+    .logo{
+        height: 35px;
+    }
+}
+
+@media (max-width: 768px){
+    .contents{
+      padding: 0px 100px;
+    }
+}
+
+@media (max-width: 640px){
+    .contents{
+        padding: 0px 60px;
+      }
+    .pipi-user #user{
+        width: 35px;
+        height: 30px;
+    }
+
+.user-container {
+    position: relative;
+
+}
+}

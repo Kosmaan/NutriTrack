@@ -101,3 +101,23 @@ h3 {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width:768px){
+  .review-title h1{
+    font-size: 38px;
+  }
+
+  .review-title h3{
+    font-size: 22px;
+  }
+}
+
+@media (max-width:640px){
+  .review-title h1{
+    font-size: 33px;
+  }
+
+  .review-title h3{
+    font-size: 18px;
+  }
+}
