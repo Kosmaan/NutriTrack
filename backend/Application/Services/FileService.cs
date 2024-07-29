@@ -58,7 +58,7 @@ namespace Application.Services
             file.CopyTo(stream);
             if (File.Exists(path + file.FileName))
             {
-                return this._fileRepository.SaveFile(id.ToString().ToUpper(), path + file.FileName);
+                return this._fileRepository.SaveFile(id.ToString().ToUpper(),file.FileName);
             }
 
             return true;

@@ -45,7 +45,17 @@ namespace Application.Services
         public IEnumerable<MealDTO> GetAllMeals()
         {
             var meals  = _mealRepository.GetAllMeals();
-            return meals.Select(x => x.ToDTO());
+            var files = _fileRepository.GetAllFiles();
+            
+            var listDTO =  meals.Select(x => x.ToDTO()).ToList();
+            foreach (var file in files)
+                foreach (var mealDTO in listDTO)
+                    if (mealDTO.id.ToString().ToUpper() == file.FileName.ToUpper())
+                    {
+                        mealDTO.Photo = file.Path;
+                        break;
+                    }
+            return listDTO;
         }
 
         public bool DeleteMeal(Guid id)

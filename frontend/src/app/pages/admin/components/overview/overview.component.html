@@ -8,8 +8,8 @@
         <h2>Meals</h2>
         <hr>  
       </div>
-      <div class="item-container">
-       <!-- <app-overview-item-meal *ngFor="let meal of meals" [meal]="meal"></app-overview-item-meal>-->
+      <div class="item-container" *ngIf="meals.length > 0">
+        <app-overview-item-meal *ngFor="let meal of meals" [meal]="meal"></app-overview-item-meal>
       </div>
     </div>
     <div class="entry-container">
@@ -17,13 +17,10 @@
         <h2>Meal Plans</h2>
         <hr>  
       </div>
-      <div class="item-container">
+      <div class="item-container" *ngIf="plans.length > 0">
         
-          <app-overview-item-plan  *ngFor="let plan of plans" [plan]="plan"></app-overview-item-plan>
-          <app-overview-item-plan></app-overview-item-plan>
-          <app-overview-item-plan></app-overview-item-plan>
-          <app-overview-item-plan></app-overview-item-plan>
-          <app-overview-item-plan></app-overview-item-plan>
+         <app-overview-item-plan  *ngFor="let plan of plans" [plan]="plan"></app-overview-item-plan>
+        
           
         
       </div>

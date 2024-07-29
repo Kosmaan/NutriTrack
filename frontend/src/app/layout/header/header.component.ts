@@ -13,6 +13,7 @@ export class HeaderComponent {
   constructor(public authService: AuthService, public router: Router) {}
 
   toggleUserMenu() {
+    console.log(this.authService.loggedIn());
     if (this.authService.loggedIn()) {
       this.isUserMenuVisible = !this.isUserMenuVisible;
     } else {
@@ -21,6 +22,7 @@ export class HeaderComponent {
   }
 
   closeUserMenu() {
+    console.log("closed");
     this.isUserMenuVisible = false;
   }
 }
