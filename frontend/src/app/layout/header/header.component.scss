@@ -61,6 +61,7 @@
     cursor: pointer;
 }
 
+
 @media (max-width: 1024px) {
     .navbar-button{
         font-size: 12px;
@@ -85,4 +86,8 @@
         width: 35px;
         height: 30px;
     }
+
+.user-container {
+    position: relative;
+
 }
