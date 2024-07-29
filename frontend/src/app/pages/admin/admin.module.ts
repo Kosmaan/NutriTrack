@@ -33,13 +33,11 @@ import { OverviewItemComponentPlan } from './components/overview/overview-item-p
     EditComponent,
     EditMealComponent,
     AddMealPlanComponent,
-    OverviewItemComponent,
+    OverviewComponent,
     DayComponent,
     OverviewItemComponentPlan,
     OverviewItemComponentMeal,
     DayComponent,
-    
-
   ],
   imports: [
     AdminNavbarModule,
@@ -49,8 +47,6 @@ import { OverviewItemComponentPlan } from './components/overview/overview-item-p
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-  ],
-
     MealPlansPageModule,
     SharedModule,
   ],
