@@ -4,6 +4,9 @@ using Domain;
 using FluentAssertions;
 using Microsoft.AspNetCore.Authentication;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
+using NSubstitute.ReturnsExtensions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Application.Tests.Services
 {
@@ -20,6 +23,40 @@ namespace Application.Tests.Services
             _identityHandler = Substitute.For<IIdentityHandler>();
             _authenticationRepository = Substitute.For<IAuthenticationRepository>();
             _authorizationService = new AuthorizationService(_passwordHasher, _authenticationRepository, _identityHandler);
+        }
+
+        [Fact]
+        public void RegisterUser_Should_ThrowException_When_UserAlreadyExists()
+        {
+            var email = "existingemail@gmail.com";
+            var existingUser = new UserCredentials { Email = email }; 
+
+            _authenticationRepository.GetUser(email).Returns(new UserCredentials { Email = email });
+
+
+            Action act = () => _authorizationService.RegisterUser(existingUser, new UserData(), new UserWeight());
+
+
+            act.Should().Throw<Exception>().WithMessage("User already registered");
+        }
+
+        [Fact]
+        public void RegisterUser_Should_ReturnTrue_When_CredentialsAreValid()
+        {
+            var email = "testemail@gmail.com";
+            var password = "password123";
+            var userCredentials = new UserCredentials() { Email = email, Password = password };
+            var userData = new UserData();
+            var userWeight = new UserWeight();
+
+            _authenticationRepository.GetUser(email).ReturnsNull();
+            _authenticationRepository.RegisterUser(Arg.Any<UserCredentials>(), Arg.Any<UserData>(), Arg.Any<UserWeight>()).Returns(true);
+
+
+            var result = _authorizationService.RegisterUser(userCredentials, userData, userWeight);
+
+
+            result.Should().BeTrue();
         }
 
         [Fact]
@@ -61,9 +98,36 @@ namespace Application.Tests.Services
             Action act = () => this._authorizationService.LoginUser(new UserCredentials {Email = email, Password = password });
 
 
-            act.Should().Throw<ArgumentException>().WithMessage("Password is incorrect");
+            act.Should().Throw<Exception>().WithMessage("Password is incorrect");
         }
 
+        [Fact]
+        public void GiveUserAdminRights_Should_ThrowException_When_UserIsNotRegistered()
+        {
+            var email = "nonexistentemail@gmail.com";
 
+            _authenticationRepository.GetUser(email).ReturnsNull();
+
+
+            Action act = () => this._authorizationService.GiveUserAdminRights(email);
+
+
+            act.Should().Throw<Exception>().WithMessage("User is not registered");
+        }
+
+        [Fact]
+        public void GiveUserAdminRights_Should_ReturnTrue_When_TheEmailIsValid()
+        {
+            var email = "testemail@gmail.com";
+
+            _authenticationRepository.GetUser(email).Returns(new UserCredentials { Email = email });
+            _authenticationRepository.GiveUserAdminRights(email).Returns(true);
+
+
+            var result = _authorizationService.GiveUserAdminRights(email);
+
+            
+            result.Should().BeTrue();
+        }
     }
 }

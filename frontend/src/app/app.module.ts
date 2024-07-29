@@ -27,6 +27,8 @@ import { AdminModule } from './pages/admin/admin.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { SharedModule } from './components/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     AuthenticationModule,
     AdminModule,
     ReactiveFormsModule,
+    SharedModule,
     
 
 ],

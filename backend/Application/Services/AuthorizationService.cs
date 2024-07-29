@@ -55,7 +55,7 @@ namespace Application.Services
 
             if (!_passwordHasher.Verify(userHashed.Password, credentials.Password))
             {
-                throw new ArgumentException("Password is incorrect");
+                throw new Exception("Password is incorrect");
             }
 
             var result = new User

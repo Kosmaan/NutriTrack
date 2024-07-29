@@ -1,23 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MealPlanDTO} from '../models/MealPlanDTO'
+
+import { MealPlan } from '../models/MealPlan';
 @Injectable({
   providedIn: 'root'
 })
 export class PlanService {
 
-  url = 'https://localhost:7154/Plan';
+  url = 'https://localhost:7154/MealPlan';
   constructor(private http : HttpClient) {}
 
 
-  addMeal(plan : MealPlanDTO) 
+  addMeal(plan : FormData) 
   {
 
-    return this.http.post<MealPlanDTO>(this.url + "/AddMeal",plan);
+    return this.http.post<FormData>(this.url + "/AddMealPlan",plan);
   }
 
   getMeals()
   {
-    return this.http.get<MealPlanDTO[]>(this.url)
+    return this.http.get<MealPlan[]>(this.url + "/GetAllMealPlans")
   }
 }

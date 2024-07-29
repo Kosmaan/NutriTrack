@@ -10,10 +10,10 @@ export class MealService {
   constructor(private http : HttpClient) {}
 
 
-  addMeal(meal : FormData) 
+  addMeal(meal : any) 
   {
 
-    return this.http.post<Meal>(this.url + "/AddMeal",meal);
+    return this.http.post<any>(this.url + "/AddMeal",meal);
   }
 
   getMeals()
