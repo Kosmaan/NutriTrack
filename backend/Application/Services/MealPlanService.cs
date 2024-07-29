@@ -26,6 +26,13 @@ namespace Application.Services
 
         public MealPlanSend GetMealPlan(Guid id)
         {
+            var mealPlanCheck = _mealPlanRepository.GetMealPlan(id);
+
+            if (mealPlanCheck == null)
+            {
+                throw new Exception("Meal plan doesn't exist!");
+            }
+
             var mealPlan = _mealPlanRepository.GetMealPlan(id);
             var daysOfThePlan = _mealPlanRepository.GetDays(id);
             var file = _fileRepository.GetFile(id.ToString().ToUpper());
@@ -38,6 +45,13 @@ namespace Application.Services
 
         public bool DeleteMealPlan(Guid id)
         {
+            var mealPlanCheck = _mealPlanRepository.GetMealPlan(id);
+
+            if (mealPlanCheck == null)
+            {
+                throw new Exception("Meal plan doesn't exist!");
+            }
+
             return _mealPlanRepository.DeleteMealPlan(id);
         }
 
@@ -65,5 +79,7 @@ namespace Application.Services
             
             return result1 && result2;
         }
+
+
     }
 }
