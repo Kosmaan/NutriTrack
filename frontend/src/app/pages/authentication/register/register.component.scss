@@ -23,6 +23,15 @@ form {
   align-items: center;
   width: 100%;
   margin: 10px 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+.input-title-container {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .register-container {
@@ -45,15 +54,20 @@ input {
 }
 
 .gender-container {
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 60px;
+  margin: 10px 0;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 #gender-selector {
-  height: 60%;
+  margin-top: -25px;
+  height: 50px;
+  width: 100%;
 }
 
 #login-button {
@@ -67,8 +81,8 @@ input {
 }
 
 #login-button:hover {
-  background-color: var(--accent-colour);
-  border: 1px solid var(--accent-colour);
+  background-color: var(--text-colour);
+  border: 1px solid var(--text-colour);
   color: var(--primary-colour);
 }
 
@@ -100,9 +114,24 @@ input {
 .birthdate-container {
   width: 100%;
   display: flex;
+  flex-direction: column;
   margin-bottom: -10px;
+
+  p {
+    margin: 0;
+  }
 }
 
 #birthdate-form {
+  margin-top: -15px;
   width: 100%;
 }
+
+#birthdate-selector {
+  margin-bottom: 20px;
+}
+
+.input-container-content {
+  width: 100%;
+}
+
