@@ -18,6 +18,9 @@ import { MealPlansPageComponent } from './pages/meal-plans-page/meal-plans-page.
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { DeleteAccountComponent } from './pages/settings/delete-account/delete-account.component';
+import { ChangePasswordComponent } from './pages/settings/change-password/change-password.component';
+import { ChangeDetailsComponent } from './pages/settings/change-details/change-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -39,7 +42,17 @@ const routes: Routes = [
       { path: 'plans', component: MealPlansPageComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'settings', component: SettingsComponent },
+      { path: 'settings', component: SettingsComponent, children: [
+        {
+          path: 'delete', component: DeleteAccountComponent
+        },
+        {
+          path: 'change-pass', component: ChangePasswordComponent
+        },
+        {
+          path: 'change-details', component: ChangeDetailsComponent
+        }
+      ] },
     ],
   },
   {

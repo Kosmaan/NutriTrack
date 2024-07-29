@@ -1,91 +1,69 @@
 .wrapper {
     display: flex;
-    flex-direction: column;
-    min-height: 110vh;
+    flex-direction: row;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex: 1;
+    height: 100%;
     justify-content: center;
     align-items: center;
-    flex: 1;
 }
 
-.settings-container-title {
+.sidebar {
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
-    
-    h3 {
-        margin: 0;
-        font-weight: 400;
-    }
+    width: 220px;
+    height: 600px;
+}
+
+.sidebar-button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background-color: var(--primary-colour);
+    border: none;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar-button:hover {
+    background-color: var(--accent-colour);
+    color: var(--primary-colour);
 }
 
 .settings-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: var(--primary-colour);
-    border: none;
     border-radius: var(--border-radius);
     box-shadow: var(--drop-shadow);
-    width: 40%;
-    padding: 25px 50px;
+    width: 60%;
+    margin: 25px 50px;
 }
 
-.settings-component {
-    display: flex;
-    flex-direction: column;
-}
-
-.settings-component-title {
-    margin: -10px 0;
-}
-
-.input-field {
+.settings-content {
     width: 100%;
-    height: 30px;
-    margin-bottom: 20px;
-}
-
-.submit-button {
-    margin: 10px 0;
-    width: 100%;
-    background-color: var(--accent-colour);
-    color: var(--primary-colour);
-    border: 1px solid var(--accent-colour);
-    border-radius: var(--border-radius);
-    padding: 10px 25px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.submit-button:hover {
+    margin: 20px 50px;
     background-color: var(--primary-colour);
-    color: var(--accent-colour);
-    border: 1px solid var(--accent-colour);
-}   
+}
 
 .delete-button {
-    margin: 10px 0;
-    width: 100%;
     background-color: var(--primary-colour);
     color: var(--text-colour);
     border: 1px solid var(--text-colour);
-    border-radius: var(--border-radius);
-    padding: 10px 25px;
-    transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .delete-button:hover {
-    background-color: #FF0000;;
+    background-color: #FF0000;
     color: var(--primary-colour);
-    border: 1px solid #FF0000;;
-}   
+    border: 1px solid #FF0000;
+}
 
 .gender-container {
     padding-top: 10px;
@@ -93,12 +71,9 @@
     flex-direction: column;
     width: 100%;
     height: 60px;
-  }
-  
-  #gender-selector {
-    height: 60%;
-  }
-
-.buttons-container {
-    width: 100%;
 }
+
+#gender-selector {
+    height: 60%;
+}
+
