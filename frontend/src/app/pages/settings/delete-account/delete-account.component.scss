@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.container-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: 10px;
+    font-weight: 300;
+  }
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.container-content {
+    width: 90%;
+}
+
+.delete-button {
+    padding: 15px 20px;
+    background-color: #FF0000;
+    border: 1px solid #FF0000;
+    color: var(--primary-colour);
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #d10000;
+    border: 1px solid #d10000;
+}
