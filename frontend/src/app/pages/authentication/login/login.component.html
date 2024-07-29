@@ -3,42 +3,50 @@
     <h1>Sign in to your account</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
       <div class="input-container">
-        <input
-          type="text"
-          formControlName="email"
-          placeholder="Email Address"
-        />
-        <div
-          *ngIf="
-            loginForm.controls['email'].invalid &&
-            loginForm.controls['email'].touched
-          "
-        >
-          <small *ngIf="loginForm.controls['email'].errors?.['required']"
-            >Email is required</small
+        <div class="input-title-container">
+          <p>Email</p>
+        </div>
+        <div class="input-container-content">
+          <input type="text" formControlName="email" />
+          <div
+            *ngIf="
+              loginForm.controls['email'].invalid &&
+              loginForm.controls['email'].touched
+            "
           >
-          <small *ngIf="loginForm.controls['email'].errors?.['email']"
-            >Invalid email format</small
-          >
+            <small
+              *ngIf="loginForm.controls['email'].errors?.['required']"
+              class="error-message"
+              >Email is required</small
+            >
+            <small
+              *ngIf="loginForm.controls['email'].errors?.['email']"
+              class="error-message"
+              >Invalid email format</small
+            >
+          </div>
         </div>
       </div>
+
       <div class="input-container">
-        <input
-          type="password"
-          formControlName="password"
-          placeholder="Password"
-        />
-        <div
-          *ngIf="
-            loginForm.controls['password'].invalid &&
-            loginForm.controls['password'].touched
-          "
-        >
-          <small *ngIf="loginForm.controls['password'].errors?.['required']"
-            >Password is required</small
+        <div class="input-title-container">
+          <p>Password</p>
+        </div>
+        <div class="input-container-content">
+          <input type="password" formControlName="password" />
+          <div
+            *ngIf="
+              loginForm.controls['password'].invalid &&
+              loginForm.controls['password'].touched
+            "
           >
+            <small *ngIf="loginForm.controls['password'].errors?.['required']" class="error-message"
+              >Password is required</small
+            >
+          </div>
         </div>
       </div>
+
       <div class="forgot-pass-container">
         <p>Forgot password?</p>
       </div>

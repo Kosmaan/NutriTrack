@@ -2,85 +2,164 @@
   <div class="register-container">
     <h1>Sign up</h1>
     <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
-      
       <div class="input-container">
-        <input
-          type="text"
-          formControlName="first_Name"
-          placeholder="First Name*"
-        />
-        <div *ngIf="registerForm.controls['first_Name'].invalid && registerForm.controls['first_Name'].touched">
-          <small *ngIf="registerForm.controls['first_Name'].errors?.['firstName']">First Name is required</small>
+        <div class="input-title-container">
+          <p>First Name</p>
         </div>
-      </div>
-      
-      <div class="input-container">
-        <input
-          type="text"
-          formControlName="last_Name"
-          placeholder="Last Name*"
-        />
-        <div *ngIf="registerForm.controls['last_Name'].invalid && registerForm.controls['last_Name'].touched">
-          <small *ngIf="registerForm.controls['last_Name'].errors?.['last_Name']">Last Name is required</small>
+        <div class="input-container-content">
+          <input type="text" formControlName="first_Name" />
+          <div
+            *ngIf="
+              registerForm.controls['first_Name'].invalid &&
+              registerForm.controls['first_Name'].touched
+            "
+          >
+            <small
+              *ngIf="registerForm.controls['first_Name'].errors?.['firstName']"
+              >First Name is required</small
+            >
+          </div>
         </div>
       </div>
 
       <div class="input-container">
-        <input
-          type="text"
-          formControlName="email"
-          placeholder="Email Address*"
-        />
-        <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
-          <small *ngIf="registerForm.controls['email'].errors?.['required']">Email is required</small>
-          <small *ngIf="registerForm.controls['email'].errors?.['email']">Invalid email format</small>
+        <div class="input-title-container">
+          <p>Last Name</p>
+        </div>
+        <div class="input-container-content">
+          <input type="text" formControlName="last_Name" />
+          <div
+            *ngIf="
+              registerForm.controls['last_Name'].invalid &&
+              registerForm.controls['last_Name'].touched
+            "
+          >
+            <small
+              *ngIf="registerForm.controls['last_Name'].errors?.['last_Name']"
+              >Last Name is required</small
+            >
+          </div>
         </div>
       </div>
-      
+
       <div class="input-container">
-        <input
-          type="password"
-          formControlName="password"
-          placeholder="Password*"
-        />
-        <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
-          <small *ngIf="registerForm.controls['password'].errors?.['required']">Password is required</small>
+        <div class="input-title-container">
+          <p>Email</p>
+        </div>
+        <div class="input-container-content">
+          <input type="text" formControlName="email" />
+          <div
+            *ngIf="
+              registerForm.controls['email'].invalid &&
+              registerForm.controls['email'].touched
+            "
+          >
+            <small *ngIf="registerForm.controls['email'].errors?.['required']"
+              >Email is required</small
+            >
+            <small *ngIf="registerForm.controls['email'].errors?.['email']"
+              >Invalid email format</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <div class="input-title-container">
+          <p>Password</p>
+        </div>
+        <div class="input-container-content">
+          <input type="password" formControlName="password" />
+          <div
+            *ngIf="
+              registerForm.controls['password'].invalid &&
+              registerForm.controls['password'].touched
+            "
+          >
+            <small
+              *ngIf="registerForm.controls['password'].errors?.['required']"
+              >Password is required</small
+            >
+          </div>
         </div>
       </div>
 
       <div class="gender-container">
-        <select formControlName="gender" class="form-control" id="gender-selector">
-          <option value="" disabled selected>Gender*</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">I'd rather not specify</option>
-        </select>
-        <div *ngIf="registerForm.controls['gender'].invalid && registerForm.controls['gender'].touched">
-          <small *ngIf="registerForm.controls['gender'].errors?.['required']">Gender is required</small>
+        <div class="input-title-container">
+          <p>Gender</p>
+        </div>
+        <div class="input-container-content">
+          <select
+            formControlName="gender"
+            class="form-control"
+            id="gender-selector"
+          >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">I'd rather not specify</option>
+          </select>
+          <div
+            *ngIf="
+              registerForm.controls['gender'].invalid &&
+              registerForm.controls['gender'].touched
+            "
+          >
+            <small *ngIf="registerForm.controls['gender'].errors?.['required']"
+              >Gender is required</small
+            >
+          </div>
         </div>
       </div>
 
-        <div class="birthdate-container">
-          <mat-form-field appearance="fill" id="birthdate-form">
-            <mat-label>Birth date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date" />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+      <div class="birthdate-container">
+        <div class="input-title-container">
+          <p>Birthdate</p>
         </div>
-      
-
-      <div class="input-container">
-        <input type="text" formControlName="height" placeholder="Height (cm)*" />
-        <div *ngIf="registerForm.controls['height'].invalid && registerForm.controls['height'].touched">
-          <small *ngIf="registerForm.controls['height'].errors?.['required']">Height is required</small>
+        <div class="input-container-content">
+          <input
+            type="date"
+            formControlName="date"
+            class="form-control"
+            id="birthdate-selector"
+          />
         </div>
       </div>
 
       <div class="input-container">
-        <input type="text" formControlName="weight" placeholder="Weight (kg)*" />
-        <div *ngIf="registerForm.controls['weight'].invalid && registerForm.controls['weight'].touched">
-          <small *ngIf="registerForm.controls['weight'].errors?.['required']">Weight is required</small>
+        <div class="input-title-container">
+          <p>Height</p>
+        </div>
+        <div class="input-container-content">
+          <input type="text" formControlName="height" />
+          <div
+            *ngIf="
+              registerForm.controls['height'].invalid &&
+              registerForm.controls['height'].touched
+            "
+          >
+            <small *ngIf="registerForm.controls['height'].errors?.['required']"
+              >Height is required</small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <div class="input-title-container">
+          <p>Weight</p>
+        </div>
+        <div class="input-container-content">
+          <input type="text" formControlName="weight" />
+          <div
+            *ngIf="
+              registerForm.controls['weight'].invalid &&
+              registerForm.controls['weight'].touched
+            "
+          >
+            <small *ngIf="registerForm.controls['weight'].errors?.['required']"
+              >Weight is required</small
+            >
+          </div>
         </div>
       </div>
 
@@ -90,9 +169,10 @@
 
       <div class="login-container">
         <p>Already have an account?</p>
-        <button id="login-button" routerLink="/authentication/login">Log in</button>
+        <button id="login-button" routerLink="/authentication/login">
+          Log in
+        </button>
       </div>
-
     </form>
   </div>
 </div>

@@ -22,6 +22,20 @@ form {
   align-items: center;
   width: 100%;
   margin: 10px 0;
+
+  p {
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+}
+
+.input-title-container {
+  width: 100%;
+}
+
+.input-container-content {
+  width: 100%;
 }
 
 .login-container {
@@ -76,7 +90,11 @@ input {
 }
 
 .register-button:hover {
-  border: 1px solid var(--accent-colour);
+  border: 1px solid var(--text-colour);
   color: var(--primary-colour);
-  background-color: var(--accent-colour);
+  background-color: var(--text-colour);
+}
+
+.error-message {
+  color: red;
 }
