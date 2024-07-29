@@ -65,3 +65,45 @@
   background-color: var(--accent-colour);
   color: var(--primary-colour);
 }
+
+/* xl */
+@media (max-width: 1280px) {
+  .container-text{
+    font-size: 13px;
+  }
+}
+
+@media (max-width:1024px){
+  .container-title h1{
+    font-size: 28px;
+  }
+
+  .container-text {
+    font-size: 12px;
+    padding-left: 3px;
+}
+}
+
+@media (max-width:768px){
+  .container-title h1{
+    font-size: 22px;
+  }
+
+  .container{
+    margin: 0px 100px;
+  }
+
+  .container-text{
+    font-size: 10px;
+  }
+}
+
+@media (max-width:640px) {
+  .container-title h1{
+    font-size: 20px;
+  }
+
+  .container-item{
+    width: 60%;
+  }
+}

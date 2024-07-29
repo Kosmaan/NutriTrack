@@ -67,3 +67,14 @@
     background-blend-mode: multiply;
 }
 
+@media (max-width: 768px){
+  .text-container h1{
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 640px){
+    .text-container h1{
+      font-size: 50px;
+    }
+  }

@@ -107,3 +107,33 @@
   background-color: var(--accent-colour);
   color: var(--primary-colour);
 }
+
+@media (max-width: 1024px) {
+  .text-container h1{
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-container h1{
+    font-size: 23px;
+  }
+
+  .presentation-container p{
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-container h1{
+    font-size: 27px;
+  }
+
+  .presentation-container p{
+    font-size: 20px;
+  }
+
+  .container{
+    margin: 0px 100px;
+  }
+}
