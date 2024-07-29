@@ -95,3 +95,13 @@
     font-size: 10px;
   }
 }
+
+@media (max-width:640px) {
+  .container-title h1{
+    font-size: 20px;
+  }
+
+  .container-item{
+    width: 60%;
+  }
+}

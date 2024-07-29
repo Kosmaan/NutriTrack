@@ -76,3 +76,13 @@
       padding: 0px 100px;
     }
 }
+
+@media (max-width: 640px){
+    .contents{
+        padding: 0px 60px;
+      }
+    .pipi-user #user{
+        width: 35px;
+        height: 30px;
+    }
+}

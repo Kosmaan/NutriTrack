@@ -122,3 +122,17 @@
     font-size: 20px;
   }
 }
+
+@media (max-width: 640px) {
+  .text-container h1{
+    font-size: 27px;
+  }
+
+  .presentation-container p{
+    font-size: 20px;
+  }
+
+  .container{
+    margin: 0px 100px;
+  }
+}

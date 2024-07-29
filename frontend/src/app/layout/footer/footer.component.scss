@@ -52,3 +52,16 @@ a {
         padding: 0px 60px;
     }
 }
+
+@media (max-width: 640px){
+    .contents{
+        padding: 0px 50px;
+    }
+    .contents p{
+        font-size: 13px;
+        padding-left: 15px;
+    }
+    .contents logo{
+        height: 40px;
+    }
+}

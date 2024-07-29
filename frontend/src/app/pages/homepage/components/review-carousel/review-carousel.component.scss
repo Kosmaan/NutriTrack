@@ -111,3 +111,13 @@ h3 {
     font-size: 22px;
   }
 }
+
+@media (max-width:640px){
+  .review-title h1{
+    font-size: 33px;
+  }
+
+  .review-title h3{
+    font-size: 18px;
+  }
+}

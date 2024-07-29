@@ -23,9 +23,16 @@
     }
 }
 
-@media (max-width: 1024px){
+@media (max-width: 768px){
     .container-text{
         font-size: 25px;
+        margin: 0px 100px;
+    }
+
+}
+@media (max-width: 640px){
+    .container-text{
+        font-size: 22px;
         margin: 0px 100px;
     }
 
