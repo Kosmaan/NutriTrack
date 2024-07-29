@@ -31,6 +31,7 @@ namespace WebApiContracts.Mappers
                 Title = entity.Title,
                 Description = entity.Description,
                 Category = entity.Category,
+                
             };
         }
 

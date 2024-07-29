@@ -12,7 +12,7 @@
     <div class="user-container">
       <span class="pi pi-user" id="user" (click)="toggleUserMenu()"></span>
       <app-user-menu
-        *ngIf="isUserMenuVisible"
+        *ngIf="isUserMenuVisible === true"
         (mouseleave)="closeUserMenu()"
       ></app-user-menu>
     </div>
