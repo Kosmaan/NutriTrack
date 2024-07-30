@@ -10,15 +10,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: -1;
   }
 
   .filters-cards-container {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
+    justify-content: start;
     align-items: flex-start;
     padding: 0 13%;
+    padding-bottom: 25px;
     gap: 13px;
   }
 
@@ -34,4 +36,5 @@
     display: flex;
     justify-content: center;
   }
+
 }

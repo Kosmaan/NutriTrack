@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BannerPlansPageComponent } from './components/banner-plans-page/banner-plans-page.component';
 import { SharedModule } from 'src/app/components/shared.module';
 
+
 const COMPONENTS: any[] = [
   MealPlansPageComponent,
   FiltersComponent,

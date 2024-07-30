@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { MealPlan } from 'src/app/models/MealPlan';
 
 @Component({
@@ -7,11 +8,17 @@ import { MealPlan } from 'src/app/models/MealPlan';
   styleUrls: ['./plan-card.component.scss']
 })
 export class PlanCardComponent {
-  //@Input() Plan !: MealPlanDTO;
-  plan : MealPlan = {
+  @Input() plan : MealPlan = {
     description: "undefined",
     title: "undefined",
     photo: "undefined",
-    meals: []
+    meals: [],
+    meal_Plan_Id: "undefined"
+  }
+
+  constructor(private router: Router) {}
+
+  navigateToDetails() {
+    this.router.navigate(['/dashboard/meal-plan-details', this.plan.meal_Plan_Id]);
   }
 }

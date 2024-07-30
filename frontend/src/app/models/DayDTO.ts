@@ -1,7 +1,7 @@
 export interface DayDTO{
-    day: Number,
-    breakfast:  Number,
-    lunch:  Number,
-    dinner: Number
+    day: number,
+    breakfast:  number,
+    lunch:  number,
+    dinner: number
 
 }
