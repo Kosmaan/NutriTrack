@@ -7,6 +7,5 @@ import { Meal } from 'src/app/models/Meal';
   styleUrls: ['./meal-card.component.scss'],
 })
 export class MealCardComponent {
-  @Input() meal !:Meal;
-
+  @Input() meal!: Meal;
 }
