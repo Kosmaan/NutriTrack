@@ -8,4 +8,8 @@ import { Meal } from 'src/app/models/Meal';
 })
 export class MealCardComponent {
   @Input() meal!: Meal;
+
+  @Input() title: String = '';        
+  @Input() description: String = '';
+  @Input() photo: String = '';
 }

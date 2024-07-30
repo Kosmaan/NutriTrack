@@ -7,8 +7,7 @@ import { MealPlan } from 'src/app/models/MealPlan';
   styleUrls: ['./plan-card.component.scss']
 })
 export class PlanCardComponent {
-  //@Input() Plan !: MealPlanDTO;
-  plan : MealPlan = {
+  @Input() plan : MealPlan = {
     description: "undefined",
     title: "undefined",
     photo: "undefined",
