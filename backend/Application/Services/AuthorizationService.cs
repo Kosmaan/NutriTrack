@@ -25,7 +25,6 @@ namespace Application.Services
             if (userCheck != null)
             {
                 throw new Exception("User already registered");
-                //throw new NullReferenceException("User already registered");
             }
 
             var hashedPassword = this._passwordHasher.Hash(credentials.Password);

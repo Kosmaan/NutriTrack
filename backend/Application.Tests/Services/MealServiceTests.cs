@@ -122,19 +122,28 @@ namespace Application.Tests.Services
         {
             var meals = new List<Meal>
             {
-                new Meal { Title = "Meal 1", Description = "Description 1" },
-                new Meal { Title = "Meal 2", Description = "Description 2" }
+                new Meal { Meal_Id = Guid.NewGuid(), Title = "Meal 1", Description = "Description 1" },
+                new Meal { Meal_Id = Guid.NewGuid(), Title = "Meal 2", Description = "Description 2" }
+            };
+
+            var files = new List<FileDetails>
+            {
+                new FileDetails { FileName = meals[0].Meal_Id.ToString().ToUpper(), Path = "path1.jpg" },
+                new FileDetails { FileName = meals[1].Meal_Id.ToString().ToUpper(), Path = "path2.jpg" }
             };
 
             _mealRepository.GetAllMeals().Returns(meals);
-
+            _fileRepository.GetAllFiles().Returns(files);
 
             var result = _mealService.GetAllMeals();
 
-
             result.Should().HaveCount(2);
             result.ElementAt(0).Title.Should().Be(meals[0].Title);
+            result.ElementAt(0).Description.Should().Be(meals[0].Description);
+            result.ElementAt(0).Photo.Should().Be("path1.jpg");
             result.ElementAt(1).Title.Should().Be(meals[1].Title);
+            result.ElementAt(1).Description.Should().Be(meals[1].Description);
+            result.ElementAt(1).Photo.Should().Be("path2.jpg");
         }
 
         [Fact]
