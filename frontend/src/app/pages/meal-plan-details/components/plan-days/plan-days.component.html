@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card">
+      <!-- Loop through the meals array -->
+      <div *ngFor="let meal of meals">
+        <div class="day-card">
+          <!-- Dynamically set the day component title -->
+          <div class="day-component-title">
+            {{ getDayName(meal.day) }}
+          </div>
+          <hr>
+          <div class="day-component-content">
+            <!-- Fetch meal data based on IDs and display them -->
+            <div class="day-component-card" *ngIf="meal.breakfast">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

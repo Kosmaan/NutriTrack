@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { MealPlan } from '../models/MealPlan';
+import { Observable } from 'rxjs';
+import { Meal } from '../models/Meal';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +22,14 @@ export class PlanService {
   getMeals()
   {
     return this.http.get<MealPlan[]>(this.url + "/GetAllMealPlans")
+  }
+
+  getMealById(id: string): Observable<Meal> {
+    return this.http.get<Meal>(`${this.url}/GetMealById?id=${id}`);
+  }
+
+  getMealPlanById(id: string): Observable<MealPlan> {
+    const params = new HttpParams().set('id', id);
+    return this.http.get<MealPlan>(`${this.url}/GetMealPlanById`, { params });
   }
 }

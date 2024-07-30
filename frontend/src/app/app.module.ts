@@ -31,6 +31,10 @@ import { SharedModule } from './components/shared.module';
 import { DeleteAccountComponent } from './pages/settings/delete-account/delete-account.component';
 import { ChangePasswordComponent } from './pages/settings/change-password/change-password.component';
 import { ChangeDetailsComponent } from './pages/settings/change-details/change-details.component';
+import { MealPlanDetailsComponent } from './pages/meal-plan-details/meal-plan-details.component';
+import { PlanBannerComponent } from './pages/meal-plan-details/components/plan-banner/plan-banner.component';
+import { PlanStatsComponent } from './pages/meal-plan-details/components/plan-stats/plan-stats.component';
+import { PlanDaysComponent } from './pages/meal-plan-details/components/plan-days/plan-days.component';
 
 
 @NgModule({
@@ -50,6 +54,10 @@ import { ChangeDetailsComponent } from './pages/settings/change-details/change-d
     DeleteAccountComponent,
     ChangePasswordComponent,
     ChangeDetailsComponent,
+    MealPlanDetailsComponent,
+    PlanBannerComponent,
+    PlanStatsComponent,
+    PlanDaysComponent,
 
   ],
   imports: [

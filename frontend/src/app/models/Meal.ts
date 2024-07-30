@@ -1,12 +1,12 @@
 export interface Meal{
-    id: String,
-    calories : Number,
-    carbs: Number,
-    photo: String,
+    id: string,
+    calories : number,
+    carbs: number,
+    photo: string,
     file: null;
-    fats: Number, 
-    protein: Number,
-    title : String,
-    category: Number,
-    description:String,
+    fats: number, 
+    protein: number,
+    title : string,
+    category: number,
+    description:string,
 }
