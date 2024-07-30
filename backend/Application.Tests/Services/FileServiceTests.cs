@@ -110,6 +110,31 @@ namespace Application.Tests.Services
         }
 
         [Fact]
+        public void SaveFile_Should_ReturnFalse_When_FileNotSavedInRepository()
+        {
+            var file = Substitute.For<IFormFile>();
+            var id = Guid.NewGuid();
+            var fileName = "testfile.pdf";
+            var filePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Domain\\files\\", fileName);
+
+            file.FileName.Returns(fileName);
+            file.Length.Returns(1024);
+            _fileRepository.SaveFile(id.ToString().ToUpper(), fileName).Returns(false);
+
+
+            using (var stream = new MemoryStream())
+            {
+                file.OpenReadStream().Returns(stream);
+
+                var result = _fileService.SaveFile(file, id);
+
+                result.Should().BeFalse();
+                File.Exists(filePath).Should().BeTrue();
+                File.Delete(filePath);
+            }
+        }
+
+        [Fact]
         public void UpdateFile_Should_ThrowException_When_FileExtensionIsInvalid()
         {
             var file = Substitute.For<IFormFile>();
@@ -155,6 +180,54 @@ namespace Application.Tests.Services
                 result.Should().BeTrue();
                 File.Exists(filePath).Should().BeTrue();
                 File.Delete(filePath);
+            }
+        }
+
+        [Fact]
+        public void UpdateFile_Should_ReturnFalse_When_FileNotUpdatedInRepository()
+        {
+            var file = Substitute.For<IFormFile>();
+            var id = Guid.NewGuid();
+            var fileName = "testfile.pdf";
+            var filePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Domain\\files\\", fileName);
+
+            file.FileName.Returns(fileName);
+            file.Length.Returns(1024);
+            _fileRepository.UpDateFile(id.ToString().ToUpper(), filePath).Returns(false);
+
+
+            using (var stream = new MemoryStream())
+            {
+                file.OpenReadStream().Returns(stream);
+
+                var result = _fileService.UpdateFile(file, id);
+
+                result.Should().BeFalse();
+                File.Exists(filePath).Should().BeTrue();
+                File.Delete(filePath);
+            }
+        }
+
+        [Fact]
+        public void UpdateFile_Should_ReturnFalse_When_FileNotCreatedOnDisk()
+        {
+            var file = Substitute.For<IFormFile>();
+            var id = Guid.NewGuid();
+            var fileName = "testfile.pdf";
+
+            file.FileName.Returns(fileName);
+            file.Length.Returns(1024);
+
+            using (var stream = new MemoryStream())
+            {
+                file.OpenReadStream().Returns(stream);
+
+                // Mock File.Exists to return false
+                Substitute.For<FileStream>(fileName, FileMode.Create).ReturnsNull();
+
+                var result = _fileService.UpdateFile(file, id);
+
+                result.Should().BeFalse();
             }
         }
     }
