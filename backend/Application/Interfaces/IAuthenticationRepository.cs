@@ -7,5 +7,6 @@ namespace Application.Interfaces
         UserCredentials GetUser(string email);
         bool RegisterUser(UserCredentials credentials, UserData data, UserWeight weight);
         bool GiveUserAdminRights(string email);
+        bool DeleteUser(Guid User_id);
     }
 }

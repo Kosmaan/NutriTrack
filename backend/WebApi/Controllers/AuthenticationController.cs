@@ -49,17 +49,13 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
-        public ActionResult<string> TestMethod()
-        {
-            return Ok("Test works!");
-        }
-
-        [HttpGet]
+        [HttpDelete]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
-        public ActionResult<string> TestMethod2()
+        public ActionResult<string> DeleteUser([FromQuery] string email)
         {
-            return Ok("Test works!");
+            var result = this._authorizationService.DeleteUser(email);
+
+            return Ok(result);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool AddMealPlan([FromForm] MealPlanDTO mealPlan)
         {
             Guid id = Guid.NewGuid();
@@ -30,28 +30,28 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public MealPlanSend GetMealPlanById([FromQuery] Guid id)
         {
             return _mealPlanService.GetMealPlan(id);
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public IEnumerable<MealPlanSend> GetAllMealPlans()
         {
             return _mealPlanService.GetAllMealPlans();
         }
 
         [HttpDelete]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool DeleteMealPlanById([FromQuery] Guid id)
         {
             return _mealPlanService.DeleteMealPlan(id);
         }
 
         [HttpPut]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool UpdateMeal([FromForm] MealPlanDTO mealPlan)
         {
             _fileService.UpdateFile(mealPlan.Photo, mealPlan.Meal_Plan_Id);

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 using Application.Services;
+using WebApiContracts;
 
 namespace WebApi.Controllers
 {
@@ -17,7 +18,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public ActionResult GetFile(string fileName)
         {
             var result = this._fileService.GetFile(fileName);

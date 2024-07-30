@@ -25,7 +25,6 @@ namespace Application.Services
             if (userCheck != null)
             {
                 throw new Exception("User already registered");
-                //throw new NullReferenceException("User already registered");
             }
 
             var hashedPassword = this._passwordHasher.Hash(credentials.Password);
@@ -80,6 +79,20 @@ namespace Application.Services
             }
 
             var result = this._authenticationRepository.GiveUserAdminRights(email);
+
+            return result;
+        }
+
+        public bool DeleteUser(string email)
+        {
+            var userCheck = this._authenticationRepository.GetUser(email);
+
+            if (userCheck == null)
+            {
+                throw new Exception("User is not registered");
+            }
+
+            var result = this._authenticationRepository.DeleteUser(userCheck.User_Id);
 
             return result;
         }

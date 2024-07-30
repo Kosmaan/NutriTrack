@@ -20,7 +20,7 @@ namespace WebApi.Controllers
       
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool AddMeal([FromForm] MealDTO meal)
         {
             Guid id = Guid.NewGuid();
@@ -30,28 +30,28 @@ namespace WebApi.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public MealDTO GetMealById([FromQuery] Guid id)
         {
             return _mealService.GetMealById(id);
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public IEnumerable<MealDTO> GetAllMeals()
         {
             return _mealService.GetAllMeals();
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool UpdateMeal([FromForm] MealDTO dto)
         {
             return _mealService.UpdateMeal(dto);
         }
 
         [HttpDelete]
-        [AllowAnonymous]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool DeleteMeal([FromQuery] Guid id)
         {
             return _mealService.DeleteMeal(id);
