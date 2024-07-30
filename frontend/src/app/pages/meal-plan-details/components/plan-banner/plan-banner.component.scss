@@ -17,7 +17,10 @@
         max-width: 100%;
         display: block;
         margin: 0 auto;
+        height: 100%;
+        width: 100%;
         z-index: -1;
+        object-fit: cover;
     }
 
     .text-container {

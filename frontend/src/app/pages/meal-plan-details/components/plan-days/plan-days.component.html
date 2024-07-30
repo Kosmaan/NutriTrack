@@ -1,130 +1,21 @@
 <div class="container">
     <div class="card">
+      <!-- Loop through the meals array -->
+      <div *ngFor="let meal of meals">
         <div class="day-card">
-            <div class="day-component-title">
-                Monday
-            </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
-        </div>
-       
-        <div class="day-card">
-            <div class="day-component-title">
-                Tuesday
-            </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
-        </div>
+          <!-- Dynamically set the day component title -->
+          <div class="day-component-title">
+            {{ getDayName(meal.day) }}
+          </div>
+          <hr>
+          <div class="day-component-content">
+            <!-- Fetch meal data based on IDs and display them -->
+            <div class="day-component-card" *ngIf="meal.breakfast">
 
-        <div class="day-card">
-            <div class="day-component-title">
-                Wednesday
             </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
+          </div>
         </div>
-
-        <div class="day-card">
-            <div class="day-component-title">
-                Thursday
-            </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-component-title">
-                Friday
-            </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-component-title">
-                Saturday
-            </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="day-component-title">
-                Sunday
-            </div>
-            <hr>
-            <div class="day-component-content">
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-                <div class="day-component-card">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi animi eligendi consectetur, voluptate accusamus iusto mollitia dolores amet numquam nulla necessitatibus quaerat officiis veniam quibusdam illo, ullam blanditiis doloremque reprehenderit?
-                </div>
-            </div>
-        </div>
-        
+      </div>
     </div>
-</div>
+  </div>
+  

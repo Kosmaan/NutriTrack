@@ -43,7 +43,7 @@ const routes: Routes = [
       { path: 'plans', component: MealPlansPageComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'meal-plan-details', component: MealPlanDetailsComponent },
+      { path: 'meal-plan-details/:id', component: MealPlanDetailsComponent },
       {
         path: 'settings',
         component: SettingsComponent,
