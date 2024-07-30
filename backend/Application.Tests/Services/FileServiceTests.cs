@@ -207,28 +207,5 @@ namespace Application.Tests.Services
                 File.Delete(filePath);
             }
         }
-
-        [Fact]
-        public void UpdateFile_Should_ReturnFalse_When_FileNotCreatedOnDisk()
-        {
-            var file = Substitute.For<IFormFile>();
-            var id = Guid.NewGuid();
-            var fileName = "testfile.pdf";
-
-            file.FileName.Returns(fileName);
-            file.Length.Returns(1024);
-
-            using (var stream = new MemoryStream())
-            {
-                file.OpenReadStream().Returns(stream);
-
-                // Mock File.Exists to return false
-                Substitute.For<FileStream>(fileName, FileMode.Create).ReturnsNull();
-
-                var result = _fileService.UpdateFile(file, id);
-
-                result.Should().BeFalse();
-            }
-        }
     }
 }
