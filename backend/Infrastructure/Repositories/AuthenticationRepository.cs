@@ -81,5 +81,24 @@ namespace Infrastructure.Repositories
             var result = connection.Execute(sql, new { Email = email });
             return result != 0;
         }
+
+        public bool DeleteUser(Guid User_id)
+        {
+            var queryCredentials = "DELETE FROM [SummerPractice].[User_Credentials] WHERE [User_Id] = @User_id";
+            var queryData = "DELETE FROM [SummerPractice].[User_Data] WHERE [User_Id] = @User_id";
+            var queryWeight = "DELETE FROM [SummerPractice].[Weight] WHERE [User_Id] = @User_id";
+
+            var parameters = new DynamicParameters();
+
+            parameters.Add("User_Id", User_id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+
+            var resultWeight = connection.Execute(queryWeight, parameters);
+            var resultData = connection.Execute(queryData, parameters);
+            var resultCredentials = connection.Execute(queryCredentials, parameters);
+
+            return resultWeight != 0 && resultData != 0 && resultCredentials != 0;
+        }
     }
 }
