@@ -33,6 +33,7 @@
 .contact-component {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .contact-component-title {
@@ -55,7 +56,6 @@
 .input-field {
     width: 100%;
     height: 30px;
-    margin-bottom: 20px;
 }
 
 .description-field {
@@ -64,7 +64,6 @@
     align-items: start;
     width: 100%;
     height: 200px;
-    margin-bottom: 20px;
     resize: none;
 }
 
@@ -73,6 +72,7 @@
     color: var(--primary-colour);
     border: 1px solid var(--text-colour);
     border-radius: var(--border-radius);
+    margin-top: 20px;
     padding: 10px 25px;
     transition: all 0.3s ease;
 }
@@ -81,4 +81,14 @@
     background-color: var(--accent-colour);
     color: var(--primary-colour);
     border: 1px solid var(--accent-colour);
+}
+
+.contact-component-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    small {
+        color: red;
+    }
 }

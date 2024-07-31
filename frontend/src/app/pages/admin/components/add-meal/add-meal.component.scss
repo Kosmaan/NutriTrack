@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+  margin-bottom: 20px;
 }
 
 .add-entry-form-title {
@@ -120,4 +121,8 @@
   margin: 0;
   color: var(--text-colour);
   font-size: 24px;
+}
+
+.error-message {
+  color: red;
 }
