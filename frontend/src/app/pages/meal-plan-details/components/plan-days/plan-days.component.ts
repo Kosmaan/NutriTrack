@@ -4,25 +4,30 @@ import { ActivatedRoute } from '@angular/router';
 import { PlanService } from 'src/app/services/Plan.service';
 import { DayDTO } from 'src/app/models/DayDTO';
 import { Meal } from 'src/app/models/Meal'; // Ensure Meal model matches API response
+import { MealService } from 'src/app/services/Meal.service';
+import { MealPlan } from 'src/app/models/MealPlan';
+import { DayWithMeals } from 'src/app/models/DayWithMeals';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-plan-days',
   templateUrl: './plan-days.component.html',
-  styleUrls: ['./plan-days.component.scss']
+  styleUrls: ['./plan-days.component.scss'],
 })
 export class PlanDaysComponent implements OnInit {
-  plan!: any; // Adjust as needed
+  plan!: MealPlan; // Adjust as needed
   meals: DayDTO[] = [];
-  mealDetails: { [key: string]: Meal } = {};
+  mealList: DayWithMeals[] = [];
   private id!: string;
 
   constructor(
     private route: ActivatedRoute,
-    private planService: PlanService
+    private planService: PlanService,
+    private mealService: MealService
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.id = params.get('id') || '';
       if (this.id) {
         console.log('Fetching Meal Plan with ID:', this.id);
@@ -31,40 +36,51 @@ export class PlanDaysComponent implements OnInit {
         console.error('No ID provided');
       }
     });
+    
   }
 
   fetchMealPlan(): void {
     this.planService.getMealPlanById(this.id).subscribe(
-      data => {
+      async (data : MealPlan) => {
         console.log('Fetched Meal Plan Data:', data);
         this.plan = data;
-        this.meals = data.meals.map((meal: any) => ({
-          ...meal,
-          day: meal.day as number, // Ensure day is treated as number
-          breakfast: meal.breakfast as string, // Ensure IDs are treated as string
-          lunch: meal.lunch as string,
-          dinner: meal.dinner as string
-        }));
-
-        // Fetch meal details for each meal ID
+        for(let day of this.plan.meals){
+          const breakfast = await this.fetchMealById(day.breakfast.toString());
+          const lunch = await this.fetchMealById(day.lunch.toString());
+          const dinner = await this.fetchMealById(day.dinner.toString());
+          this.mealList.push(
+            {
+              day: day.day,
+              breakfast: breakfast,
+              lunch: lunch,
+              dinner: dinner
+            }
+          )
+        }
+        console.log(this.mealList);
       },
-      error => {
+      (error) => {
         console.error('Error fetching meal plan:', error);
       }
     );
   }
 
-
-
-
-  getDayName(dayNumber: number): string {
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return daysOfWeek[dayNumber - 1]; // Convert to 0-based index
+  async fetchMealById(id: string): Promise<Meal> {
+    const meal: Meal = await lastValueFrom(this.mealService.getMealById(id));
+    return meal;
   }
 
-  getMealName(mealId: string): string {
-    const meal = this.mealDetails[mealId];
-    return meal ? meal.title : 'Unknown'; // Adjust according to your meal model
-}
+  getDayName(dayNumber: number): string {
+    const daysOfWeek = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ];
+    return daysOfWeek[dayNumber - 1]; // Convert to 0-based index
+  }
 
 }

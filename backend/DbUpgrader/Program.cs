@@ -11,7 +11,7 @@ namespace DbUpgrader
             var connectionString =
                 args.FirstOrDefault()
 
-                ?? "data source=DESKTOP-8JT4GI8\\SQLEXPRESS;initial catalog=CentricSummerPractice;trusted_connection=true;Encrypt=True;TrustServerCertificate=True;";
+                ?? "data source=Iustin\\SQLEXPRESS;initial catalog=CentricSummerPractice;trusted_connection=true;Encrypt=True;TrustServerCertificate=True;";
             EnsureDatabase.For.SqlDatabase(connectionString);
 
             var upgrader =

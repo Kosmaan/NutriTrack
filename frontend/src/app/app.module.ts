@@ -36,6 +36,7 @@ import { PlanBannerComponent } from './pages/meal-plan-details/components/plan-b
 import { PlanStatsComponent } from './pages/meal-plan-details/components/plan-stats/plan-stats.component';
 import { PlanDaysComponent } from './pages/meal-plan-details/components/plan-days/plan-days.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -81,6 +82,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     AdminModule,
     ReactiveFormsModule,
     SharedModule,
+    NgChartsModule,
     
 
 ],
