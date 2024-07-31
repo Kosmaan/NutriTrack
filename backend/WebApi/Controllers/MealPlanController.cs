@@ -30,14 +30,14 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
+        [AllowAnonymous]
         public MealPlanSend GetMealPlanById([FromQuery] Guid id)
         {
             return _mealPlanService.GetMealPlan(id);
         }
 
         [HttpGet]
-        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
+        [AllowAnonymous]
         public IEnumerable<MealPlanSend> GetAllMealPlans()
         {
             return _mealPlanService.GetAllMealPlans();
