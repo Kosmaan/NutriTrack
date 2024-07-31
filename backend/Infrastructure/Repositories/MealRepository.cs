@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories
             parameters.Add("Description", meal.Description, DbType.String);
             parameters.Add("Calories", meal.Calories, DbType.Int16);
             parameters.Add("Carbs", meal.Carbs, DbType.Int16);
-            parameters.Add("Proteins", meal.Protein, DbType.Int16);
+            parameters.Add("Proteins", meal.Proteins, DbType.Int16);
             parameters.Add("Fats", meal.Fats, DbType.Int16);
             parameters.Add("Date",DateTime.Now,DbType.DateTime);
             
@@ -90,7 +90,7 @@ namespace Infrastructure.Repositories
             parameters.Add("Description", meal.Description, DbType.String);
             parameters.Add("Calories", meal.Calories, DbType.Int16);
             parameters.Add("Carbs", meal.Carbs, DbType.Int16);
-            parameters.Add("Proteins", meal.Protein, DbType.Int16);
+            parameters.Add("Proteins", meal.Proteins, DbType.Int16);
             parameters.Add("Fats", meal.Fats, DbType.Int16);
             parameters.Add("Date", DateTime.Now, DbType.DateTime);
 

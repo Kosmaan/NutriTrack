@@ -53,6 +53,7 @@
 
 .meal-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%; 
@@ -86,4 +87,9 @@
 .previous-button:hover, .next-button:hover {
     background-color: var(--primary-colour);
     color: var(--accent-colour);
+}
+
+.check
+{
+    flex-direction: row;
 }
