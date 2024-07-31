@@ -6,6 +6,7 @@ using Domain;
 using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Components;
 using System.Transactions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.Repositories
 {
@@ -82,6 +83,45 @@ namespace Infrastructure.Repositories
             return result != 0;
         }
 
+        public bool ChangePassword(Guid User_Id, string Password)
+        {
+            var query = "UPDATE [SummerPractice].[User_Credentials] SET [Password] = @Password WHERE [User_id] = @User_Id";
+
+            var parameters = new DynamicParameters();
+
+            parameters.Add("User_id", User_Id, DbType.Guid);
+            parameters.Add("Password", Password, DbType.String);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Execute(query, parameters);
+
+            return result != 0;
+        }
+
+        public bool ChangeDetails(Guid User_id, ChangeDetails details)
+        {
+            var queryEmail = "UPDATE [SummerPractice].[User_Credentials] SET [Email] = @NewEmail WHERE [User_id] = @User_Id";
+            var queryDetails = "UPDATE [SummerPractice].[User_Data] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Height] = @Height WHERE [User_id] = @User_Id";
+
+            var parametersEmail = new DynamicParameters();
+            var parametersDetails = new DynamicParameters();
+
+            parametersEmail.Add("User_Id", User_id, DbType.Guid);
+            parametersEmail.Add("NewEmail", details.NewEmail, DbType.String);
+
+            parametersDetails.Add("User_Id", User_id, DbType.Guid);
+            parametersDetails.Add("First_Name", details.First_Name, DbType.String);
+            parametersDetails.Add("Last_Name", details.Last_Name, DbType.String);
+            parametersDetails.Add("Height", details.Height, DbType.String);
+
+            var connection = _databaseContext.GetDbConnection();
+
+            var result1 = connection.Execute(queryEmail, parametersEmail);
+            var result2 = connection.Execute(queryDetails, parametersDetails);
+
+            return result1 != 0 && result2 != 0;
+        }
+
         public bool DeleteUser(Guid User_id)
         {
             var queryCredentials = "DELETE FROM [SummerPractice].[User_Credentials] WHERE [User_Id] = @User_id";
@@ -100,5 +140,7 @@ namespace Infrastructure.Repositories
 
             return resultWeight != 0 && resultData != 0 && resultCredentials != 0;
         }
+
+
     }
 }
