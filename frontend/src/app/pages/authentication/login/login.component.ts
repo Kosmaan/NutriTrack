@@ -25,7 +25,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       //console.log(this.loginForm.value);
       this.authService.login(this.loginForm.value).subscribe((res) => {
-        localStorage.setItem('userId', res.id);
+        localStorage.setItem('userId', res.email);
         localStorage.setItem('token', res.jwtToken);
         let redirectUrl = this.authService.redirectUrl
           ? this.router.parseUrl(this.authService.redirectUrl)

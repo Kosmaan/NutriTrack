@@ -7,6 +7,19 @@
         </div>
         <div class="add-entry-component-field">
           <input type="text" formControlName="name" class="input-field" />
+          <div
+            *ngIf="
+              planForm.controls['name'].invalid &&
+              planForm.controls['name'].touched
+            "
+          >
+            <small
+              *ngIf="planForm.controls['name'].errors?.['required']"
+              class="error-message"
+            >
+              Name is required
+            </small>
+          </div>
         </div>
       </div>
 
@@ -20,6 +33,19 @@
             formControlName="description"
             class="description"
           ></textarea>
+          <div
+          *ngIf="
+            planForm.controls['description'].invalid &&
+            planForm.controls['description'].touched
+          "
+        >
+          <small
+            *ngIf="planForm.controls['description'].errors?.['required']"
+            class="error-message"
+          >
+            Description is required
+          </small>
+        </div>
         </div>
       </div>
 
@@ -41,22 +67,63 @@
           </select>
         </div>-->
 
-        <mat-select   [(ngModel)]="selectedDay"
-        (ngModelChange)="daySelect()"
-        formControlName="daySelect"
-        class = "selecter"> 
-          <mat-option *ngFor="let day of days; track day" [value]="day.value">{{ day.name }}</mat-option>
-       
+        <mat-select
+          [(ngModel)]="selectedDay"
+          (ngModelChange)="daySelect()"
+          formControlName="daySelect"
+          class="selecter"
+        >
+          <mat-option
+            *ngFor="let day of days; track: day"
+            [value]="day.value"
+            class="selector-item"
+            >{{ day.name }}</mat-option
+          >
         </mat-select>
-     
-       <app-day  [ngClass]="{'hider': selectedDay !== 1}" [meals]="meals" [planForm]="planForm" [indexFromParent]="0" ></app-day>
-       <app-day  [ngClass]="{'hider': selectedDay !== 2}" [meals]="meals" [planForm]="planForm" [indexFromParent]="1"></app-day>
-       <app-day  [ngClass]="{'hider': selectedDay !== 3}" [meals]="meals" [planForm]="planForm" [indexFromParent]="2"></app-day>
-       <app-day  [ngClass]="{'hider': selectedDay !== 4}" [meals]="meals" [planForm]="planForm" [indexFromParent]="3"></app-day>
-       <app-day  [ngClass]="{'hider': selectedDay !== 5}" [meals]="meals" [planForm]="planForm" [indexFromParent]="4"></app-day>
-       <app-day  [ngClass]="{'hider': selectedDay !== 6}" [meals]="meals" [planForm]="planForm" [indexFromParent]="5"></app-day>
-       <app-day  [ngClass]="{'hider': selectedDay !== 7}" [meals]="meals" [planForm]="planForm" [indexFromParent]="6"></app-day>
-      
+
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 1 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="0"
+        ></app-day>
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 2 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="1"
+        ></app-day>
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 3 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="2"
+        ></app-day>
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 4 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="3"
+        ></app-day>
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 5 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="4"
+        ></app-day>
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 6 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="5"
+        ></app-day>
+        <app-day
+          [ngClass]="{ hider: selectedDay !== 7 }"
+          [meals]="meals"
+          [planForm]="planForm"
+          [indexFromParent]="6"
+        ></app-day>
+
         <div class="add-entry-component">
           <div class="add-entry-component-title">
             <p>Photo</p>

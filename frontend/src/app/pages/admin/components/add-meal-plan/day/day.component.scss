@@ -41,7 +41,11 @@
   }
   
   .add-entry-component-title {
-    margin: -5px 10px;
+    p {
+      margin: 0;
+      margin-bottom: -10px;
+      padding-left: 10px;
+    }
   }
   
   .input-field {
@@ -84,7 +88,7 @@
   }
   
   .form-control {
-    width: 100%;
+    width: 150px;
     height: 30px;
   }
   
@@ -125,10 +129,9 @@
 
   .flex-row
   {
-    margin-top: 30px  ;
-    
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     gap:20px;
-    justify-content:flex-start;
+    justify-content:space-between;
   }

@@ -41,7 +41,11 @@
   }
   
   .add-entry-component-title {
-    margin: -5px 10px;
+    p {
+      margin: 0;
+      margin-bottom: -10px;
+      padding-left: 10px;
+    }
   }
   
   .input-field {
@@ -93,7 +97,7 @@
   }
   
   #upload-container {
-    margin: 0 10px;
+    margin: 10px 10px;
     display: flex;
     flex-direction: column;
     height: 100px;
@@ -137,9 +141,7 @@
 
   .selecter
   {
-   
-    width:auto;
-    border:1px;
+    border: 1px;
     border-style: solid;
     display: flex;
     justify-content: center;
@@ -149,4 +151,8 @@
   }
   .mat-mdc-select-trigger {
     height:100%
+}
+
+.error-message {
+  color: red;
 }

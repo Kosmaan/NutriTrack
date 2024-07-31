@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.module';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -35,6 +35,7 @@ import { MealPlanDetailsComponent } from './pages/meal-plan-details/meal-plan-de
 import { PlanBannerComponent } from './pages/meal-plan-details/components/plan-banner/plan-banner.component';
 import { PlanStatsComponent } from './pages/meal-plan-details/components/plan-stats/plan-stats.component';
 import { PlanDaysComponent } from './pages/meal-plan-details/components/plan-days/plan-days.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -83,7 +84,13 @@ import { PlanDaysComponent } from './pages/meal-plan-details/components/plan-day
     
 
 ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

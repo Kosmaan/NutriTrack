@@ -12,7 +12,7 @@ constructor(private injector : Injector) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authService = this.injector.get(AuthService)
     
-    if (req.url.endsWith('/login') || req.url.endsWith('/register')) {
+    if (req.url.endsWith('/LoginUser') || req.url.endsWith('/RegisterUser')) {
       return next.handle(req);
   }
 

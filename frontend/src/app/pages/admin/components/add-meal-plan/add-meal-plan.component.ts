@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { Router } from '@angular/router';
 import { Meal } from 'src/app/models/Meal';
 import { MealPlanDTO } from 'src/app/models/MealPlanDTO';
 import { MealService } from 'src/app/services/Meal.service';
 import { PlanService } from 'src/app/services/Plan.service';
+import { ToastService } from 'src/app/services/toast.service';
 @Component({
   selector: 'app-add-meal-plan',
   templateUrl: './add-meal-plan.component.html',
@@ -16,7 +18,9 @@ export class AddMealPlanComponent implements OnInit {
   constructor(
     private mealService: MealService,
     private planService: PlanService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastService: ToastService,
+    private router: Router,
   ) {
     this.mealService.getMeals().subscribe( (meals: Meal[]) => {
       this.meals = meals;
@@ -90,6 +94,11 @@ export class AddMealPlanComponent implements OnInit {
   }
 
   OnProductSubmit() {
+        if(this.planForm.invalid){
+          this.toastService.show('Please complete all required fields.', 'error');
+          console.log('Invalid Form');
+        }
+
         console.log(this.planForm.value);
         this.plan.description = this.planForm.get("description")?.value;
         this.plan.title = this.planForm.get("name")?.value;
@@ -115,7 +124,10 @@ export class AddMealPlanComponent implements OnInit {
        
 
         this.planService.addMeal(this.formData).subscribe( (response: any) => {
-          
+          this.router.navigate(['/admin/overview']).then(() => {
+            window.location.reload();
+          });
+          this.toastService.show('Form submitted successfully!', 'success');
           console.log(response)
         } )
     }
@@ -134,11 +146,11 @@ export class AddMealPlanComponent implements OnInit {
    this.formData = new FormData 
 
     this.planForm = new FormGroup({
-      name: new FormControl(''),
-      description: new FormControl(''),
-      photo: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      photo: new FormControl('', [Validators.required]),
       daySelect: new FormControl(),
-      category: new FormControl(),
+      category: new FormControl([Validators.required]),
       meals: new FormBuilder().array([]),
     });
 
