@@ -1,6 +1,16 @@
-  <div class="wrapper">
+<div class="wrapper">
     <div class="container">
       <form [formGroup]="planForm" class="add-entry-form-body">
+        <div class="add-entry-component">
+            <div class="add-entry-component-title">
+              <p>Select Meal Plan</p>
+            </div>
+            <div class="add-entry-component-field">
+              <select formControlName="planSelector" class="form-control">
+                <option *ngFor="let plan of plans" [value]="plan.meal_Plan_Id">{{ plan.title }}</option>
+              </select>
+            </div>
+          </div>
         <div class="add-entry-component">
           <div class="add-entry-component-title">
             <p>Name</p>
@@ -141,9 +151,8 @@
             </div>
           </div>
           <div class="buttons-container">
-            <button class="submit-button" (click)="OnProductSubmit()">
-              Create
-            </button>
+            <button class="submit-button" (click)="OnProductSubmit()">Edit</button>
+            <button class="delete-button" (click)="onDeleteClick()">Delete</button>
           </div>
         </div>
       </form>

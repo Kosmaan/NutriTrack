@@ -32,4 +32,12 @@ export class PlanService {
     const params = new HttpParams().set('id', id);
     return this.http.get<MealPlan>(`${this.url}/GetMealPlanById`, { params });
   }
+
+  deletePlan(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.url}/DeleteMealPlanById?id=${id}`);
+  }
+
+  updateMeal(id: string, formData: FormData): Observable<any> {
+    return this.http.put<any>(`${this.url}/UpdateMeal/${id}`, formData);
+  }
 }

@@ -76,6 +76,24 @@
     color: var(--primary-colour);
     border: 1px solid var(--accent-colour);
   }
+
+  .delete-button {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #FF0000;
+    color: var(--primary-colour);
+    border: 1px solid #FF0000;
+    border-radius: var(--border-radius);
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #d10000;
+    color: var(--primary-colour);
+    border: 1px solid #d10000;
+  }
   
   .add-entry-component-cluster {
     margin-top: -40px;

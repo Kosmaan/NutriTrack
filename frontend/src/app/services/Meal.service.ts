@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Meal } from '../models/Meal';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -21,5 +22,17 @@ export class MealService {
     return this.http.get<Meal[]>(this.url + "/GetAllMeals");
   }
 
+  updateMeal(id: string, formData: FormData): Observable<any> {
+    return this.http.put<any>(`${this.url}/UpdateMeal/${id}`, formData);
+  }
   
+
+  deleteMeal(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.url}/DeleteMeal?id=${id}`);
+  }
+  
+  getMealById(id: string): Observable<Meal> {
+    return this.http.get<Meal>(`${this.url}/GetMealById?id=${id}`);
+  }
+
 }

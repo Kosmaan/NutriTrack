@@ -1,13 +1,15 @@
 .item-card {
-  padding: 20px 0;
+  display: flex;
   background-color: var(--primary-colour);
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: var(--border-radius);
   box-shadow: var(--drop-shadow);
-  width: 330px;
-  height: 450px;
-  display: flex;
+  width: 350px;
+  height: 500px;
   flex-direction: column;
   transition: all 0.3s ease;
+
 
   hr {
     width: 80%;
@@ -20,11 +22,16 @@
 }
 
 .item-card-photo {
-  padding: 0 20px;
-  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
+    height: 200px;
     width: 100%;
+    object-fit: cover;
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
   }
 }
 
@@ -32,16 +39,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-
   h3 {
-    margin: 0;
+    margin-bottom: 0;
   }
 }
 
 .item-card-description {
-  padding: 0 20px;
-  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-edit-button {
@@ -67,14 +73,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10px;
-  margin-top: auto;
+  padding-bottom: 10px;
 }
 .text-container{
   width:100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 5px;
 
 }

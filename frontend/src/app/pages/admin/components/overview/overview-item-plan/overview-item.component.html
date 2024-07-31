@@ -1,11 +1,14 @@
 <div class="item-card">
-  <div class="item-card-photo">
-    <img [src]="'http://127.0.0.1:8080/' + plan.photo" alt="" />
+  <div class="card-description-content">
+    <div class="item-card-photo">
+      <img [src]="'http://127.0.0.1:8080/' + plan.photo" alt="" />
+    </div>
+    <div class="item-card-title">
+      <h3>{{plan.title}}</h3>
+    </div>
+    <hr />
   </div>
-  <div class="item-card-title">
-    <h3>{{plan.title}}</h3>
-  </div>
-  <hr />
+
   <div class="item-card-description">
     {{plan.description}}
   </div>

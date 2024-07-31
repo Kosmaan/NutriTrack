@@ -20,7 +20,7 @@ export class AddMealPlanComponent implements OnInit {
     private planService: PlanService,
     private fb: FormBuilder,
     private toastService: ToastService,
-    private router: Router,
+    private router: Router, 
   ) {
     this.mealService.getMeals().subscribe( (meals: Meal[]) => {
       this.meals = meals;

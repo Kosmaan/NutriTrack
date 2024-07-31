@@ -1,13 +1,12 @@
 <div class="item-card">
-  <div class="item-card-photo">
-    <img [src]="'http://127.0.0.1:8080/' + meal.photo"   />
-  </div>
-  <div class="item-card-title">
-    <h3>{{meal.title}}</h3>
-  </div>
-  <hr />
-  <div class="item-card-description">
-    {{meal.description}}
+  <div class="card-description-content">
+    <div class="item-card-photo">
+      <img [src]="'http://127.0.0.1:8080/' + meal.photo" />
+    </div>
+    <div class="item-card-title">
+      <h3>{{ meal.title }}</h3>
+    </div>
+    <hr />
   </div>
   <div class="text-container">
     <div class="text-left">Proteins:{{ meal.protein }}g</div>

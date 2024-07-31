@@ -21,6 +21,7 @@ import { MealCardComponent } from 'src/app/components/meal-card/meal-card.compon
 import { PlanCardComponent } from 'src/app/components/plan-card/plan-card.component';
 import { SharedModule } from 'src/app/components/shared.module';
 import { OverviewItemComponentPlan } from './components/overview/overview-item-plan/overview-item.component';
+import { EditMealPlanComponent } from './components/edit-meal-plan/edit-meal-plan.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { OverviewItemComponentPlan } from './components/overview/overview-item-p
     OverviewItemComponentPlan,
     OverviewItemComponentMeal,
     DayComponent,
+    EditMealPlanComponent,
   ],
   imports: [
     AdminNavbarModule,

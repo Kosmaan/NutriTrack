@@ -22,6 +22,7 @@ import { DeleteAccountComponent } from './pages/settings/delete-account/delete-a
 import { ChangePasswordComponent } from './pages/settings/change-password/change-password.component';
 import { ChangeDetailsComponent } from './pages/settings/change-details/change-details.component';
 import { MealPlanDetailsComponent } from './pages/meal-plan-details/meal-plan-details.component';
+import { EditMealPlanComponent } from './pages/admin/components/edit-meal-plan/edit-meal-plan.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -95,6 +96,10 @@ const routes: Routes = [
           {
             path: 'edit-meal',
             component: EditMealComponent,
+          },
+          {
+            path: 'edit-meal-plan',
+            component: EditMealPlanComponent,
           },
         ],
       },
