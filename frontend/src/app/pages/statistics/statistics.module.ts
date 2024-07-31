@@ -8,21 +8,29 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { HintsItemComponent } from './components/hints-item/hints-item.component';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPseudoCheckbox } from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 const COMPONENTS: any[] = [
-    StatisticsComponent,
-    StatsComponent,
-    CalendarComponent,
-    MealCardStatsComponent,
-    ProgressComponent,
-    HintsItemComponent
+  StatisticsComponent,
+  StatsComponent,
+  CalendarComponent,
+  MealCardStatsComponent,
+  ProgressComponent,
+  HintsItemComponent,
+ 
 ];
 @NgModule({
   declarations: [COMPONENTS],
   exports: [COMPONENTS],
   providers: [],
-  imports: [MatProgressSpinnerModule, CommonModule],
+  imports: [
+    MatProgressSpinnerModule, 
+    CommonModule, 
+    ReactiveFormsModule,
+    FormsModule,
+    MatCheckboxModule
+  ],
   bootstrap: [StatisticsComponent],
 })
-export class StatisticsModule { }
+export class StatisticsModule {}

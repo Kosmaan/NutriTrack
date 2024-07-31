@@ -3,12 +3,22 @@
     <div class="meals-nav-container">
         <button class="previous-button" (click)="previous()">&lt;</button>
         <div class="meals-container">
-            <div class="meal" *ngFor="let day of displayDays">
-                <p class="meal-title">{{ day }}</p>
+            <div class="meal" *ngFor="let day of displayDays; let  i = index">
+                <p class="meal-title">{{ day.day }}</p>
                 <div class="custom-line"></div>
-                <div class="meal-item" *ngFor="let meal of meals[day]">
-                    <label [for]="day + meal">{{ meal }}</label>
-                    <input type="checkbox" [id]="day + meal" [name]="day + meal">
+                <div class="meal-item" >
+                    <div class ="check">
+                        <label for="breakfast">Breakfast</label>
+                        <input type="checkbox" id="breakfast" name="breakfast" [(ngModel)]="this.day.breakfast" (change)="persistChanges()">
+                    </div>
+                    <div>
+                        <label for="lunch">Lunch</label>
+                        <input type="checkbox" id="lunch" name="lunch" [(ngModel)]="this.day.lunch"  (change)="persistChanges()">
+                    </div>
+                    <div>
+                        <label for="dinner">Dinner</label>
+                        <input type="checkbox" id="dinner" name="dinner" [(ngModel)]="this.day.dinner"  (change)="persistChanges()">
+                    </div>
                 </div>
             </div>
         </div>
