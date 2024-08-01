@@ -5,15 +5,15 @@
   <div class="container-content">
     <div class="input-container">
       <p>Email</p>
-      <input type="text" formControlName="email" />
+      <input type="text" formControlName="newEmail" />
       <div
         *ngIf="
-          detailsForm.controls['email'].invalid &&
-          detailsForm.controls['email'].touched
+          detailsForm.controls['newEmail'].invalid &&
+          detailsForm.controls['newEmail'].touched
         "
       >
         <small
-          *ngIf="detailsForm.controls['email'].errors?.['required']"
+          *ngIf="detailsForm.controls['newEmail'].errors?.['required']"
           class="error-message"
         >
           Email is required
@@ -76,6 +76,6 @@
     </div>
   </div>
   <div class="button-container">
-    <button class="confirm-button">CHANGE</button>
+    <button class="confirm-button" (click)="updateDetails()">CHANGE</button>
   </div>
 </div>

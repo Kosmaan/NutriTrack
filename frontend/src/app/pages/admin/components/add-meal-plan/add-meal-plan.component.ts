@@ -41,7 +41,6 @@ export class AddMealPlanComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.fileName = input.files[0].name;
-      // Optionally handle the selected file here
     } else {
       this.fileName = 'No file chosen';
     }
@@ -53,7 +52,6 @@ export class AddMealPlanComponent implements OnInit {
 
   }
 
-  //days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   days = [
     {
       name: 'Monday',
@@ -162,7 +160,7 @@ export class AddMealPlanComponent implements OnInit {
 
     for (let i = 0; i < 7; i++) {
       daysArray.push(this.fb.group({
-        day: [i + 1], // day is 1 to 7
+        day: [i + 1],
         breakfast: [null],
         lunch: [null],
         dinner: [null]

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { ContactService } from 'src/app/services/contact.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -23,9 +24,11 @@ export class ContactComponent {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
+      console.log('Form Values:', this.contactForm.value);
+
       this.toastService.show('Form submitted successfully!', 'success');
-      const formData = this.contactForm.value;
-      this.contactService.sendContactForm(formData).subscribe(
+
+      this.contactService.sendContactForm(this.contactForm.value).subscribe(
         (response) => {
           console.log('Form submission successful', response);
         },
@@ -38,7 +41,6 @@ export class ContactComponent {
       console.log('Form is invalid');
     }
   }
-
 
 
 }

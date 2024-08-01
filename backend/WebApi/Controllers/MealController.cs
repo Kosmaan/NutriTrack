@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Application.Services;
 using WebApiContracts;
 using WebApiContracts.Mappers;
+using Domain;
 namespace WebApi.Controllers
 {
     [ApiController]
@@ -30,7 +31,7 @@ namespace WebApi.Controllers
 
 
         [HttpGet]
-        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
+        [AllowAnonymous]
         public MealDTO GetMealById([FromQuery] Guid id)
         {
             return _mealService.GetMealById(id);
@@ -55,6 +56,13 @@ namespace WebApi.Controllers
         public bool DeleteMeal([FromQuery] Guid id)
         {
             return _mealService.DeleteMeal(id);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IEnumerable<Category> GetAllCategories()
+        {
+            return _mealService.GetAllCategories();
         }
     }
 }

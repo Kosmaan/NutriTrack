@@ -3,6 +3,14 @@
     margin: 0 200px;
     justify-content: space-between;
     padding: 25px 0;
+
+    img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        border-top-right-radius: var(--border-radius);
+        border-top-left-radius: var(--border-radius);
+      }
 }
 
 .card {

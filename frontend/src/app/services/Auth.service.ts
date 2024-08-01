@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from '../models/User';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
 import { MealPlan } from '../models/MealPlan';
@@ -13,6 +13,8 @@ import { UserWeight } from '../models/UserWeight';
 })
 export class AuthService {
   sessionUser!: User;
+  private userEmail: string | null = null;
+  private userPassword: string | null = null;
   constructor(private http: HttpClient, private toastService: ToastService, private router: Router) {}
 
   url = 'https://localhost:7154/Authentication';
@@ -91,5 +93,79 @@ export class AuthService {
       return false;
     }
   }
+
+  deleteAccount(email: string): Observable<void> {
+    const params = new HttpParams().set('email', email);
+    this.toastService.show('Account deleted successfully', 'success');
+    return this.http.delete<void>(this.url + '/DeleteUser?userId=${email}', { params });
+  }
+
+  changePassword(email: string, password: string): Observable<void> {
+    const params = new HttpParams()
+      .set('Email', email)
+      .set('Password', password);
+
+    return this.http.post<void>(`${this.url}/ChangePassword`, null, {
+      params: params,
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+
+  updateUserDetails(details: {
+    first_Name: string;
+    last_Name: string;
+    height: string;
+    oldEmail: string;
+    newEmail: string;
+  }): Observable<void> {
+
+    const params = new HttpParams()
+      .set('First_Name', details.first_Name)
+      .set('Last_Name', details.last_Name)
+      .set('Height', details.height)
+      .set('OldEmail', details.oldEmail)
+      .set('NewEmail', details.newEmail);
+
+
+    console.log('Sending update request with parameters:', params.toString());
+
+    return this.http.post<void>(`${this.url}/ChangeDetails`, null, {
+      params,
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    }).pipe(
+      tap(() => {
+        console.log('API call successful');
+      }, (error) => {
+        console.error('API call error:', error);
+      })
+    );
+  }
+
+  sendContactForm(formData: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    description: string;
+  }): Observable<void> {
+
+    const params = new HttpParams()
+      .set('Email', formData.email)
+      .set('First_Name', formData.firstName)
+      .set('Last_Name', formData.lastName)
+      .set('Phone_Number', formData.phone)
+      .set('Description', formData.description);
+
+
+    const fullUrl = `${this.url}/ContactUs`;
+    console.log('Full URL:', fullUrl);
+
+
+    return this.http.post<void>(fullUrl, null, {
+      params: params,
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+  
 
 }

@@ -15,6 +15,7 @@ namespace Application.Interfaces
         bool DeleteMealPlan(Guid id);
        
         IEnumerable<MealPlan> GetAllMealPlans();
+        IEnumerable<Category> GetPlanCategories(Guid plan_id);
         
     }
 }

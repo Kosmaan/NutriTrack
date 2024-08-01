@@ -76,7 +76,6 @@ export class CalendarComponent implements OnInit{
       this.daysChange.emit(this.days);
       
       localStorage.setItem("progress",JSON.stringify(this.days))
-     // console.log(this.days)
     }
 
     next(): void {

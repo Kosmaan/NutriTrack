@@ -52,7 +52,7 @@ export class ReviewCarouselComponent implements OnInit {
       const prevIndex = this.currentIndex;
       this.currentIndex = index;
       this.animateSlides(prevIndex, this.currentIndex);
-      clearInterval(this.interval); // Stop auto-rotation on indicator click
+      clearInterval(this.interval);
     }
   }
 

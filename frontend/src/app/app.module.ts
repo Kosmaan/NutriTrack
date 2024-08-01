@@ -16,7 +16,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ItemSelectorComponent } from './components/item-selector/item-selector.component';
 import { HomepageModule } from './pages/homepage/homepage.module';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { MealPlansPageModule } from './pages/meal-plans-page/meal-plans-page.module';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -37,7 +41,6 @@ import { PlanStatsComponent } from './pages/meal-plan-details/components/plan-st
 import { PlanDaysComponent } from './pages/meal-plan-details/components/plan-days/plan-days.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NgChartsModule } from 'ng2-charts';
-
 
 @NgModule({
   declarations: [
@@ -60,7 +63,6 @@ import { NgChartsModule } from 'ng2-charts';
     PlanBannerComponent,
     PlanStatsComponent,
     PlanDaysComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,7 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    
+
     MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
@@ -83,15 +85,13 @@ import { NgChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
     SharedModule,
     NgChartsModule,
-    
-
-],
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

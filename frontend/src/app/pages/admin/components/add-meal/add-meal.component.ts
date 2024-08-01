@@ -41,13 +41,8 @@ export class AddMealComponent implements OnInit {
     }
   }
   OnProductSubmit() {
+    console.log("hellooo")
     if (this.addProductForm.valid) {
-      /*const photoFile = (
-        document.querySelector('input[type="file"]') as HTMLInputElement).files?.[0];
-      if (photoFile) {
-        formData.append('photo', photoFile);
-      }*/
-      //console.log(this.addProductForm.value);
       console.log(this.addProductForm.value);
       this.formData.append('Title', this.addProductForm.get('name')?.value);
       this.formData.append(
@@ -73,11 +68,14 @@ export class AddMealComponent implements OnInit {
 
       this.mealService
         .addMeal(this.formData)
-        .subscribe((res: any) => console.log(res));
+        .subscribe((res: any) =>{
+          this.router.navigate(['/admin/overview']).then(() => {
+            window.location.reload();
+            this.toastService.show('Form submitted successfully!', 'success');
+          });
+        });
 
-      this.router.navigate(['/admin/overview']).then(() => {
-        window.location.reload();
-      });
+      
       this.toastService.show('Form submitted successfully!', 'success');
     } else {
       this.toastService.show('Please complete all required fields.', 'error');

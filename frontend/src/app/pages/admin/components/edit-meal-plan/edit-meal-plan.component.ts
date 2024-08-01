@@ -79,7 +79,6 @@ export class EditMealPlanComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.fileName = input.files[0].name;
-      // Optionally handle the selected file here
     } else {
       this.fileName = 'No file chosen';
     }
@@ -89,7 +88,6 @@ export class EditMealPlanComponent implements OnInit {
     console.log(this.selectedDay);
   }
 
-  //days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   days = [
     {
       name: 'Monday',
@@ -210,7 +208,7 @@ export class EditMealPlanComponent implements OnInit {
     for (let i = 0; i < 7; i++) {
       daysArray.push(
         this.fb.group({
-          day: [i + 1], // day is 1 to 7
+          day: [i + 1],
           breakfast: [null],
           lunch: [null],
           dinner: [null],
@@ -226,7 +224,7 @@ export class EditMealPlanComponent implements OnInit {
         this.planService.deletePlan(this.currentPlanId).subscribe(
           () => {
             alert('Meal deleted successfully');
-            this.router.navigate(['/admin/overview']); // Optionally navigate after deletion
+            this.router.navigate(['/admin/overview']);
           },
           error => {
             console.error('Error deleting meal:', error);

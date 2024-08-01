@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Category } from 'src/app/models/Category';
 import { MealPlan } from 'src/app/models/MealPlan';
 import { PlanService } from 'src/app/services/Plan.service';
 
@@ -9,14 +10,20 @@ import { PlanService } from 'src/app/services/Plan.service';
   styleUrls: ['./plan-stats.component.scss']
 })
 export class PlanStatsComponent implements OnInit{
-  plan!: MealPlan;
-
+  @Input() plan!: MealPlan;
+  categories !: Category[];
   constructor(
     private route: ActivatedRoute,
     private planService: PlanService
   ) {}
 
   ngOnInit(): void {
+    this.planService.getPlanCategories(this.plan.meal_Plan_Id).subscribe( res =>
+    {
+      this.categories = res;
+      console.log(this.categories);
+    }
+    )
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {

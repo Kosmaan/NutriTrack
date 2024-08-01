@@ -169,7 +169,7 @@ namespace Application.Tests.Services
 
             file.FileName.Returns(fileName);
             file.Length.Returns(1024);
-            _fileRepository.UpDateFile(id.ToString().ToUpper(), filePath).Returns(true);
+            _fileRepository.UpDateFile(id.ToString().ToUpper(), fileName).Returns(true);
 
             using (var stream = new MemoryStream())
             {
