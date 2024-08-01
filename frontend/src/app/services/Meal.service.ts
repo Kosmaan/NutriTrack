@@ -21,6 +21,11 @@ export class MealService {
   {
     return this.http.get<Meal[]>(this.url + "/GetAllMeals");
   }
+  getMealById(id : String)
+  {
+    return this.http.get<Meal>(this.url + "/GetMealById?id=" + id);
+  }
+
 
   updateMeal(id: string, formData: FormData): Observable<any> {
     return this.http.put<any>(`${this.url}/UpdateMeal/${id}`, formData);

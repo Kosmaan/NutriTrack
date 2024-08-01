@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Application.Services;
 using WebApiContracts;
 using WebApiContracts.Mappers;
+using Domain;
 
 namespace WebApi.Controllers
 {
@@ -49,9 +50,27 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult<string> ChangePassword([FromBody] UserCredentialsContract credentialsContract)
+        {
+            var result = this._authorizationService.ChangePassword(credentialsContract.MapTestToDomain());
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult<string> ChangeDetails([FromBody] ChangeDeatilsDTO details)
+        {
+            var result = this._authorizationService.ChangeDetails(details.ToEntity());
+
+            return Ok(result);
+        }
+
         [HttpDelete]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
-        public ActionResult<string> DeleteUser([FromQuery] string email)
+        public ActionResult<string> DeleteUser([FromBody] string email)
         {
             var result = this._authorizationService.DeleteUser(email);
 
