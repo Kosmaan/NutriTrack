@@ -11,6 +11,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPseudoCheckbox } from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SharedModule } from "../../components/shared.module";
+import { WeightTrackingComponent } from './components/weight-tracking/weight-tracking.component';
+
 const COMPONENTS: any[] = [
   StatisticsComponent,
   StatsComponent,
@@ -18,6 +21,7 @@ const COMPONENTS: any[] = [
   MealCardStatsComponent,
   ProgressComponent,
   HintsItemComponent,
+  WeightTrackingComponent
  
 ];
 @NgModule({
@@ -25,12 +29,14 @@ const COMPONENTS: any[] = [
   exports: [COMPONENTS],
   providers: [],
   imports: [
-    MatProgressSpinnerModule, 
-    CommonModule, 
+    MatProgressSpinnerModule,
+    CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCheckboxModule
-  ],
+    MatCheckboxModule,
+    SharedModule,
+    
+],
   bootstrap: [StatisticsComponent],
 })
 export class StatisticsModule {}

@@ -51,7 +51,7 @@ namespace Infrastructure.Repositories
             var query = "SELECT * FROM [SummerPractice].[Plan_List] WHERE Meal_Id = @Id";
             var connection = _databaseContext.GetDbConnection();
             var planlist = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
-            if (planlist.Equals(null))
+            if (planlist == -1)
             {
                 var result1 = connection.Execute(queryMealCategory, parameters, _databaseContext.GetDbTransaction());
                 var result2 = connection.Execute(queryMeal, parameters, _databaseContext.GetDbTransaction());
