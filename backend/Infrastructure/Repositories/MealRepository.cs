@@ -99,5 +99,14 @@ namespace Infrastructure.Repositories
             return result != 0;
 
         }
+
+        public IEnumerable<Category> GetAllCategories()
+        {
+            var query = "SELECT * FROM [SummerPractice].[Category]";
+            var connection = _databaseContext.GetDbConnection();
+
+            var result = connection.Query<Category>(query);
+            return result;
+        }
     }
 }

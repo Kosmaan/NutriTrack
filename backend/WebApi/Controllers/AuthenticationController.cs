@@ -41,6 +41,15 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
+        public UserCredentials GetUserByEmail([FromQuery] string email)
+        {
+            var result = this._authorizationService.GetUser(email);
+
+            return result;
+        }
+
         [HttpPost]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public ActionResult<string> GiveUserAdminRights([FromQuery] string email)
@@ -52,7 +61,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult<string> ChangePassword([FromBody] UserCredentialsContract credentialsContract)
+        public ActionResult<string> ChangePassword([FromQuery] UserCredentialsContract credentialsContract)
         {
             var result = this._authorizationService.ChangePassword(credentialsContract.MapTestToDomain());
 
@@ -61,7 +70,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult<string> ChangeDetails([FromBody] ChangeDeatilsDTO details)
+        public ActionResult<string> ChangeDetails([FromQuery] ChangeDeatilsDTO details)
         {
             var result = this._authorizationService.ChangeDetails(details.ToEntity());
 
@@ -69,10 +78,19 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
-        public ActionResult<string> DeleteUser([FromBody] string email)
+        [AllowAnonymous]
+        public ActionResult<string> DeleteUser([FromQuery] string email)
         {
             var result = this._authorizationService.DeleteUser(email);
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult<bool> ContactUs([FromQuery] ContactUs contact)
+        {
+            var result = this._authorizationService.ContactUs(contact);
 
             return Ok(result);
         }
