@@ -13,7 +13,7 @@ namespace Infrastructure.Handlers
     public class IdentityHandler: IIdentityHandler
     {
         private readonly IConfiguration _configuration;
-        private const int TokenLifetime = 15;
+        private const int TokenLifetime = 60;
 
         public IdentityHandler(IConfiguration configuration)
         {

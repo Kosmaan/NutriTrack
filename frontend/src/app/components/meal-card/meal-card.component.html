@@ -1,5 +1,7 @@
 <div class="card">
-  <div class="card-photo"></div>
+  <div class="card-photo">
+    <img [src]="'http://127.0.0.1:8080/' + meal.photo"   />
+  </div>
   <div class="card-name">
     {{ meal.title }}
   </div>

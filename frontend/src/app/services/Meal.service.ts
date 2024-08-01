@@ -21,6 +21,11 @@ export class MealService {
   {
     return this.http.get<Meal[]>(this.url + "/GetAllMeals");
   }
+  getMealById(id : String)
+  {
+    return this.http.get<Meal>(this.url + "/GetMealById?id=" + id);
+  }
+
 
   updateMeal(formData: FormData){
     return this.http.put<any>(`${this.url}/UpdateMeal`, formData);

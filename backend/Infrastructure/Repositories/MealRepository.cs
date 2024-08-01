@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories
             parameters.Add("Description", meal.Description, DbType.String);
             parameters.Add("Calories", meal.Calories, DbType.Int16);
             parameters.Add("Carbs", meal.Carbs, DbType.Int16);
-            parameters.Add("Proteins", meal.Protein, DbType.Int16);
+            parameters.Add("Proteins", meal.Proteins, DbType.Int16);
             parameters.Add("Fats", meal.Fats, DbType.Int16);
             parameters.Add("Date",DateTime.Now,DbType.DateTime);
             
@@ -51,7 +51,7 @@ namespace Infrastructure.Repositories
             var query = "SELECT * FROM [SummerPractice].[Plan_List] WHERE Meal_Id = @Id";
             var connection = _databaseContext.GetDbConnection();
             var planlist = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
-            if (planlist.Equals(null))
+            if (planlist == -1)
             {
                 var result1 = connection.Execute(queryMealCategory, parameters, _databaseContext.GetDbTransaction());
                 var result2 = connection.Execute(queryMeal, parameters, _databaseContext.GetDbTransaction());
@@ -90,7 +90,7 @@ namespace Infrastructure.Repositories
             parameters.Add("Description", meal.Description, DbType.String);
             parameters.Add("Calories", meal.Calories, DbType.Int16);
             parameters.Add("Carbs", meal.Carbs, DbType.Int16);
-            parameters.Add("Proteins", meal.Protein, DbType.Int16);
+            parameters.Add("Proteins", meal.Proteins, DbType.Int16);
             parameters.Add("Fats", meal.Fats, DbType.Int16);
             parameters.Add("Date", DateTime.Now, DbType.DateTime);
 

@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain;
+using System.Net;
 
 namespace Application.Services
 {
@@ -83,6 +84,31 @@ namespace Application.Services
             return result;
         }
 
+        public bool ChangePassword(UserCredentials userCredentials)
+        {
+            var user = this._authenticationRepository.GetUser(userCredentials.Email);
+            var hashedPassword = this._passwordHasher.Hash(userCredentials.Password);
+
+            var result = this._authenticationRepository.ChangePassword(user.User_Id, hashedPassword);
+
+            return result;
+        }
+
+        public bool ChangeDetails(ChangeDetails details)
+        {
+            var user = this._authenticationRepository.GetUser(details.OldEmail);
+            var userCheck = this._authenticationRepository.GetUser(details.NewEmail);
+
+            if (userCheck != null)
+            {
+                throw new Exception("User is already registered");
+            }
+
+            var result = this._authenticationRepository.ChangeDetails(user.User_Id, details);
+
+            return result;
+
+        }
         public bool DeleteUser(string email)
         {
             var userCheck = this._authenticationRepository.GetUser(email);
