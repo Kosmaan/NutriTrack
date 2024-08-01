@@ -44,6 +44,7 @@ export class PlanDaysComponent implements OnInit {
       async (data : MealPlan) => {
         console.log('Fetched Meal Plan Data:', data);
         this.plan = data;
+        console.log(this.plan)
         for(let day of this.plan.meals){
           const breakfast = await this.fetchMealById(day.breakfast.toString());
           const lunch = await this.fetchMealById(day.lunch.toString());

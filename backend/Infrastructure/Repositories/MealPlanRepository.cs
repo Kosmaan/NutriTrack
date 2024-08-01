@@ -130,7 +130,7 @@ namespace Infrastructure.Repositories
 
         public bool UpdatePlanList(PlanList mealPlanList)
         {
-            var query = "UPDATE [SummerPractice].[Plan_List] SET [Meal_Id] = @Meal_Id, [Day] = @Day, [Meal_Time] = @Meal_Time WHERE [Plan_Id] = @Meal_Plan_Id";
+            var query = "UPDATE [SummerPractice].[Plan_List] SET [Meal_Id] = @Meal_Id, [Day] = @Day, [Meal_Time] = @Meal_Time WHERE [Plan_Id] = @Meal_Plan_Id AND [Meal_Id] = @Meal_Id AND [Day] = @Day AND [Meal_Time] = @Meal_Time" ;
             var parameters = new DynamicParameters();
 
             parameters.Add("Meal_Id", mealPlanList.Meal_Id, DbType.Guid);

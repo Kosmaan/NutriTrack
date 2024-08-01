@@ -3,6 +3,7 @@ import { DayChecker } from 'src/app/models/DayChecker';
 import { DayProgress } from 'src/app/models/DayProgress';
 import { Meal } from 'src/app/models/Meal';
 import { MealPlan } from 'src/app/models/MealPlan';
+import { AuthService } from 'src/app/services/Auth.service';
 import { MealService } from 'src/app/services/Meal.service';
 import { PlanService } from 'src/app/services/Plan.service';
 
@@ -64,6 +65,7 @@ updateProgress()
 
 
   User: string = 'User';
+  currentPlan !: String;
   plan!: MealPlan;
   breakfast !: Meal;
   lunch !: Meal;
@@ -80,23 +82,32 @@ updateProgress()
   };
   days : DayChecker[] = [];
   currentDay !: number;
-  constructor(private planService: PlanService, private mealService: MealService){}
+  constructor(private planService: PlanService, private mealService: MealService, private authService : AuthService){}
   ngOnInit(): void {
-   this.planService.getMealPlanById("ddde0fce-29fa-4763-a46f-16380cb354a3").subscribe( (result : MealPlan) =>
-  {
-    this.plan = result;
-    console.log(this.plan);
-    let d = new Date();
-    this.currentDay = d.getDay();
 
-    
-    console.log(this.currentDay);
-    this.mealService.getMealById(this.plan.meals[this.currentDay].breakfast.toString()).subscribe( (result: Meal) => {this.breakfast = result} )
-    this.mealService.getMealById(this.plan.meals[this.currentDay].lunch.toString()).subscribe( (result: Meal) => {this.lunch = result} )
-    this.mealService.getMealById(this.plan.meals[this.currentDay].dinner.toString()).subscribe( (result: Meal) => {this.dinner = result} )
-    
-    this.updateProgress();
-  })
+   
+    this.authService.getUserData().subscribe(res =>
+    {
+      this.currentPlan = res.current_Plan;
+      this.planService.getMealPlanById(this.currentPlan.toString()).subscribe( (result : MealPlan) =>
+        {
+          this.plan = result;
+          console.log(this.plan);
+          let d = new Date();
+          this.currentDay = d.getDay();
+      
+          
+          console.log(this.currentDay);
+          this.mealService.getMealById(this.plan.meals[this.currentDay].breakfast.toString()).subscribe( (result: Meal) => {this.breakfast = result} )
+          this.mealService.getMealById(this.plan.meals[this.currentDay].lunch.toString()).subscribe( (result: Meal) => {this.lunch = result} )
+          this.mealService.getMealById(this.plan.meals[this.currentDay].dinner.toString()).subscribe( (result: Meal) => {this.dinner = result} )
+          
+          this.updateProgress();
+        })
+    }
+    )
+
+  
   }
 
   scrollToCalendar(): void {

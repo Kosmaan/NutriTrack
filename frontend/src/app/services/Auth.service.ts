@@ -4,6 +4,9 @@ import { User } from '../models/User';
 import { tap } from 'rxjs';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
+import { MealPlan } from '../models/MealPlan';
+import { UserWeight } from '../models/UserWeight';
+
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +35,28 @@ export class AuthService {
     let token = this.getToken();
     if (!token) return false;
     return true;
+  }
+
+  usePlan(plan : MealPlan)
+  {
+    return this.http.put<any>(this.url + `/ChangeCurrentPlan?planId=${plan.meal_Plan_Id.toString()}&email=` +localStorage.getItem('userId'), "");
+  }
+
+  getUserData()
+  {
+    let  email =  localStorage.getItem('userId');
+    return this.http.get<any>(`${this.url}/GetUserData?email=${email}`, );
+
+  }
+
+  addUserWeight(data : UserWeight)
+  {
+    return this.http.post<any>(this.url + '/AddUserWeight', data);
+  }
+
+  getUserWeight()
+  {
+    return this.http.get<any>(this.url + '/GetUserWeight?email=' + localStorage.getItem("userId") );
   }
 
   getToken() {

@@ -54,14 +54,14 @@ export class EditMealComponent implements OnInit {
     this.mealService.getMealById(mealId).subscribe(meal => {
       this.addProductForm.patchValue({
         name: meal.title,
-        category: meal.category.toString(),
+        category: meal.category.toString()  ,
         description: meal.description,
         calories: meal.calories,
         protein: meal.protein,
         carbs: meal.carbs,
         fats: meal.fats
       });
-      console.log(meal.category);
+      
       this.fileName = meal.photo || 'No file chosen';
     });
   }
@@ -87,19 +87,18 @@ export class EditMealComponent implements OnInit {
       formData.append('Protein', this.addProductForm.get('protein')?.value);
       formData.append('Carbs', this.addProductForm.get('carbs')?.value);
       formData.append('Fats', this.addProductForm.get('fats')?.value);
+      formData.append('Photo', "x");
 
       if (this.photo) {
         formData.append('file', this.photo);
       }
 
+      
       this.mealService.updateMeal(formData).subscribe(
         (response ) => {
-          console.log('Meal updated:', response);
-          this.router.navigate(['/admin/overview']);
+        console.log(response)
         },
-        error => {
-          console.error('Error updating meal:', error);
-        }
+      
       );
     } else {
       console.log('Invalid form or meal ID not set.');

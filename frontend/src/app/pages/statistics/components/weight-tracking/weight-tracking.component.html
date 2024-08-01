@@ -1,3 +1,42 @@
-<p>
-  weight-tracking works!
-</p>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: large;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+<h2>Body weight history</h2>
+
+
+<div>
+  <input [(ngModel)]="inputValue" placeholder="Enter some data">
+  <button (click)="sendData()">Send</button>
+</div>
+<table>
+  <tr>
+    <th>Weight</th>
+    <th>Date</th>
+  </tr>
+  <tr *ngFor="let weight of history">
+    <td>{{weight.weight}}kg</td>
+    <td>{{weight.measurement_Date}}</td>
+    
+  </tr>
+ 
+</table>
+
+

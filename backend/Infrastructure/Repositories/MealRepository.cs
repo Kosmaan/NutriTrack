@@ -63,7 +63,7 @@ namespace Infrastructure.Repositories
 
         public IEnumerable<Meal> GetAllMeals()
         {
-            var query = "SELECT m.Meal_Id, m.Title, m.Published_Date, m.Calories, m.Carbs, m.Proteins, m.Fats, m.Description, mc.Category_id FROM [SummerPractice].[Meal] AS m JOIN [SummerPractice].[Meal_Category] AS mc ON m.Meal_Id = mc.Meal_id";
+            var query = "SELECT * FROM [SummerPractice].[Meal]";
             var connection = _databaseContext.GetDbConnection();
             var result = connection.Query<Meal>(query);
             return result;
@@ -71,7 +71,7 @@ namespace Infrastructure.Repositories
 
         public Meal GetMeal(Guid id)
         {
-            var query = "SELECT m.Meal_Id, m.Title, m.Published_Date, m.Calories, m.Carbs, m.Proteins, m.Fats, m.Description, mc.Category_id FROM [SummerPractice].[Meal] AS m JOIN [SummerPractice].[Meal_Category] AS mc ON m.Meal_Id = mc.Meal_id WHERE Meal_Id = @Id";
+            var query = "SELECT * FROM [SummerPractice].[Meal] WHERE Meal_Id = @Id";
             var parameters = new DynamicParameters();
             parameters.Add("Id", id);
 

@@ -13,7 +13,7 @@ namespace WebApiContracts
         public string Email { get; set; }
         public string Password { get; set; }
         public string Gender   { get; set; }
-        public DateOnly BirthDay { get; set; }
+        public DateTime BirthDay { get; set; }
         public int Height { get; set; }
         public int Weight { get; set; }
     }

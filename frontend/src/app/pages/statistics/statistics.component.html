@@ -10,7 +10,9 @@
 <div class="divider"></div>
 <app-calendar *ngIf="plan != null" [plan]="this.plan" (daysChange)="handleDaysChange($event)" ></app-calendar>
 <div class="divider"></div>
+<div style = "display: flex; align-items: center; justify-content: center; ">
 <app-weight-tracking></app-weight-tracking>
+</div>
 <!--<div class="text">
     <p id="more">Find more plans</p>
 </div>

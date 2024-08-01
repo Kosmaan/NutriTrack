@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlanService } from 'src/app/services/Plan.service';
 import { MealPlan } from 'src/app/models/MealPlan';
+import { AuthService } from 'src/app/services/Auth.service';
 
 @Component({
   selector: 'app-meal-plan-details',
@@ -13,9 +14,17 @@ export class MealPlanDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private planService: PlanService
+    private planService: PlanService,
+    private authService: AuthService
   ) {}
-
+  changePlan()
+  {
+    this.authService.usePlan(this.plan).subscribe(res =>
+    {
+      console.log(res);
+    }
+    );
+  }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');

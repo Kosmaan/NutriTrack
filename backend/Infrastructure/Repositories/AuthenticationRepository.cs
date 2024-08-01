@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.Repositories
 {
-    public class AuthenticationRepository: IAuthenticationRepository
+    public class AuthenticationRepository : IAuthenticationRepository
     {
         private readonly IDatabaseContext _databaseContext;
 
@@ -19,12 +19,14 @@ namespace Infrastructure.Repositories
             this._databaseContext = databaseContext;
         }
 
-        public UserCredentials GetUser(string email)
+        public UserCredentials GetUserCredentials(string email)
         {
             var sql = "SELECT [User_id], [Password], [Email], [Role] FROM [SummerPractice].[User_Credentials] WHERE [Email] = @Email";
 
             var connection = _databaseContext.GetDbConnection();
-            var users = connection.Query<UserCredentials>(sql, new {Email = email});
+            var parametersData = new DynamicParameters();
+            parametersData.Add("Email", email, DbType.String);
+            var users = connection.Query<UserCredentials>(sql, parametersData);
             return users.FirstOrDefault();
         }
 
@@ -49,7 +51,7 @@ namespace Infrastructure.Repositories
                 return false;
             }
 
-            var User_id = GetUser(credentials.Email).User_Id;
+            var User_id = GetUserCredentials(credentials.Email).User_Id;
 
             parametersData.Add("First_Name", data.First_Name, DbType.String);
             parametersData.Add("Last_Name", data.Last_Name, DbType.String);
@@ -64,10 +66,10 @@ namespace Infrastructure.Repositories
             {
                 return false;
             }
-            var date =  DateTime.Now;
+            var date = DateTime.Now;
             parametersWeight.Add("Weight", weight.Weight, DbType.Decimal);
             parametersWeight.Add("User_id", User_id, DbType.Guid);
-            parametersWeight.Add("date",date , DbType.Date);
+            parametersWeight.Add("date", date, DbType.Date);
 
             var result3 = connection.Execute(query3, parametersWeight, _databaseContext.GetDbTransaction());
 
@@ -141,6 +143,67 @@ namespace Infrastructure.Repositories
             return resultWeight != 0 && resultData != 0 && resultCredentials != 0;
         }
 
+        public bool ChangeCurrentPlan(Guid Plan_id, String email)
+        {
 
+            var queryDetails = "UPDATE [SummerPractice].[User_Data] SET [Current_Plan] = @PlanId WHERE [User_id] = @User_Id";
+
+            var parametersEmail = new DynamicParameters();
+            var parametersDetails = new DynamicParameters();
+            var id = GetUserCredentials(email).User_Id;
+            parametersDetails.Add("User_Id", id , DbType.Guid);
+            parametersDetails.Add("PlanId", Plan_id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+
+            var result = connection.Execute(queryDetails, parametersDetails);
+
+            return result != 0;
+        }
+
+        public UserData GetUserData(string email)
+        {
+            var sql = "SELECT * FROM [SummerPractice].[User_Data] WHERE [User_Id] = @User_Id";
+
+            var connection = _databaseContext.GetDbConnection();
+            var parametersDetails = new DynamicParameters();
+
+            parametersDetails.Add("User_Id", GetUserCredentials(email).User_Id, DbType.Guid);
+             
+
+            var result = connection.Query<UserData>(sql, parametersDetails);
+            return result.FirstOrDefault();
+        }
+
+        public IEnumerable<UserWeight> GetUserWeight(string email)
+        {
+            var sql = "SELECT * FROM [SummerPractice].[Weight] WHERE [User_id] = @User_Id";
+
+            var connection = _databaseContext.GetDbConnection();
+            var parametersDetails = new DynamicParameters();
+            var id = GetUserCredentials(email).User_Id;
+            parametersDetails.Add("User_Id", id, DbType.Guid);
+
+
+            var result = connection.Query<UserWeight>(sql, parametersDetails);
+            return result;
+        }
+
+        public bool AddUserWeight(UserWeight weight)
+        {
+            var query = "INSERT INTO [SummerPractice].[Weight] ([Weight], [Measurement_Date], [User_Id]) VALUES (@Weight, @Measurement_Date, @User_Id)";
+           
+  
+            var parameters= new DynamicParameters();
+            
+
+            parameters.Add("Weight", weight.Weight, DbType.Int16);
+            parameters.Add("Measurement_Date", weight.Measurement_Date, DbType.Date);
+            parameters.Add("User_Id", weight.User_Id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result1 = connection.Execute(query, parameters, _databaseContext.GetDbTransaction());
+            return result1 != 0;
+        }
     }
 }

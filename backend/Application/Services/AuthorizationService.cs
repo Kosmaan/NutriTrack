@@ -21,7 +21,7 @@ namespace Application.Services
 
         public bool RegisterUser(UserCredentials credentials, UserData data, UserWeight weight)
         {
-            var userCheck = this._authenticationRepository.GetUser(credentials.Email);
+            var userCheck = this._authenticationRepository.GetUserCredentials(credentials.Email);
 
             if (userCheck != null)
             {
@@ -51,7 +51,7 @@ namespace Application.Services
 
         public User LoginUser(UserCredentials credentials)
         {
-            var userHashed = this._authenticationRepository.GetUser(credentials.Email);
+            var userHashed = this._authenticationRepository.GetUserCredentials(credentials.Email);
 
             if (!_passwordHasher.Verify(userHashed.Password, credentials.Password))
             {
@@ -72,7 +72,7 @@ namespace Application.Services
 
         public bool GiveUserAdminRights(string email)
         {
-            var userCheck = this._authenticationRepository.GetUser(email);
+            var userCheck = this._authenticationRepository.GetUserCredentials(email);
 
             if (userCheck == null)
             {
@@ -86,7 +86,7 @@ namespace Application.Services
 
         public bool ChangePassword(UserCredentials userCredentials)
         {
-            var user = this._authenticationRepository.GetUser(userCredentials.Email);
+            var user = this._authenticationRepository.GetUserCredentials(userCredentials.Email);
             var hashedPassword = this._passwordHasher.Hash(userCredentials.Password);
 
             var result = this._authenticationRepository.ChangePassword(user.User_Id, hashedPassword);
@@ -96,8 +96,8 @@ namespace Application.Services
 
         public bool ChangeDetails(ChangeDetails details)
         {
-            var user = this._authenticationRepository.GetUser(details.OldEmail);
-            var userCheck = this._authenticationRepository.GetUser(details.NewEmail);
+            var user = this._authenticationRepository.GetUserCredentials(details.OldEmail);
+            var userCheck = this._authenticationRepository.GetUserCredentials(details.NewEmail);
 
             if (userCheck != null)
             {
@@ -111,7 +111,7 @@ namespace Application.Services
         }
         public bool DeleteUser(string email)
         {
-            var userCheck = this._authenticationRepository.GetUser(email);
+            var userCheck = this._authenticationRepository.GetUserCredentials(email);
 
             if (userCheck == null)
             {
@@ -121,6 +121,24 @@ namespace Application.Services
             var result = this._authenticationRepository.DeleteUser(userCheck.User_Id);
 
             return result;
+        }
+
+        public bool ChangeCurrentPlan(Guid Plan_ID,String email)
+        {
+            return _authenticationRepository.ChangeCurrentPlan(Plan_ID, email);    
+        }
+
+        public UserData GetUserData(string email)
+        {
+            return _authenticationRepository.GetUserData(email);
+        }
+        public IEnumerable<UserWeight> GetUserWeights(string email)
+        {
+            return _authenticationRepository.GetUserWeight(email);
+        }
+        public bool AddUserWeight(UserWeight weight)
+        {
+           return  _authenticationRepository.AddUserWeight(weight);
         }
     }
 }

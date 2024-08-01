@@ -76,5 +76,36 @@ namespace WebApi.Controllers
 
             return Ok(result);
         }
+
+        [HttpPut]
+        [AllowAnonymous]
+        public bool ChangeCurrentPlan( Guid planId, String email)
+        {
+            string em = email;
+            return _authorizationService.ChangeCurrentPlan(planId, em);
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public UserData GetUserData( string email)
+        {
+            return _authorizationService.GetUserData(email);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public bool AddUserWeight([FromBody] UserWeight weight)
+        {
+            return _authorizationService.AddUserWeight(weight);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IEnumerable<UserWeight> GetUserWeight( string email)
+        {
+            return _authorizationService.GetUserWeights(email);
+        }
+
     }
 }

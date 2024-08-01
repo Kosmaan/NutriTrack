@@ -31,7 +31,7 @@ namespace Application.Tests.Services
             var email = "existingemail@gmail.com";
             var existingUser = new UserCredentials { Email = email }; 
 
-            _authenticationRepository.GetUser(email).Returns(new UserCredentials { Email = email });
+            _authenticationRepository.GetUserCredentials(email).Returns(new UserCredentials { Email = email });
 
 
             Action act = () => _authorizationService.RegisterUser(existingUser, new UserData(), new UserWeight());
@@ -49,7 +49,7 @@ namespace Application.Tests.Services
             var userData = new UserData();
             var userWeight = new UserWeight();
 
-            _authenticationRepository.GetUser(email).ReturnsNull();
+            _authenticationRepository.GetUserCredentials(email).ReturnsNull();
             _authenticationRepository.RegisterUser(Arg.Any<UserCredentials>(), Arg.Any<UserData>(), Arg.Any<UserWeight>()).Returns(true);
 
 
@@ -70,7 +70,7 @@ namespace Application.Tests.Services
             _passwordHasher.Hash(password).Returns(encryptedPassword);
             _passwordHasher.Verify(encryptedPassword, password).Returns(true);
 
-            _authenticationRepository.GetUser(email).Returns(user);
+            _authenticationRepository.GetUserCredentials(email).Returns(user);
 
 
             var result = _authorizationService.LoginUser(new UserCredentials { Email = email, Password = password });
@@ -92,7 +92,7 @@ namespace Application.Tests.Services
             };
 
             _passwordHasher.Verify(encryptedPassword, password).Returns(false);
-            _authenticationRepository.GetUser(email)!.Returns(user);
+            _authenticationRepository.GetUserCredentials(email)!.Returns(user);
 
 
             Action act = () => this._authorizationService.LoginUser(new UserCredentials {Email = email, Password = password });
@@ -106,7 +106,7 @@ namespace Application.Tests.Services
         {
             var email = "nonexistentemail@gmail.com";
 
-            _authenticationRepository.GetUser(email).ReturnsNull();
+            _authenticationRepository.GetUserCredentials(email).ReturnsNull();
 
 
             Action act = () => this._authorizationService.GiveUserAdminRights(email);
@@ -120,7 +120,7 @@ namespace Application.Tests.Services
         {
             var email = "testemail@gmail.com";
 
-            _authenticationRepository.GetUser(email).Returns(new UserCredentials { Email = email });
+            _authenticationRepository.GetUserCredentials(email).Returns(new UserCredentials { Email = email });
             _authenticationRepository.GiveUserAdminRights(email).Returns(true);
 
 
