@@ -1,6 +1,6 @@
 <app-banner-plans-page></app-banner-plans-page>
 <div class="search-bar">
-  <app-search-bar></app-search-bar>
+  <app-search-bar (searchEvent)="search($event)"></app-search-bar>
 </div>
 <div class="filters-cards-container">
   <div class="filters-container">
@@ -8,7 +8,7 @@
   </div>
   <div class="cards-container">
     <app-plan-card
-      *ngFor="let mealPlan of mealPlans"
+      *ngFor="let mealPlan of filteredMealPlans"
       [plan]="mealPlan"
     ></app-plan-card>
   </div>

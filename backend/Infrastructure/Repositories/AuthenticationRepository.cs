@@ -22,9 +22,12 @@ namespace Infrastructure.Repositories
         public UserCredentials GetUser(string email)
         {
             var sql = "SELECT [User_id], [Password], [Email], [Role] FROM [SummerPractice].[User_Credentials] WHERE [Email] = @Email";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("Email", email, DbType.String);
 
             var connection = _databaseContext.GetDbConnection();
-            var users = connection.Query<UserCredentials>(sql, new {Email = email});
+            var users = connection.Query<UserCredentials>(sql, parameters);
             return users.FirstOrDefault();
         }
 
