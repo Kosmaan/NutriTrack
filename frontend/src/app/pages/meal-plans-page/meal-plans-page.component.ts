@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlanService } from 'src/app/services/Plan.service';
 import { MealPlan } from 'src/app/models/MealPlan';
 import { Category } from 'src/app/models/Category';
-import { MealService } from 'src/app/services/Meal.service'; // Import the MealService
+import { MealService } from 'src/app/services/Meal.service';
 
 @Component({
   selector: 'app-meal-plans-page',
@@ -60,9 +60,23 @@ export class MealPlansPageComponent implements OnInit {
     );
   }
 
-  filterByCategory(category: string): void {
+  filterByCategories(selectedCategories: string[]): void {
     this.filteredMealPlans = this.mealPlans.filter((plan) =>
-      this.categories[plan.meal_Plan_Id as string]?.includes(category)
+      selectedCategories.every((category) =>
+        this.categories[plan.meal_Plan_Id as string]?.includes(category)
+      )
     );
+  }
+
+  sortByTitle(order: string): void {
+    if (order === 'asc') {
+      this.filteredMealPlans.sort((a, b) =>
+        a.title.localeCompare(b.title as string)
+      );
+    } else {
+      this.filteredMealPlans.sort((a, b) =>
+        b.title.localeCompare(a.title as string)
+      );
+    }
   }
 }

@@ -1,7 +1,7 @@
 #filters-frame {
   display: inline-flex;
   width: 288px;
-  height: 850px;
+  height: 700px;
   flex-direction: column;
   align-items: center;
   gap: 10px;
@@ -14,7 +14,7 @@
 #filters {
   display: flex;
   width: 288px;
-  height: 774px;
+  height: 700px;
   padding: 26px 32px;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 414px;
+  height: 200px;
   flex-shrink: 0;
   align-self: stretch;
 }
@@ -95,59 +95,63 @@
   background: #d0d0d2;
 }
 
-#filter-by-calories {
-  display: flex;
-  flex-direction: column;
-  height: 130px;
-  flex-shrink: 0;
-  align-self: stretch;
-}
-
 #title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 220px;
-  height: 22px;
-  flex-shrink: 0;
-}
-
-#filter-by-calories-text {
-  display: flex;
-  align-items: flex-end;
-  width: 148px;
-  height: 0px;
-  flex-shrink: 0;
-  color: var(--Black, #383838);
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-#calories-inputs {
-  margin-top: 10px;
-  height: 200px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-  flex-direction: column;
-  border: none;
-}
-
-#calories {
-  width: 212px;
   height: 60px;
   flex-shrink: 0;
 }
 
-#calories-selection {
+#sort-by-title {
   display: flex;
-  align-items: flex-end;
-  height: 10px;
-  margin: 0;
-  margin-top: 10px;
+  flex-direction: column;
+  gap: 10px;
+  height: 100px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+#sort-by-title-text {
+  width: 175px;
+  height: 22px;
+  flex-shrink: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#sort-options {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#sort-asc,
+#sort-desc {
+  height: 48.134px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: var(--accent-colour);
+  border: 1px solid var(--accent-colour);
+  color: var(--primary-colour);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+#sort-asc:hover,
+#sort-desc:hover {
+  background: var(--primary-colour);
+  border: 1px solid var(--accent-colour);
+  color: var(--accent-colour);
 }
 
 #checkout-button {

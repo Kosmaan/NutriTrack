@@ -4,7 +4,10 @@
 </div>
 <div class="filters-cards-container">
   <div class="filters-container">
-    <app-filters (categorySelected)="filterByCategory($event)"></app-filters>
+    <app-filters
+      (filtersApplied)="filterByCategories($event)"
+      (sortChanged)="sortByTitle($event)"
+    ></app-filters>
   </div>
   <div class="cards-container">
     <app-plan-card

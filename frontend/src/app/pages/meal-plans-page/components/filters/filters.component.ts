@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Category } from 'src/app/models/Category';
 import { MealService } from 'src/app/services/Meal.service';
 
@@ -9,8 +9,10 @@ import { MealService } from 'src/app/services/Meal.service';
 })
 export class FiltersComponent implements OnInit {
   categories: Category[] = [];
+  selectedCategories: Set<string> = new Set();
 
-  @Output() categorySelected = new EventEmitter<string>();
+  @Output() filtersApplied = new EventEmitter<string[]>();
+  @Output() sortChanged = new EventEmitter<string>();
 
   constructor(private mealService: MealService) {}
 
@@ -21,9 +23,7 @@ export class FiltersComponent implements OnInit {
   loadCategories(): void {
     this.mealService.getAllCategories().subscribe(
       (data: Category[]) => {
-        console.log('Categories:', data);
         this.categories = data;
-        console.log(this.categories);
       },
       (error) => {
         console.error('Error fetching categories:', error);
@@ -32,6 +32,23 @@ export class FiltersComponent implements OnInit {
   }
 
   onCategoryClick(category: string): void {
-    this.categorySelected.emit(category);
+    if (this.selectedCategories.has(category)) {
+      this.selectedCategories.delete(category);
+    } else {
+      this.selectedCategories.add(category);
+    }
+  }
+
+  sortTitle(order: string): void {
+    this.sortChanged.emit(order);
+  }
+
+  applyFilters(): void {
+    this.filtersApplied.emit(Array.from(this.selectedCategories));
+  }
+
+  resetFilters(): void {
+    this.selectedCategories.clear();
+    this.filtersApplied.emit([]);
   }
 }
