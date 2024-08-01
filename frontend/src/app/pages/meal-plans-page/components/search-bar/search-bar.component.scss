@@ -24,10 +24,13 @@
   border-radius: 8px 0px 0px 8px;
   background: rgba(208, 208, 210, 0.25);
   border: none;
+  font-size: 18px;
 }
 
 ::-webkit-input-placeholder {
+  position: relative;
   padding-left: 5%;
+  font-size: 18px;
 }
 
 *:focus {
