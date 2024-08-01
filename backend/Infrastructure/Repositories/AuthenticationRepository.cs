@@ -144,6 +144,21 @@ namespace Infrastructure.Repositories
             return resultWeight != 0 && resultData != 0 && resultCredentials != 0;
         }
 
+        public bool ContactUs (ContactUs contact)
+        {
+            var query = "INSERT INTO [SummerPractice].[Contact_us] ([Email], [First_Name], [Last_Name], [Phone_Number], [Description]) VALUES (@Email, @First_name, @Last_Name, @Phone_Number, @Description)";
+            var parameters = new DynamicParameters();
 
+            parameters.Add("Email", contact.Email, DbType.String);
+            parameters.Add("First_Name", contact.First_Name, DbType.String);
+            parameters.Add("Last_Name", contact.Last_Name, DbType.String);
+            parameters.Add("Phone_Number", contact.Phone_Number, DbType.String);
+            parameters.Add("Description", contact.Description, DbType.String);
+
+            var connection = _databaseContext.GetDbConnection();
+            var result = connection.Execute(query, parameters);
+
+            return result != 0;
+        }
     }
 }

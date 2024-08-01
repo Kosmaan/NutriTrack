@@ -69,5 +69,12 @@ namespace Application.Services
 
             return _mealRepository.DeleteMeal(id);
         }
+
+        public IEnumerable<Category> GetAllCategories()
+        {
+            var categories = _mealRepository.GetAllCategories();
+
+            return categories;
+        }
     }
 }

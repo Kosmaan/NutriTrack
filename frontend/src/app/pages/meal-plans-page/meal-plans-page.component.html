@@ -4,7 +4,7 @@
 </div>
 <div class="filters-cards-container">
   <div class="filters-container">
-    <app-filters></app-filters>
+    <app-filters (categorySelected)="filterByCategory($event)"></app-filters>
   </div>
   <div class="cards-container">
     <app-plan-card

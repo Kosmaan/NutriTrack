@@ -43,6 +43,12 @@ namespace Application.Services
             return mealPlanSend;
         }
 
+        public IEnumerable<Category> GetPlanCategories(Guid plan_id)
+        {
+            var categories = _mealPlanRepository.GetPlanCategories(plan_id);
+            return categories;
+        }
+
         public bool DeleteMealPlan(Guid id)
         {
             var mealPlanCheck = _mealPlanRepository.GetMealPlan(id);
