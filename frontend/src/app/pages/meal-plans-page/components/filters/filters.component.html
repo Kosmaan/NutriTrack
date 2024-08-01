@@ -1,0 +1,37 @@
+<div id="filters-frame">
+  <div id="filters">
+    <!-- Existing categories filter section -->
+
+    <div id="all-categories">
+      <p id="categories-title">All categories</p>
+      <div class="categories">
+        <div *ngFor="let category of categories" class="category-entry">
+          <input
+            type="checkbox"
+            [value]="category.category_String"
+            (click)="onCategoryClick(category.category_String)"
+          />
+          <label class="entry-text">{{ category.category_String }}</label>
+        </div>
+      </div>
+    </div>
+
+    <hr class="line" />
+
+    <!-- New sorting section -->
+    <div id="sort-by-title">
+      <div id="title">
+        <p id="sort-by-title-text">Sort by Title</p>
+      </div>
+      <div id="sort-options">
+        <button id="sort-asc" (click)="sortTitle('asc')">Ascending</button>
+        <button id="sort-desc" (click)="sortTitle('desc')">Descending</button>
+      </div>
+    </div>
+    <hr class="line" />
+    <button id="checkout-button" (click)="applyFilters()">Filter</button>
+    <button id="reset-filter-button" (click)="resetFilters()">
+      Reset Filters
+    </button>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container" [formGroup]="detailsForm">
+  <div class="container-title">
+    <h1>CHANGE DETAILS</h1>
+  </div>
+  <div class="container-content">
+    <div class="input-container">
+      <p>Email</p>
+      <input type="text" formControlName="newEmail" />
+      <div
+        *ngIf="
+          detailsForm.controls['newEmail'].invalid &&
+          detailsForm.controls['newEmail'].touched
+        "
+      >
+        <small
+          *ngIf="detailsForm.controls['newEmail'].errors?.['required']"
+          class="error-message"
+        >
+          Email is required
+        </small>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <p>First Name</p>
+      <input type="text" formControlName="firstName" />
+      <div
+      *ngIf="
+        detailsForm.controls['firstName'].invalid &&
+        detailsForm.controls['firstName'].touched
+      "
+    >
+      <small
+        *ngIf="detailsForm.controls['firstName'].errors?.['required']"
+        class="error-message"
+      >
+        First name is required
+      </small>
+    </div>
+    </div>
+
+    <div class="input-container">
+      <p>Last Name</p>
+      <input type="text" formControlName="lastName" />
+      <div
+      *ngIf="
+        detailsForm.controls['lastName'].invalid &&
+        detailsForm.controls['lastName'].touched
+      "
+    >
+      <small
+        *ngIf="detailsForm.controls['lastName'].errors?.['required']"
+        class="error-message"
+      >
+        Last name is required
+      </small>
+    </div>
+    </div>
+
+    <div class="input-container">
+      <p>Height</p>
+      <input type="text" formControlName="height" />
+      <div
+      *ngIf="
+        detailsForm.controls['height'].invalid &&
+        detailsForm.controls['height'].touched
+      "
+    >
+      <small
+        *ngIf="detailsForm.controls['height'].errors?.['required']"
+        class="error-message"
+      >
+        Height is required
+      </small>
+    </div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="confirm-button" (click)="updateDetails()">CHANGE</button>
+  </div>
+</div>

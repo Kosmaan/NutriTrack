@@ -1,0 +1,25 @@
+<div class="text">
+    <p id="welcome">Welcome back, <span class="accent">{{User}}</span></p>
+</div>
+<app-stats (moreClicked)="scrollToCalendar()" [progress]="this.todayProgress"></app-stats>
+<app-hints-item></app-hints-item>
+<div class="text">
+    <p id="current">Your current meal plan</p>
+    <app-plan-card [plan]="plan"></app-plan-card>
+</div>
+<div class="divider"></div>
+<app-calendar *ngIf="plan != null" [plan]="this.plan" (daysChange)="handleDaysChange($event)" ></app-calendar>
+<div class="divider"></div>
+<div style = "display: flex; align-items: center; justify-content: center; ">
+<app-weight-tracking></app-weight-tracking>
+</div>
+<!--<div class="text">
+    <p id="more">Find more plans</p>
+</div>
+<div class="more_plans">
+    <app-meal-card-stats></app-meal-card-stats>
+    <app-meal-card-stats></app-meal-card-stats>
+    <app-meal-card-stats></app-meal-card-stats>
+</div>-->
+<app-hints-item></app-hints-item>
+<app-progress></app-progress>

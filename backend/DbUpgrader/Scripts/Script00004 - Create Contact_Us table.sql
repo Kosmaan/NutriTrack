@@ -1,0 +1,8 @@
+CREATE TABLE [SummerPractice].[Contact_Us] (
+	Email NVARCHAR(50) PRIMARY KEY NOT NULL,
+	First_Name NVARCHAR(50) NOT NULL,
+	Last_Name NVARCHAR(50) NOT NULL,
+	Phone_Number NVARCHAR(50) NOT NULL,
+	Description NVARCHAR(500) NOT NULL,
+);
+GO

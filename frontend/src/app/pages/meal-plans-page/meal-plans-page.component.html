@@ -1,0 +1,18 @@
+<app-banner-plans-page></app-banner-plans-page>
+<div class="search-bar">
+  <app-search-bar (searchEvent)="search($event)"></app-search-bar>
+</div>
+<div class="filters-cards-container">
+  <div class="filters-container">
+    <app-filters
+      (filtersApplied)="filterByCategories($event)"
+      (sortChanged)="sortByTitle($event)"
+    ></app-filters>
+  </div>
+  <div class="cards-container">
+    <app-plan-card
+      *ngFor="let mealPlan of filteredMealPlans"
+      [plan]="mealPlan"
+    ></app-plan-card>
+  </div>
+</div>

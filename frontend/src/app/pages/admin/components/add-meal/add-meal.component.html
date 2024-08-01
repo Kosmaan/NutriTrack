@@ -1,0 +1,236 @@
+<div class="wrapper">
+  <div class="container">
+    <form [formGroup]="addProductForm" class="add-entry-form-body">
+      <div class="add-entry-component">
+        <div class="add-entry-component-title">
+          <p>Name</p>
+        </div>
+        <div class="add-entry-component-field">
+          <input type="text" formControlName="name" class="input-field" />
+          <div
+            *ngIf="
+              addProductForm.controls['name'].invalid &&
+              addProductForm.controls['name'].touched
+            "
+          >
+            <small
+              *ngIf="addProductForm.controls['name'].errors?.['required']"
+              class="error-message"
+            >
+              Name is required
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="add-entry-component">
+        <div class="add-entry-component-title">
+          <p>Category</p>
+        </div>
+        <div class="add-entry-component-field">
+          <select formControlName="category" class="form-control">
+            <option value="">Select</option>
+            <option value="1">Vegan</option>
+            <option value="2">Keto</option>
+            <option value="3">Muscle Gain</option>
+          </select>
+          <div
+            *ngIf="
+              addProductForm.controls['category'].invalid &&
+              addProductForm.controls['category'].touched
+            "
+          >
+            <small
+              *ngIf="addProductForm.controls['category'].errors?.['required']"
+              class="error-message"
+            >
+              Category is required
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="add-entry-component">
+        <div class="add-entry-component-title">
+          <p>Description</p>
+        </div>
+        <div class="add-entry-component-field">
+          <textarea
+            type="text"
+            formControlName="description"
+            class="description"
+          ></textarea>
+          <div
+            *ngIf="
+              addProductForm.controls['description'].invalid &&
+              addProductForm.controls['description'].touched
+            "
+          >
+            <small
+              *ngIf="addProductForm.controls['description'].errors?.['required']"
+              class="error-message"
+            >
+              Description is required
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="add-entry-component">
+        <div class="add-entry-component-title">
+          <p>Photo</p>
+        </div>
+        <div class="add-entry-component-field" id="upload-container">
+          <input
+            type="file"
+            class="upload-photo"
+            (change)="onFileChange($event)"
+            id="fileInput"
+          />
+          <label for="fileInput" class="custom-upload-label">
+            <h1>Click here to upload a photo</h1>
+          </label>
+          <div
+            *ngIf="
+              addProductForm.controls['photo'].invalid &&
+              addProductForm.controls['photo'].touched
+            "
+          >
+            <small
+              *ngIf="addProductForm.controls['photo'].errors?.['required']"
+              class="error-message"
+            >
+              Photo is required
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="add-entry-component-cluster">
+        <div class="add-entry-component">
+          <div class="add-entry-component-title">
+            <p>Calories</p>
+          </div>
+          <div class="add-entry-component-field">
+            <input
+              type="number"
+              formControlName="calories"
+              class="add-entry-input"
+            />
+            <div
+              *ngIf="
+                addProductForm.controls['calories'].invalid &&
+                addProductForm.controls['calories'].touched
+              "
+            >
+              <small
+                *ngIf="addProductForm.controls['calories'].errors?.['required']"
+                class="error-message"
+              >
+                Calories are required
+              </small>
+              <small
+                *ngIf="addProductForm.controls['calories'].errors?.['min']"
+                class="error-message"
+              >
+                Calories must be a positive number
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="add-entry-component">
+          <div class="add-entry-component-title">
+            <p>Protein</p>
+          </div>
+          <div class="add-entry-component-field">
+            <input
+              type="number"
+              formControlName="protein"
+              class="add-entry-input"
+            />
+            <div
+              *ngIf="
+                addProductForm.controls['protein'].invalid &&
+                addProductForm.controls['protein'].touched
+              "
+            >
+              <small
+                *ngIf="addProductForm.controls['protein'].errors?.['required']"
+                class="error-message"
+              >
+                Protein is required
+              </small>
+              <small
+                *ngIf="addProductForm.controls['protein'].errors?.['min']"
+                class="error-message"
+              >
+                Protein must be a positive number
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="add-entry-component">
+          <div class="add-entry-component-title">
+            <p>Carbs</p>
+          </div>
+          <div class="add-entry-component-field">
+            <input
+              type="number"
+              formControlName="carbs"
+              class="add-entry-input"
+            />
+            <div
+              *ngIf="
+                addProductForm.controls['carbs'].invalid &&
+                addProductForm.controls['carbs'].touched
+              "
+            >
+              <small
+                *ngIf="addProductForm.controls['carbs'].errors?.['required']"
+                class="error-message"
+              >
+                Carbs are required
+              </small>
+              <small
+                *ngIf="addProductForm.controls['carbs'].errors?.['min']"
+                class="error-message"
+              >
+                Carbs must be a positive number
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="add-entry-component">
+          <div class="add-entry-component-title">
+            <p>Fats</p>
+          </div>
+          <div class="add-entry-component-field">
+            <input
+              type="number"
+              formControlName="fats"
+              class="add-entry-input"
+            />
+            <div
+              *ngIf="
+                addProductForm.controls['fats'].invalid &&
+                addProductForm.controls['fats'].touched
+              "
+            >
+              <small
+                *ngIf="addProductForm.controls['fats'].errors?.['required']"
+                class="error-message"
+              >
+                Fats are required
+              </small>
+              <small
+                *ngIf="addProductForm.controls['fats'].errors?.['min']"
+                class="error-message"
+              >
+                Fats must be a positive number
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <button class="submit-button" (click)="OnProductSubmit()">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

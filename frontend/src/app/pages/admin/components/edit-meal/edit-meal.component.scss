@@ -1,0 +1,151 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.add-entry-form-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.add-entry-form-body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-colour);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--drop-shadow);
+  width: 40%;
+  padding: 25px 50px;
+}
+
+.add-entry-component {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.add-entry-component-field {
+  padding: 10px;
+}
+
+.add-entry-component-title {
+  p {
+    margin: 0;
+    margin-bottom: -10px;
+    padding-left: 10px;
+  }
+}
+
+.input-field {
+  width: 100%;
+  height: 30px;
+}
+
+.description {
+  width: 100%;
+  height: 200px;
+  resize: none;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 20px;
+  background-color: var(--text-colour);
+  color: var(--primary-colour);
+  border: 1px solid var(--text-colour);
+  border-radius: var(--border-radius);
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: var(--accent-colour);
+  color: var(--primary-colour);
+  border: 1px solid var(--accent-colour);
+}
+
+.delete-button {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #FF0000;
+  color: var(--primary-colour);
+  border: 1px solid #FF0000;
+  border-radius: var(--border-radius);
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d10000;
+  color: var(--primary-colour);
+  border: 1px solid #d10000;
+}
+
+.add-entry-component-cluster {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-entry-component-cluster .add-entry-component {
+  width: 23%;
+}
+
+.add-entry-input {
+  width: 100%;
+  height: 30px;
+}
+
+.form-control {
+  width: 100%;
+  height: 30px;
+}
+
+#upload-container {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  border: 2px dashed var(--text-colour);
+}
+
+.upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.custom-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.custom-upload-label h1 {
+  margin: 0;
+  color: var(--text-colour);
+  font-size: 24px;
+}
+
+.error-message {
+  color: red;
+}

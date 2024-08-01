@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    margin: 0 200px;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+
+.description-card {
+    padding: 20px;
+    background-color: var(--primary-colour);
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--drop-shadow);
+}
+
+.tags-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    p {
+        background-color: var(--accent-colour);
+        color: var(--primary-colour);
+        padding: 10px 15px;
+        border-radius: var(--border-radius);
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}

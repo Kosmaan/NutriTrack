@@ -1,0 +1,28 @@
+<div class="carousel-container">
+  <div class="review-title">
+    <p class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <h1>Over 1 Million 5-Star Reviews</h1>
+  </div>
+  <div class="reviews-wrapper">
+    <div
+      class="review"
+      *ngFor="let review of reviews; let i = index"
+      [class.active]="i === currentIndex"
+    >
+      <div class="content-review">
+        <p>{{ review.content }}</p>
+      </div>
+      <div class="author-review">
+        <h3>{{ review.author }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="review-indicators">
+    <span
+      class="indicator"
+      *ngFor="let review of reviews; let i = index"
+      [class.active]="i === currentIndex"
+      (click)="goToReview(i)"
+    ></span>
+  </div>
+</div>

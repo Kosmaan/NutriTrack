@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    --accent-colour: #7ABA78;
+    --primary-colour: #ffffff;
+    --secondary-colour: #f5f5f5;
+    --text-colour: #242424;
+    --border-radius: 15px;
+    --drop-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-colour);
+    background-color: var(--secondary-colour);
+}
+html, body, app-root {
+    height: 100%;
+  }
+body
+{
+    padding: 0;
+    margin: 0;
+}
+@import "primeicons/primeicons.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+

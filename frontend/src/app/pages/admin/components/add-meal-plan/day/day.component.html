@@ -1,0 +1,49 @@
+<div [formGroup]="planForm" > 
+<div  formArrayName="meals">
+  <div *ngFor="let number of [0,1,2,3,4,5,6]; let i = index" [formGroupName]="i">
+    <div *ngIf="i === indexFromParent" class = "flex-row" >
+   
+        <div >
+          <div class="add-entry-component-title">
+            <p>Breakfast</p>
+          </div>
+          <div class="add-entry-component-field">
+            <select formControlName="breakfast" class="form-control">
+            
+              <option *ngFor="let meal of meals" [value]="meal.id"   >
+                {{ meal.title }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="add-entry-component-title">
+            <p>Lunch</p>
+          </div>
+          <div class="add-entry-component-field">
+            <select formControlName="lunch" class="form-control">
+             
+              <option *ngFor="let meal of meals" [value]="meal.id">
+                {{ meal.title }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="add-entry-component-title">
+            <p>Dinner</p>
+          </div>
+          <div class="add-entry-component-field">
+            <select formControlName="dinner" class="form-control">
+         
+              <option *ngFor="let meal of meals" [value]="meal.id">
+                {{ meal.title }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

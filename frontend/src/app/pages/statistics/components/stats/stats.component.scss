@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5vw; 
+    margin: 0 auto;
+    width: 50%; 
+    background: var(--primary-colour);
+    box-shadow: var(--drop-shadow);
+    border-radius: var(--border-radius);
+    margin-bottom: 5vw;
+}
+
+.stats {
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5vw;
+}
+
+.frame {
+    width: 10vw; 
+    height: 2.5vw; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text, .value {
+    font-family: 'Roboto';
+    font-size: 0.8vw; 
+    letter-spacing: 0.05vw;
+    text-align: center;
+    width: 100%;
+}
+
+.textpro {
+    font-family: 'Roboto';
+    font-size: 1.3vw; 
+    letter-spacing: 0.05vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.more button {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--primary-colour);
+    border:1px solid var(--accent-colour);
+    border-radius: 10px;
+    color: var(--accent-colour);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.more button:hover {
+    background-color: var(--accent-colour); 
+    color: var(--primary-colour);
+}
+
+.progress {
+    width: 12.5vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75vw;
+    position: relative;
+}
+
+.progress-svg {
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: var(--secondary-colour);
+}
+
+.circle-progress {
+    fill: none;
+    stroke: var(--accent-colour);
+}
+
+.spinner-text {
+    position: absolute;
+    color: var(--accent-colour);
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw; 
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 35%); 
+}

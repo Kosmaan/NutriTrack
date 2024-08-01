@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    height: 250px;
+    width: 100%;
+    background-image: url('/assets/banner-with-button.png');
+    justify-content: center;
+    align-items: center;
+}
+
+.container-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 200px;
+    color: var(--primary-colour);
+}
+
+.container-items {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.background-tint {
+    background-color: rgba(0, 0, 0, .3);
+    background-blend-mode: multiply;
+}
+
+@media (max-width:640px){
+    .container-text{
+        font-size: 44px;
+    }
+}

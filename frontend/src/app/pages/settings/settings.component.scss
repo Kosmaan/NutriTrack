@@ -1,0 +1,79 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 600px;
+}
+
+.sidebar-button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background-color: var(--primary-colour);
+    border: none;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar-button:hover {
+    background-color: var(--accent-colour);
+    color: var(--primary-colour);
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-colour);
+    border-radius: var(--border-radius);
+    box-shadow: var(--drop-shadow);
+    width: 60%;
+    margin: 25px 50px;
+}
+
+.settings-content {
+    width: 100%;
+    margin: 20px 50px;
+    background-color: var(--primary-colour);
+}
+
+.delete-button {
+    background-color: var(--primary-colour);
+    color: var(--text-colour);
+    border: 1px solid var(--text-colour);
+}
+
+.delete-button:hover {
+    background-color: #FF0000;
+    color: var(--primary-colour);
+    border: 1px solid #FF0000;
+}
+
+.gender-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60px;
+}
+
+#gender-selector {
+    height: 60%;
+}
+

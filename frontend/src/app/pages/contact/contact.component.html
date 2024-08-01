@@ -1,0 +1,136 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="contact-form-body" [formGroup]="contactForm">
+      <div class="contact-form-title">
+        <h1>Contact us</h1>
+      </div>
+      <div class="contact-form-user-name">
+        <div class="contact-component">
+          <div class="contact-component-title">
+            <p>First Name</p>
+          </div>
+          <div class="contact-component-field">
+            <input
+              type="text"
+              formControlName="firstName"
+              class="input-field"
+            />
+            <div
+              *ngIf="
+                contactForm.controls['firstName'].invalid &&
+                contactForm.controls['firstName'].touched
+              "
+            >
+              <small
+                *ngIf="contactForm.controls['firstName'].errors?.['required']"
+                class="error-message"
+              >
+                First name is required
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="contact-component">
+          <div class="contact-component-title">
+            <p>Last Name</p>
+          </div>
+          <div class="contact-component-field">
+            <input type="text" formControlName="lastName" class="input-field" />
+            <div
+              *ngIf="
+                contactForm.controls['lastName'].invalid &&
+                contactForm.controls['lastName'].touched
+              "
+            >
+              <small
+                *ngIf="contactForm.controls['lastName'].errors?.['required']"
+                class="error-message"
+              >
+                Last name is required
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-component">
+        <div class="contact-component-title">
+          <p>Email Address</p>
+        </div>
+        <div class="contact-component-field">
+          <input type="text" formControlName="email" class="input-field" />
+          <div
+            *ngIf="
+              contactForm.controls['email'].invalid &&
+              contactForm.controls['email'].touched
+            "
+          >
+            <small
+              *ngIf="contactForm.controls['email'].errors?.['required']"
+              class="error-message"
+            >
+              Email is required
+            </small>
+            <small
+              *ngIf="contactForm.controls['email'].errors?.['email']"
+              class="error-message"
+              >Invalid email format</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="contact-component">
+        <div class="contact-component-title">
+          <p>Phone Number</p>
+        </div>
+        <div class="contact-component-field">
+          <input type="text" formControlName="phone" class="input-field" />
+          <div
+            *ngIf="
+              contactForm.controls['phone'].invalid &&
+              contactForm.controls['phone'].touched
+            "
+          >
+            <small
+              *ngIf="contactForm.controls['phone'].errors?.['required']"
+              class="error-message"
+            >
+              Phone number is required
+            </small>
+            <small
+              *ngIf="contactForm.controls['phone'].errors?.['pattern']"
+              class="error-message"
+            >
+              Phone number must be 10 digits
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="contact-component">
+        <div class="contact-component-title">
+          <p>Description</p>
+        </div>
+        <div class="contact-component-field">
+          <textarea
+            type="text"
+            formControlName="description"
+            class="description-field"
+          ></textarea>
+          <div
+            *ngIf="
+              contactForm.controls['description'].invalid &&
+              contactForm.controls['description'].touched
+            "
+          >
+            <small
+              *ngIf="contactForm.controls['description'].errors?.['required']"
+              class="error-message"
+            >
+              Description is required
+            </small>
+          </div>
+        </div>
+      </div>
+      <button class="submit-button" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+</div>

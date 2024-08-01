@@ -1,0 +1,6 @@
+<app-plan-banner></app-plan-banner>
+<div style="display: flex; align-items: center; justify-content: center;">
+<button  (click)="changePlan()" style="background-color: var( --accent-colour);">use plan</button>
+</div>
+<app-plan-stats *ngIf="plan != null" [plan]="plan"></app-plan-stats>
+<app-plan-days></app-plan-days>

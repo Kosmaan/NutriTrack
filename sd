@@ -1,0 +1,99 @@
+[33mcommit 042391c196e34a924ef408ba40cfa131ac748f71[m[33m ([m[1;36mHEAD -> [m[1;32mdev/Iustin[m[33m)[m
+Author: iustin948 <homoranuiustin@gmail.com>
+Date:   Sun Jul 14 15:17:30 2024 +0300
+
+    header + footer
+
+[33mcommit c2933db3d6b39780c5b0a3cdc1e7d9d6f21c01bf[m[33m ([m[1;31morigin/develop[m[33m)[m
+Merge: 0bdfa13 307e600
+Author: iustin948 <97986807+iustin948@users.noreply.github.com>
+Date:   Sun Jul 14 13:50:08 2024 +0300
+
+    Merge pull request #3 from Kosmaan/dev/cosmin
+    
+    Meal card and filters components
+
+[33mcommit 307e60070d324d3647944cd555ea071fafe9e132[m
+Merge: 681b32d 0bdfa13
+Author: Kosmaan <radu.cosmin.30.1@gmail.com>
+Date:   Sun Jul 14 13:38:51 2024 +0300
+
+    Merge branch 'develop' of https://github.com/Kosmaan/NutriTrack into dev/cosmin
+
+[33mcommit 681b32d7d1a1349421ee18936f0914d46cdc60b9[m
+Author: Kosmaan <radu.cosmin.30.1@gmail.com>
+Date:   Sun Jul 14 13:36:26 2024 +0300
+
+    added filters component
+
+[33mcommit 03aa33c8b0b3f5642c6de2da9a41a4f0518b6d3d[m
+Author: Kosmaan <radu.cosmin.30.1@gmail.com>
+Date:   Sun Jul 14 12:35:11 2024 +0300
+
+    added card border
+
+[33mcommit 0bdfa13f5b97bb46815c03e6d2f1a1497bec8425[m
+Merge: 458d38d cd40a45
+Author: Raul-Costin Pîrvan <150127119+RaulC-Pirvan@users.noreply.github.com>
+Date:   Sun Jul 14 12:15:08 2024 +0300
+
+    Merge pull request #2 from Kosmaan/dev/raul
+    
+    fix typo and add accent button
+
+[33mcommit cd40a45fec1d909e5133837440a5ab3e3aaca8a9[m
+Author: Raul C. Pirvan <RaulC.Pirvan@outlook.com>
+Date:   Sun Jul 14 12:11:17 2024 +0300
+
+    add review carousel and predefined some common used values
+
+[33mcommit b616ce60eee672349ce256288fdf2fdea40d54df[m
+Author: Kosmaan <radu.cosmin.30.1@gmail.com>
+Date:   Sun Jul 14 11:26:04 2024 +0300
+
+    add meal-card
+
+[33mcommit 4db4f7da15452f3c68778a1ac1e26d7af5102876[m
+Author: Kosmaan <radu.cosmin.30.1@gmail.com>
+Date:   Sun Jul 14 10:13:22 2024 +0300
+
+    navbar
+
+[33mcommit d4d7533f2a8c4dc30bbec78ad6ac889043cd403a[m
+Author: Raul C. Pirvan <RaulC.Pirvan@outlook.com>
+Date:   Sun Jul 14 09:25:07 2024 +0300
+
+    fix banner and add accent button
+
+[33mcommit a3eda2b46be91b2f4f3c92d34fc2ee685da30b80[m
+Author: Raul C. Pirvan <RaulC.Pirvan@outlook.com>
+Date:   Sat Jul 13 22:47:35 2024 +0300
+
+    add banner to homepage
+
+[33mcommit 458d38d98633bd7e4e39608907ad418681b6ccf8[m
+Merge: 2399c79 def7e61
+Author: Raul-Costin Pîrvan <150127119+RaulC-Pirvan@users.noreply.github.com>
+Date:   Sat Jul 13 21:46:54 2024 +0300
+
+    Merge pull request #1 from Kosmaan/dev/raul
+    
+    add admin navbar
+
+[33mcommit def7e61aacd1073e0a6f05d7595ebae62db692d1[m
+Author: Raul C. Pirvan <RaulC.Pirvan@outlook.com>
+Date:   Sat Jul 13 21:43:39 2024 +0300
+
+    add admin navbar
+
+[33mcommit 2399c798bc8ce2b9b26d3398d7c836b65d994920[m[33m ([m[1;31morigin/dev/iustin[m[33m)[m
+Author: iustin948 <homoranuiustin@gmail.com>
+Date:   Sat Jul 13 18:49:47 2024 +0300
+
+    project initial
+
+[33mcommit b278969d0c5a326e918ea0457f797cdbf4aa0d5d[m[33m ([m[1;31morigin/release[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrelease[m[33m, [m[1;32mmain[m[33m, [m[1;32mdevelop[m[33m)[m
+Author: Kosmaan <161241953+Kosmaan@users.noreply.github.com>
+Date:   Thu Jul 4 15:45:12 2024 +0300
+
+    Initial commit

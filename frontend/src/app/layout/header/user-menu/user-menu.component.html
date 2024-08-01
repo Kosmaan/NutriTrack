@@ -1,0 +1,6 @@
+<div class="user-menu">
+    <button *ngIf="authService.checkAdmin()" (click)="goToDashboard()">Dashboard</button>
+    <button (click)="redirectToStatistics()">Statistics</button>
+    <button (click)="redirectToSettings()">Settings</button>
+    <button (click)="logout()">Logout</button>
+</div>

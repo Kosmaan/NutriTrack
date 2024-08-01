@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 50%; 
+    padding: 2vw 5vw; 
+    background: url('../../../../../assets/mealcard-placeholder.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 25px;
+    box-shadow: var(--drop-shadow);
+    margin: 20px auto;
+    color: var(--primary-colour);
+
+}
+
+.meal-name {
+    font-size: 2vw; 
+    font-family: Roboto;
+    letter-spacing: 0.25px;
+    text-align: left;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    margin-left: 5%; 
+}
+
+.description p {
+    font-size: 1.5vw; 
+    margin: 1vw 0; 
+    text-align: right;
+}

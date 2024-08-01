@@ -1,0 +1,22 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    width: 100%; 
+    background: var(--accent-colour); 
+    color: var(--primary-colour);
+ 
+}
+
+h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.3rem; 
+    text-align: center; 
+    padding: 0 20px; 
+}

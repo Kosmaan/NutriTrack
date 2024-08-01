@@ -1,0 +1,32 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#welcome,
+#current {
+  font-size: 3rem;
+  font-family: "Roboto";
+  font-weight: bold;
+}
+#more {
+  font-size: 2rem;
+  font-family: "Roboto";
+  font-weight: bold;
+}
+.divider {
+  border: 0;
+  height: 1px;
+  background: var(--text-colour);
+  margin: 2vw auto;
+  width: 90%;
+  margin-top: 4vw;
+}
+
+.accent {
+  color: var(--accent-colour);
+}
+
+.more_plans {
+  padding-bottom: 50px;
+}

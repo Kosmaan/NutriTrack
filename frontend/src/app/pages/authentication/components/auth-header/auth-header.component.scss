@@ -1,0 +1,23 @@
+.header
+{
+    background-color: var(--primary-colour);
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    height: 90px;
+}
+
+.logo
+{
+    height: 50px;
+    cursor: pointer;
+}
+
+.contents
+{
+    padding: 0 200px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;;
+}

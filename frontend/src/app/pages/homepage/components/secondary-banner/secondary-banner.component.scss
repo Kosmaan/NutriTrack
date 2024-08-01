@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    height: 200px;
+    background-color: var(--accent-colour);
+    justify-content: center;
+    align-items: center;
+}
+
+.container-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 200px;
+    color: var(--primary-colour);
+}
+
+@media (max-width: 1024px){
+    .container-text{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px){
+    .container-text{
+        font-size: 25px;
+        margin: 0px 100px;
+    }
+
+}
+@media (max-width: 640px){
+    .container-text{
+        font-size: 22px;
+        margin: 0px 100px;
+    }
+
+}

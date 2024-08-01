@@ -1,0 +1,20 @@
+<div class="plan-card">
+    <div class="plan-card-content-divider">
+        <div class="plan-card-photo">
+            <img [src]="'http://127.0.0.1:8080/' + plan.photo" alt="" />
+          </div>
+          <div class="plan-card-title">
+            <h3>{{ plan.title }}</h3>
+          </div>
+            <hr>
+          <div class="plan-card-description">
+            {{ plan.description }}
+          </div>
+          <div class="plan-card-description">
+            
+          </div>
+    </div>
+  <div class="button-container">
+    <button class="details-button" (click)="navigateToDetails()">MORE</button>
+  </div>
+</div>

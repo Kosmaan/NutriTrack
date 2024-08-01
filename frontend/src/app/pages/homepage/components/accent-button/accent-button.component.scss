@@ -1,0 +1,18 @@
+#accent-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: var(--accent-colour);
+    padding: 15px 25px;
+    border: 1px solid var(--accent-colour);
+    border-radius: var(--border-radius);
+    color: var(--primary-colour);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#accent-button:hover {
+    background-color: transparent;
+    color: var(--primary-colour);
+    border: 1px solid var(--primary-colour);
+}
