@@ -54,6 +54,7 @@ namespace WebApi.Controllers
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool UpdateMeal([FromForm] MealPlanDTO mealPlan)
         {
+            
             _fileService.UpdateFile(mealPlan.Photo, mealPlan.Meal_Plan_Id);
             return _mealPlanService.UpdateMealPlan(mealPlan);
         }

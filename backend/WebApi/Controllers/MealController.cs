@@ -37,13 +37,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = IdentityData.AdminUserPolicyName)]
+        [AllowAnonymous]
         public IEnumerable<MealDTO> GetAllMeals()
         {
             return _mealService.GetAllMeals();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool UpdateMeal([FromForm] MealDTO dto)
         {

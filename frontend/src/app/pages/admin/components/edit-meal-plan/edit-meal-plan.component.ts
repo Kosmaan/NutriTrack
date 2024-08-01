@@ -142,7 +142,7 @@ export class EditMealPlanComponent implements OnInit {
     this.plan.meals = this.planForm.get('meals')?.value;
 
     console.log(this.plan);
-
+    
     this.formData.append('Title', this.planForm.get('name')?.value);
     this.formData.append(
       'Description',
@@ -170,9 +170,11 @@ export class EditMealPlanComponent implements OnInit {
         this.plan.meals[index].dinner.toString()
       );
     }
-
+    this.formData.append("Meal_Plan_Id",(this.currentPlanId as (string|Blob)))
     if(this.currentPlanId){
-      this.planService.updateMeal(this.currentPlanId ,this.formData).subscribe((response: any) => {
+      this.planService.updateMeal(this.formData).subscribe((response: any) => {
+        console.log("heree");
+        console.log(response);
         this.router.navigate(['/admin/overview']).then(() => {
           window.location.reload();
         });
