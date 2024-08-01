@@ -23,7 +23,7 @@ export class LoginComponent {
   onLoginSubmit() {
     console.log(this.loginForm.valid);
     if (this.loginForm.valid) {
-      //console.log(this.loginForm.value);
+      console.log(this.loginForm.value);
       this.authService.login(this.loginForm.value).subscribe((res) => {
         localStorage.setItem('userId', res.email);
         localStorage.setItem('token', res.jwtToken);

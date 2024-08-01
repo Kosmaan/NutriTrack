@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from '../models/User';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   sessionUser!: User;
+  private userEmail: string | null = null;
+  private userPassword: string | null = null;
   constructor(private http: HttpClient, private toastService: ToastService, private router: Router) {}
 
   url = 'https://localhost:7154/Authentication';
@@ -65,6 +67,42 @@ export class AuthService {
       console.error('Error decoding token:', error);
       return false;
     }
+  }
+
+  deleteAccount(email: string): Observable<void> {
+    const params = new HttpParams().set('email', email);
+    this.toastService.show('Account deleted successfully', 'success');
+    return this.http.delete<void>(this.url + '/DeleteUser?userId=${email}', { params });
+  }
+
+  changePassword(email: string, password: string): Observable<void> {
+    // Prepare the body for the POST request
+    const body = { email, password };
+
+    // Make the POST request with the body
+    return this.http.post<void>(`${this.url}/ChangePassword`, body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+
+  updateUserDetails(details: {
+    first_Name: string;
+    last_Name: string;
+    height: string;
+    oldEmail: string;
+    newEmail: string;
+  }): Observable<void> {
+    console.log('Sending update request with details:', details);
+
+    return this.http.post<void>(`${this.url}/ChangeDetails`, details, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }).pipe(
+      tap(() => {
+        console.log('API call successful');
+      }, (error) => {
+        console.error('API call error:', error);
+      })
+    );
   }
 
 }

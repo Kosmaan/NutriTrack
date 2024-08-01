@@ -70,11 +70,20 @@ namespace WebApi.Controllers
 
         [HttpDelete]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
-        public ActionResult<string> DeleteUser([FromBody] string email)
+        public ActionResult<string> DeleteUser([FromQuery] string email)
         {
-            var result = this._authorizationService.DeleteUser(email);
+            try
+            {
+                var result = this._authorizationService.DeleteUser(email);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
+    
     }
 }

@@ -22,6 +22,7 @@ export class ContactComponent {
   }
 
   onSubmit(): void {
+    console.log(this.contactForm.value);
     if (this.contactForm.valid) {
       this.toastService.show('Form submitted successfully!', 'success');
       const formData = this.contactForm.value;

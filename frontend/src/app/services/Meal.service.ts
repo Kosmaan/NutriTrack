@@ -35,9 +35,5 @@ export class MealService {
   deleteMeal(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/DeleteMeal?id=${id}`);
   }
-  
-  getMealById(id: string): Observable<Meal> {
-    return this.http.get<Meal>(`${this.url}/GetMealById?id=${id}`);
-  }
-
+    
 }
