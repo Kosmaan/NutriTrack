@@ -15,7 +15,6 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
     this.passwordForm = this.fb.group(
       {
-        old_password: new FormControl('', [Validators.required]),
         new_password: new FormControl('', [Validators.required]),
         confirm_password: new FormControl('', [Validators.required]),
       },
@@ -23,7 +22,6 @@ export class ChangePasswordComponent implements OnInit {
     );
   }
 
-  // Custom validator to ensure new_password and confirm_password match
   passwordsMatchValidator(formGroup: FormGroup): { [key: string]: boolean } | null {
     const newPassword = formGroup.get('new_password')?.value;
     const confirmPassword = formGroup.get('confirm_password')?.value;
@@ -37,28 +35,27 @@ export class ChangePasswordComponent implements OnInit {
     console.log('start change password');
     if (this.passwordForm.invalid) {
       console.log('password form invalid');
-      this.passwordForm.markAllAsTouched(); // Highlight errors if the form is invalid
+      this.passwordForm.markAllAsTouched();
       return;
     }
 
     console.log('password form valid');
-    const oldPassword = this.passwordForm.get('old_password')?.value;
     const newPassword = this.passwordForm.get('new_password')?.value;
 
-    // Assuming you have some way to get the current user email, e.g., from localStorage or a service
     const email = localStorage.getItem('userId');
+
+    console.log(email);
+    console.log(newPassword);
 
     if (!email) {
       console.log('User email not found.');
       return;
     }
 
-    // You might need to send both old and new passwords if your backend expects them
-    // If only the new password is needed, adjust accordingly
-    this.authService.changePassword(email, oldPassword).subscribe(
+    this.authService.changePassword(email, newPassword).subscribe(
       () => {
         console.log('Password changed successfully');
-        // Optionally redirect or clear form
+
       },
       (error) => {
         console.log('Error changing password: ', error);

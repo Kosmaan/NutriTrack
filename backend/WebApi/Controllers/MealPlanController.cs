@@ -43,6 +43,13 @@ namespace WebApi.Controllers
             return _mealPlanService.GetAllMealPlans();
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IEnumerable<Category> GetPlanCategories([FromQuery] Guid plan_id)
+        {
+            return _mealPlanService.GetPlanCategories(plan_id);
+        }
+
         [HttpDelete]
         [Authorize(Policy = IdentityData.AdminUserPolicyName)]
         public bool DeleteMealPlanById([FromQuery] Guid id)

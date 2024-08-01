@@ -1,9 +1,8 @@
-// plan-days.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlanService } from 'src/app/services/Plan.service';
 import { DayDTO } from 'src/app/models/DayDTO';
-import { Meal } from 'src/app/models/Meal'; // Ensure Meal model matches API response
+import { Meal } from 'src/app/models/Meal';
 import { MealService } from 'src/app/services/Meal.service';
 import { MealPlan } from 'src/app/models/MealPlan';
 import { DayWithMeals } from 'src/app/models/DayWithMeals';
@@ -15,7 +14,7 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./plan-days.component.scss'],
 })
 export class PlanDaysComponent implements OnInit {
-  plan!: MealPlan; // Adjust as needed
+  plan!: MealPlan;
   meals: DayDTO[] = [];
   mealList: DayWithMeals[] = [];
   private id!: string;
@@ -80,7 +79,7 @@ export class PlanDaysComponent implements OnInit {
       'Saturday',
       'Sunday',
     ];
-    return daysOfWeek[dayNumber - 1]; // Convert to 0-based index
+    return daysOfWeek[dayNumber - 1];
   }
 
 }

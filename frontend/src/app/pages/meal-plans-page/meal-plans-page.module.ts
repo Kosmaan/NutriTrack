@@ -5,21 +5,25 @@ import { FiltersComponent } from './components/filters/filters.component';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BannerPlansPageComponent } from './components/banner-plans-page/banner-plans-page.component';
 import { SharedModule } from 'src/app/components/shared.module';
-
 
 const COMPONENTS: any[] = [
   MealPlansPageComponent,
   FiltersComponent,
-  
   SearchBarComponent,
 ];
 
 @NgModule({
   declarations: [COMPONENTS, BannerPlansPageComponent],
-  imports: [CommonModule, ScrollingModule, ReactiveFormsModule,SharedModule],
+  imports: [
+    CommonModule,
+    ScrollingModule,
+    ReactiveFormsModule,
+    SharedModule,
+    FormsModule,
+  ],
   exports: [COMPONENTS],
 })
 export class MealPlansPageModule {}

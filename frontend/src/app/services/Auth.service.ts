@@ -76,11 +76,12 @@ export class AuthService {
   }
 
   changePassword(email: string, password: string): Observable<void> {
-    // Prepare the body for the POST request
-    const body = { email, password };
+    const params = new HttpParams()
+      .set('Email', email)
+      .set('Password', password);
 
-    // Make the POST request with the body
-    return this.http.post<void>(`${this.url}/ChangePassword`, body, {
+    return this.http.post<void>(`${this.url}/ChangePassword`, null, {
+      params: params,
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
@@ -92,10 +93,20 @@ export class AuthService {
     oldEmail: string;
     newEmail: string;
   }): Observable<void> {
-    console.log('Sending update request with details:', details);
 
-    return this.http.post<void>(`${this.url}/ChangeDetails`, details, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    const params = new HttpParams()
+      .set('First_Name', details.first_Name)
+      .set('Last_Name', details.last_Name)
+      .set('Height', details.height)
+      .set('OldEmail', details.oldEmail)
+      .set('NewEmail', details.newEmail);
+
+
+    console.log('Sending update request with parameters:', params.toString());
+
+    return this.http.post<void>(`${this.url}/ChangeDetails`, null, {
+      params,
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     }).pipe(
       tap(() => {
         console.log('API call successful');
@@ -104,5 +115,32 @@ export class AuthService {
       })
     );
   }
+
+  sendContactForm(formData: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    description: string;
+  }): Observable<void> {
+
+    const params = new HttpParams()
+      .set('Email', formData.email)
+      .set('First_Name', formData.firstName)
+      .set('Last_Name', formData.lastName)
+      .set('Phone_Number', formData.phone)
+      .set('Description', formData.description);
+
+
+    const fullUrl = `${this.url}/ContactUs`;
+    console.log('Full URL:', fullUrl);
+
+
+    return this.http.post<void>(fullUrl, null, {
+      params: params,
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+  
 
 }

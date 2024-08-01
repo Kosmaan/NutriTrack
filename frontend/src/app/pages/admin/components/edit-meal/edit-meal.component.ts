@@ -61,7 +61,6 @@ export class EditMealComponent implements OnInit {
         carbs: meal.carbs,
         fats: meal.fats
       });
-      // Handle photo URL if needed
       this.fileName = meal.photo || 'No file chosen';
     });
   }
@@ -112,7 +111,7 @@ export class EditMealComponent implements OnInit {
         this.mealService.deleteMeal(this.currentMealId).subscribe(
           () => {
             alert('Meal deleted successfully');
-            this.router.navigate(['/admin/overview']); // Optionally navigate after deletion
+            this.router.navigate(['/admin/overview']);
           },
           error => {
             console.error('Error deleting meal:', error);

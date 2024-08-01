@@ -14,6 +14,7 @@ namespace Application.Interfaces
         bool DeleteMeal(Guid id);
         bool UpdateMeal(Meal meal);
         IEnumerable<Meal> GetAllMeals();
+        IEnumerable<Category> GetAllCategories();
 
     }
 }

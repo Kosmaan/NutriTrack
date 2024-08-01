@@ -42,12 +42,6 @@ export class AddMealComponent implements OnInit {
   }
   OnProductSubmit() {
     if (this.addProductForm.valid) {
-      /*const photoFile = (
-        document.querySelector('input[type="file"]') as HTMLInputElement).files?.[0];
-      if (photoFile) {
-        formData.append('photo', photoFile);
-      }*/
-      //console.log(this.addProductForm.value);
       console.log(this.addProductForm.value);
       this.formData.append('Title', this.addProductForm.get('name')?.value);
       this.formData.append(

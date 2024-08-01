@@ -71,6 +71,20 @@ namespace Application.Services
             return result;
         }
 
+        public UserCredentials GetUser(string email)
+        {
+            var user = this._authenticationRepository.GetUser(email);
+
+            var result = new UserCredentials
+            {
+                User_Id = user.User_Id,
+                Email = email,
+                Password = user.Password,
+            };
+
+            return result;
+        }
+
         public bool GiveUserAdminRights(string email)
         {
             var userCheck = this._authenticationRepository.GetUser(email);
@@ -121,6 +135,12 @@ namespace Application.Services
 
             var result = this._authenticationRepository.DeleteUser(userCheck.User_Id);
 
+            return result;
+        }
+
+        public bool ContactUs(ContactUs contact)
+        {
+            var result = this._authenticationRepository.ContactUs(contact);
             return result;
         }
     }

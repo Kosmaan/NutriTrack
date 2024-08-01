@@ -1,92 +1,37 @@
 <div id="filters-frame">
   <div id="filters">
+    <!-- Existing categories filter section -->
+
     <div id="all-categories">
       <p id="categories-title">All categories</p>
       <div class="categories">
-        <div id="category-entry">
-          <p id="entry-text">Keto</p>
-          <p id="entry-number">(25)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Vegan</p>
-          <p id="entry-number">(50)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Diet</p>
-          <p id="entry-number">(100)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Paleo</p>
-          <p id="entry-number">(75)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Intermitent fasting</p>
-          <p id="entry-number">(45)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Carnivore</p>
-          <p id="entry-number">(31)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
-        </div>
-        <div id="category-entry">
-          <p id="entry-text">Muscle build</p>
-          <p id="entry-number">(58)</p>
+        <div *ngFor="let category of categories" class="category-entry">
+          <input
+            type="checkbox"
+            [value]="category.category_String"
+            (click)="onCategoryClick(category.category_String)"
+          />
+          <label class="entry-text">{{ category.category_String }}</label>
         </div>
       </div>
     </div>
 
-    <!-- <cdk-virtual-scroll-viewport itemSize="50" class="custom-scroll">
-        <div *cdkVirtualFor="let item of items" class="item">
-          {{ item }}
-        </div>
-      </cdk-virtual-scroll-viewport> -->
+    <hr class="line" />
 
-    <hr id="line" />
-
-    <div id="filter-by-calories">
+    <!-- New sorting section -->
+    <div id="sort-by-title">
       <div id="title">
-        <p id="filter-by-calories-text">Filter by Calories</p>
+        <p id="sort-by-title-text">Sort by Title</p>
       </div>
-      <div id="calories-inputs">
-        <div class="calories-input-container">
-          <p id="calories-selection">Minimum calories</p>
-          <input class="input-field" />
-        </div>
-        <div class="calories-input-container">
-          <p id="calories-selection">Maximum calories</p>
-          <input class="input-field" />
-        </div>
+      <div id="sort-options">
+        <button id="sort-asc" (click)="sortTitle('asc')">Ascending</button>
+        <button id="sort-desc" (click)="sortTitle('desc')">Descending</button>
       </div>
     </div>
-    <hr id="line" />
-    <button id="checkout-button">Filter</button>
-    <button id="reset-filter-button">Reset Filters</button>
+    <hr class="line" />
+    <button id="checkout-button" (click)="applyFilters()">Filter</button>
+    <button id="reset-filter-button" (click)="resetFilters()">
+      Reset Filters
+    </button>
   </div>
 </div>

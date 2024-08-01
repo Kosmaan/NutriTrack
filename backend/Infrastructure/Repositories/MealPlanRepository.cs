@@ -71,6 +71,20 @@ namespace Infrastructure.Repositories
             return result;
         }
 
+        public IEnumerable<Category> GetPlanCategories(Guid plan_id)
+        {
+            var query = "SELECT DISTINCT c.Category_id, c.Category_String FROM [SummerPractice].[Plan_List] pl JOIN [SummerPractice].Meal_Category mc ON pl.Meal_Id = mc.Meal_id JOIN [SummerPractice].Category c ON mc.Category_id = c.Category_id WHERE pl.Plan_id = @Plan_id;";
+            var parameter = new DynamicParameters();
+
+            parameter.Add("Plan_Id", plan_id, DbType.Guid);
+
+            var connection = _databaseContext.GetDbConnection();
+
+            var result = connection.Query<Category>(query, parameter);
+
+            return result;
+        }
+
         public bool DeleteMealPlan(Guid id)
         {
             var queryMealPlan = "DELETE FROM [SummerPractice].[Meal_Plan] WHERE [Meal_Plan_Id] = @Meal_Plan_Id";

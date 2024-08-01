@@ -15,10 +15,10 @@ export class WeightTrackingComponent implements OnInit {
   weight: number = 0;
   
   public lineChartData: ChartDataset[] = [{ data: [], label: 'Weight' }];
-  //public lineChartLabels: Label[] = [];
+
 
   updateChart(): void {
     this.lineChartData[0].data = this.weights.map(item => item.weight);
-    //this.lineChartLabels = this.weights.map(item => new Date(item.date).toLocaleDateString());
+
   }
 }
