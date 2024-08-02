@@ -96,8 +96,11 @@ export class AuthService {
 
   deleteAccount(email: string): Observable<void> {
     const params = new HttpParams().set('email', email);
-    this.toastService.show('Account deleted successfully', 'success');
-    return this.http.delete<void>(this.url + '/DeleteUser?userId=${email}', { params });
+    return this.http.delete<void>(this.url + '/DeleteUser?userId=${email}', { params }).pipe(
+      tap(() => {
+        this.toastService.show('Account deleted successfully', 'success');
+      })
+    );
   }
 
   changePassword(email: string, password: string): Observable<void> {
@@ -105,10 +108,18 @@ export class AuthService {
       .set('Email', email)
       .set('Password', password);
 
+
     return this.http.post<void>(`${this.url}/ChangePassword`, null, {
       params: params,
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    });
+    }).pipe(
+      tap(() => {
+        this.toastService.show('Password changed successfully', 'success');
+        console.log('API call successful');
+      }, (error) => {
+        console.error('API call error:', error);
+      })
+    );
   }
 
   updateUserDetails(details: {
@@ -134,6 +145,7 @@ export class AuthService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     }).pipe(
       tap(() => {
+        this.toastService.show('User details changed successfully', 'success');
         console.log('API call successful');
       }, (error) => {
         console.error('API call error:', error);

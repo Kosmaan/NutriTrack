@@ -11,6 +11,43 @@
   flex: 1;
 }
 
+.description-card {
+  margin: 50px;
+  padding: 20px;
+  background-color: var(--primary-colour);
+  border-radius: var(--border-radius);
+  box-shadow: var(--drop-shadow);
+}
+
+.description-title{
+  h1 {
+    margin-bottom: 0px;
+  }
+  span {
+    color: var(--accent-colour);
+  }
+  margin-top: 50px;
+}
+
+.description-content {
+  font-size: 22px;
+  display: flex;
+  text-align: center;
+  margin: 0 500px;
+  
+  .accent {
+    color: var(--accent-colour);
+  }
+
+  .weight {
+    font-weight: 600;
+  }
+}
+
+.application-version {
+  margin-bottom: 30px;
+}
+
 .title-container {
   padding: 50px 200px;
   width: 100%;
@@ -24,6 +61,7 @@
   }
 
   h3 {
+    font-size: 22px;
     margin: 10px;
     font-weight: 400;
   }
@@ -49,11 +87,13 @@
 
   .highlight {
     color: var(--accent-colour);
+    
   }
 
   h2 {
     margin: 0;
     font-size: 32px;
+    
   }
 }
 
