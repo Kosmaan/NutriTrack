@@ -5,7 +5,7 @@
 <app-hints-item></app-hints-item>
 <div class="text">
     <p id="current">Your current meal plan</p>
-    <app-plan-card [plan]="plan"></app-plan-card>
+    <app-plan-card [plan]="plan" ></app-plan-card>
 </div>
 <div class="divider"></div>
 <app-calendar *ngIf="plan != null" [plan]="this.plan" (daysChange)="handleDaysChange($event)" ></app-calendar>

@@ -37,7 +37,7 @@ export class RegisterComponent {
       console.log(this.registerForm.value);
       this.authService.register(this.registerForm.value).subscribe((res) => {
         this.authService.sessionUser = res;
-        localStorage.setItem('userId', res.email);
+        localStorage.setItem('userId', this.registerForm.value.email);
         localStorage.setItem('token', res.token);
 
         let redirectUrl = this.authService.redirectUrl
